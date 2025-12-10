@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
@@ -35,7 +34,7 @@ class QuoteCustomerMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.quote.customer',
+            view: 'emails.quote.customer',
             with: [
                 'data' => $this->data,
             ],

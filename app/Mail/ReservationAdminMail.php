@@ -34,7 +34,7 @@ class ReservationAdminMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.reservation.admin',
+            view: 'emails.reservation.admin',
             with: [
                 'data' => $this->data,
             ],
