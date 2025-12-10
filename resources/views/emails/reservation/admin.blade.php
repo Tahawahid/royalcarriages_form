@@ -280,4 +280,7 @@
     This message was automatically generated from the reservation form.<br>
     <strong>Royal Carriages</strong> • Phone: (713) 787-5466 • Email: info@royalcarriages.com
 </div>
-</x-mail::message>
+        </div>
+    </div>
+</body>
+</html>
