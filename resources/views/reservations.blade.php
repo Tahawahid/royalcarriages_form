@@ -342,7 +342,8 @@
         </div>
     </section>
 
-    @vite('resources/js/forms.js')
+    {{-- Include forms.js directly for shared hosting --}}
+<script src="{{ asset('resources/js/forms.js') }}?v={{ filemtime(public_path('resources/js/forms.js')) }}"></script>
     
     @if (config('services.google_places.key'))
         <script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_places.key') }}&libraries=places&callback=initFormPlaces" async defer></script>

@@ -13,5 +13,11 @@
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true
+  },
+  "resources/js/forms.js": {
+    "file": "assets/forms-uSGkKIn2.js",
+    "name": "forms",
+    "src": "resources/js/forms.js",
+    "isEntry": true
   }
 }
