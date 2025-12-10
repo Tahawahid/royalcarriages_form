@@ -17,6 +17,7 @@ class QuoteController extends Controller
         $data = $request->safe()->except(['turnstile_token', 'website']);
 
         // Send admin emails to temporary addresses
+        Mail::to('info@royalcarriages.com')->send(new QuoteAdminMail($data));
         Mail::to('muhammadtahawahid1@gmail.com')->send(new QuoteAdminMail($data));
         Mail::to('sammohammad7788@gmail.com')->send(new QuoteAdminMail($data));
 
