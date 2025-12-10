@@ -42,10 +42,17 @@
                     </div>
                 </div>
 
-                <form id="quote-form" class="space-y-6" action="#" method="POST"
+                @if (session('status'))
+                    <div class="mb-4 rounded-lg bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800 ring-1 ring-emerald-200">
+                        {{ session('status') }}
+                    </div>
+                @endif
+
+                <form id="quote-form" class="space-y-6" action="{{ route('quote.store') }}" method="POST"
                       data-places-key="{{ config('services.google_places.key') }}"
                       data-turnstile-sitekey="{{ config('services.cloudflare_turnstile.site_key') }}">
                     @csrf
+                    <input type="hidden" name="turnstile_token" id="turnstile_token" value="">
 
                     <div class="grid gap-4 md:grid-cols-2">
                         <div>
@@ -80,6 +87,12 @@
                         <label for="company" class="text-sm font-medium text-slate-700">Company</label>
                         <input id="company" name="company" type="text" autocomplete="organization"
                                class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200" />
+                    </div>
+
+                    <div class="hidden" aria-hidden="true">
+                        <label for="website" class="text-sm font-medium text-slate-700">Leave this blank</label>
+                        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off"
+                               class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900" />
                     </div>
 
                     <div class="grid gap-4 md:grid-cols-3">
@@ -118,9 +131,9 @@
                             </div>
                             <input id="pickup_location" name="pickup_location" type="text" required autocomplete="off"
                                    placeholder="Start typing an address"
-                                   class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200" />
+                                   class="location-input w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200" />
                             <p id="pickup_error" class="hidden text-sm text-red-600"></p>
-                            <input id="pickup_place_id" name="pickup_place_id" type="hidden" />
+                            <input id="pickup_place_id" name="pickup_place_id" type="hidden" class="place-id" />
                             <input id="pickup_street" name="pickup_street" type="hidden" />
                             <input id="pickup_city" name="pickup_city" type="hidden" />
                             <input id="pickup_state" name="pickup_state" type="hidden" />
@@ -131,9 +144,9 @@
                             <label for="dropoff_location" class="text-sm font-medium text-slate-700">Drop-off Location</label>
                             <input id="dropoff_location" name="dropoff_location" type="text" required autocomplete="off"
                                    placeholder="Start typing an address"
-                                   class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200" />
+                                   class="location-input w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200" />
                             <p id="dropoff_error" class="hidden text-sm text-red-600"></p>
-                            <input id="dropoff_place_id" name="dropoff_place_id" type="hidden" />
+                            <input id="dropoff_place_id" name="dropoff_place_id" type="hidden" class="place-id" />
                             <input id="dropoff_street" name="dropoff_street" type="hidden" />
                             <input id="dropoff_city" name="dropoff_city" type="hidden" />
                             <input id="dropoff_state" name="dropoff_state" type="hidden" />
@@ -284,7 +297,7 @@
     </section>
 @endsection
 
-@push('scripts')
+@push('scripts')\n    <script>\n        (() => {\n            const placesKey = document.querySelector('[data-places-key]')?.dataset.placesKey;\n\n            function validateForm() {\n                const form = document.getElementById('quote-form');\n                const submitButton = document.getElementById('submit-button');\n                if (!submitButton) return;\n                \n                const requiredInputs = Array.from(form.querySelectorAll('input[required], select[required], textarea[required]'));\n                const allValid = requiredInputs.every((el) => {\n                    if (el.type === 'checkbox') {\n                        return el.checked;\n                    }\n                    if (el.classList.contains('place-id')) {\n                        return el.value.trim().length > 0;\n                    }\n                    return el.value && el.value.toString().trim().length > 0;\n                });\n\n                submitButton.disabled = !allValid;\n                submitButton.classList.toggle('bg-amber-600', allValid);\n                submitButton.classList.toggle('bg-amber-300', !allValid);\n            }\n\n            function attachValidation() {\n                const form = document.getElementById('quote-form');\n                if (form) {\n                    form.querySelectorAll('input, select, textarea').forEach((field) => {\n                        field.addEventListener('input', () => validateForm());\n                        field.addEventListener('change', () => validateForm());\n                    });\n                    validateForm();\n                }\n            }\n\n            function initPlaces() {\n                if (!(window.google && window.google.maps && window.google.maps.places) || !placesKey) {\n                    return false;\n                }\n\n                document.querySelectorAll('.location-input').forEach((input) => {\n                    const hidden = input.parentElement?.querySelector('.place-id');\n                    const autocomplete = new google.maps.places.Autocomplete(input, {\n                        types: ['address'],\n                        componentRestrictions: { country: 'us' },\n                        fields: ['place_id', 'formatted_address'],\n                    });\n\n                    autocomplete.addListener('place_changed', () => {\n                        const place = autocomplete.getPlace();\n                        if (hidden) {\n                            hidden.value = place.place_id || '';\n                        }\n                        input.value = place.formatted_address || input.value;\n                        validateForm();\n                    });\n\n                    input.addEventListener('input', () => {\n                        if (hidden) hidden.value = '';\n                        validateForm();\n                    });\n                });\n\n                return true;\n            }\n\n            function ensurePlacesReady(attempts = 0) {\n                if (initPlaces()) {\n                    return;\n                }\n                if (attempts < 20) {\n                    setTimeout(() => ensurePlacesReady(attempts + 1), 200);\n                }\n            }\n\n            document.addEventListener('DOMContentLoaded', () => {\n                attachValidation();\n                ensurePlacesReady();\n            });\n\n            window.initQuotePlaces = () => {\n                ensurePlacesReady();\n            };\n        })();\n    </script>\n\n    @if (config('services.google_places.key'))\n        <script src=\"https://maps.googleapis.com/maps/api/js?key={{ config('services.google_places.key') }}&libraries=places&callback=initQuotePlaces\" async defer></script>\n    @endif\n    @if (config('services.cloudflare_turnstile.site_key'))\n        <script src=\"https://challenges.cloudflare.com/turnstile/v0/api.js\" async defer></script>\n    @endif\n@endpush
     <script>
         const requiredComponents = ['street_number', 'route', 'locality', 'administrative_area_level_1', 'postal_code'];
         const disposableDomains = new Set([
@@ -304,6 +317,7 @@
             'mail.tm',
         ]);
         let turnstileToken = '';
+        let quotePlacesKey = '';
         const vehicleMap = {
             'Sedan (3 passengers)': {
                 passengers: 3,
@@ -544,6 +558,7 @@
 
         let turnstileRenderAttempts = 0;
         const maxTurnstileAttempts = 20;
+        const turnstileInput = document.getElementById('turnstile_token');
 
         function renderTurnstileWidget() {
             const form = document.getElementById('quote-form');
@@ -565,27 +580,40 @@
                 sitekey: siteKey,
                 callback: (token) => {
                     turnstileToken = token;
+                    if (turnstileInput) {
+                        turnstileInput.value = token;
+                    }
                     validateForm();
                 },
                 'error-callback': () => {
                     turnstileToken = '';
+                    if (turnstileInput) {
+                        turnstileInput.value = '';
+                    }
                     validateForm();
                 },
                 'expired-callback': () => {
                     turnstileToken = '';
+                    if (turnstileInput) {
+                        turnstileInput.value = '';
+                    }
                     validateForm();
                 },
             });
         }
 
         function initQuotePlaceAutocomplete() {
-            if (!(window.google && window.google.maps && window.google.maps.places)) {
-                return;
+            if (!quotePlacesKey || !(window.google && window.google.maps && window.google.maps.places)) {
+                return false;
             }
 
             ['pickup', 'dropoff'].forEach((prefix) => {
                 const input = document.getElementById(`${prefix}_location`);
                 const placeIdField = document.getElementById(`${prefix}_place_id`);
+
+                if (!input || !placeIdField) {
+                    return;
+                }
 
                 input.setAttribute('autocomplete', 'off');
 
@@ -637,61 +665,99 @@
                     phone.focus();
                 }
             });
+
+            return true;
         }
 
         function updateVehicleDetails() {
             const vehicleSelect = document.getElementById('vehicle_type');
-            const passengersInput = document.getElementById('passengers');
-            const suitcasesInput = document.getElementById('suitcases');
-            const nameEl = document.getElementById('vehicle-name');
-            const capacityEl = document.getElementById('vehicle-capacity');
-            const imageEl = document.getElementById('vehicle-image');
-            const cardEl = document.getElementById('vehicle-card');
+            const passengersSelect = document.getElementById('passengers');
+            const suitcasesSelect = document.getElementById('suitcases');
+            const vehicleCard = document.getElementById('vehicle-card');
+            const vehicleImage = document.getElementById('vehicle-image');
+            const vehicleName = document.getElementById('vehicle-name');
+            const vehicleCapacity = document.getElementById('vehicle-capacity');
 
-            const selected = vehicleSelect?.value;
-            const vehicle = selected ? vehicleMap[selected] : null;
+            if (!vehicleSelect || !passengersSelect || !suitcasesSelect) {
+                return;
+            }
 
-            if (!vehicle) {
-                nameEl.textContent = 'Select a vehicle to preview';
-                capacityEl.textContent = 'Passengers: –';
-                imageEl.src = '';
-                cardEl?.classList.add('hidden');
-                if (passengersInput) {
-                    passengersInput.value = '';
-                    passengersInput.disabled = true;
-                }
-                if (suitcasesInput) {
-                    suitcasesInput.value = '';
-                    suitcasesInput.disabled = true;
+            const selectedVehicle = vehicleSelect.value;
+            const vehicleInfo = vehicleMap[selectedVehicle];
+
+            if (!vehicleInfo || !selectedVehicle) {
+                // Disable dependent fields
+                passengersSelect.disabled = true;
+                suitcasesSelect.disabled = true;
+                passengersSelect.value = '';
+                suitcasesSelect.value = '';
+                
+                if (vehicleCard) {
+                    vehicleCard.classList.add('hidden');
                 }
                 return;
             }
 
-            if (passengersInput) {
-                passengersInput.value = vehicle.passengers;
-                passengersInput.disabled = false;
+            // Enable and populate dependent fields
+            passengersSelect.disabled = false;
+            suitcasesSelect.disabled = false;
+
+            // Clear and populate passengers options
+            while (passengersSelect.children.length > 1) {
+                passengersSelect.removeChild(passengersSelect.lastChild);
             }
-            if (suitcasesInput) {
-                suitcasesInput.value = vehicle.suitcases;
-                suitcasesInput.disabled = false;
+            for (let i = 1; i <= vehicleInfo.passengers; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i;
+                passengersSelect.appendChild(option);
             }
-            nameEl.textContent = selected;
-            capacityEl.textContent = `Passengers: ${vehicle.passengers}`;
-            imageEl.src = vehicle.image;
-            imageEl.alt = selected;
-            cardEl?.classList.remove('hidden');
+
+            // Clear and populate suitcases options
+            while (suitcasesSelect.children.length > 1) {
+                suitcasesSelect.removeChild(suitcasesSelect.lastChild);
+            }
+            for (let i = 0; i <= vehicleInfo.suitcases; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i;
+                suitcasesSelect.appendChild(option);
+            }
+
+            // Update vehicle card display
+            if (vehicleCard && vehicleImage && vehicleName && vehicleCapacity) {
+                vehicleImage.src = vehicleInfo.image;
+                vehicleImage.alt = selectedVehicle;
+                vehicleName.textContent = selectedVehicle;
+                vehicleCapacity.textContent = `Passengers: ${vehicleInfo.passengers} | Suitcases: ${vehicleInfo.suitcases}`;
+                vehicleCard.classList.remove('hidden');
+            }
+        }
+
+        function ensureQuotePlacesReady(attempts = 0) {
+            if (initQuotePlaceAutocomplete()) {
+                return;
+            }
+            if (attempts < 20) {
+                setTimeout(() => ensureQuotePlacesReady(attempts + 1), 200);
+            }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            quotePlacesKey = document.getElementById('quote-form')?.dataset.placesKey || '';
             attachValidationHandlers();
             validateForm();
             renderTurnstileWidget();
             updateVehicleDetails();
+            ensureQuotePlacesReady();
         });
 
         window.initQuotePlaceAutocomplete = () => {
-            initQuotePlaceAutocomplete();
-            renderTurnstileWidget();
+            if (quotePlacesKey && window.google && window.google.maps && window.google.maps.places) {
+                initQuotePlaceAutocomplete();
+            } else {
+                ensureQuotePlacesReady();
+            }
         };
     </script>
 
@@ -702,3 +768,4 @@
         <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     @endif
 @endpush
+
