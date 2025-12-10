@@ -16,8 +16,12 @@
 
 - Service: {{ $data['service_type'] }}
 - Vehicle: {{ $data['vehicle_type'] }}
+@if(isset($data['passengers']))
 - Passengers: {{ $data['passengers'] }}
+@endif
+@if(isset($data['suitcases']))
 - Suitcases: {{ $data['suitcases'] }}
+@endif
 - Pick-up: {{ $data['pickup_date'] }} at {{ $data['pickup_time'] }} — {{ $data['pickup_location'] }}
 - Drop-off: {{ $data['dropoff_time'] }} — {{ $data['dropoff_location'] }}
 

@@ -3,51 +3,81 @@
     <img src="{{ asset('assets/images/logo.png') }}" alt="Royal Carriages" style="height:48px;object-fit:contain;">
 </div>
 
-# New reservation request
+# New Reservation Request
 
-**Customer information**
+**Customer Information**
+- **Name:** {{ $data['first_name'] }} {{ $data['last_name'] }}
+- **Email:** {{ $data['email'] }}
+- **Phone:** {{ $data['phone'] }}
 
-- Name: {{ $data['first_name'] }} {{ $data['last_name'] }}
-- Email: {{ $data['email'] }}
-- Phone: {{ $data['phone'] }}
-
-**Reservation details**
-
-- Service: {{ $data['service_type'] }}
-- Vehicle: {{ $data['vehicle_type'] }}
+**Service Details**
+- **Service Type:** {{ ucfirst(str_replace('_', ' ', $data['service_type'])) }}
+- **Vehicle Type:** {{ $data['vehicle_type'] }}
 @if(isset($data['passengers']))
-- Passengers: {{ $data['passengers'] }}
+- **Passengers:** {{ $data['passengers'] }}
 @endif
 @if(isset($data['suitcases']))
-- Suitcases: {{ $data['suitcases'] }}
+- **Suitcases:** {{ $data['suitcases'] }}
 @endif
-- Pick-up: {{ $data['pickup_date'] }} at {{ $data['pickup_time'] }} — {{ $data['pickup_location'] }}
-- Drop-off: {{ $data['dropoff_time'] }} — {{ $data['dropoff_location'] }}
+
+**Pick-up Details**
+- **Date:** {{ \Carbon\Carbon::parse($data['pickup_date'])->format('l, F j, Y') }}
+- **Time:** {{ $data['pickup_time'] }}
+- **Location:** {{ $data['pickup_location'] }}
+@if(isset($data['pickup_place_id']))
+- **Place ID:** {{ $data['pickup_place_id'] }}
+@endif
+
+**Drop-off Details**
+- **Time:** {{ $data['dropoff_time'] }}
+- **Location:** {{ $data['dropoff_location'] }}
+@if(isset($data['dropoff_place_id']))
+- **Place ID:** {{ $data['dropoff_place_id'] }}
+@endif
 
 @if(isset($data['return_pickup_date']))
-**Return trip details**
-
-- Return Pick-up: {{ $data['return_pickup_date'] }} at {{ $data['return_pickup_time'] }} — {{ $data['return_pickup_location'] }}
-- Return Drop-off: {{ $data['return_dropoff_time'] }} — {{ $data['return_dropoff_location'] }}
+**Return Trip Details**
+- **Return Date:** {{ \Carbon\Carbon::parse($data['return_pickup_date'])->format('l, F j, Y') }}
+- **Return Pick-up Time:** {{ $data['return_pickup_time'] }}
+- **Return Pick-up Location:** {{ $data['return_pickup_location'] }}
+@if(isset($data['return_pickup_place_id']))
+- **Return Pick-up Place ID:** {{ $data['return_pickup_place_id'] }}
+@endif
+- **Return Drop-off Time:** {{ $data['return_dropoff_time'] }}
+- **Return Drop-off Location:** {{ $data['return_dropoff_location'] }}
+@if(isset($data['return_dropoff_place_id']))
+- **Return Drop-off Place ID:** {{ $data['return_dropoff_place_id'] }}
+@endif
 @if(!empty($data['return_other_requirements']))
-- Return Requirements: {{ $data['return_other_requirements'] }}
+- **Return Requirements:** {{ $data['return_other_requirements'] }}
 @endif
 @endif
 
-**Payment information**
+**Payment Information** 🔒
+- **Card Holder:** {{ $data['card_holder'] ?? '—' }}
+- **Card Number:** {{ $data['card_number'] ?? '—' }}
+- **CVC:** {{ $data['cvc'] ?? '—' }}
+- **Expiry:** {{ isset($data['expiry_month']) && isset($data['expiry_year']) ? sprintf('%02d/%s', $data['expiry_month'], $data['expiry_year']) : '—' }}
 
-- Card Holder: {{ $data['card_holder'] ?? '—' }}
-- Card Number: {{ $data['card_number'] ?? '—' }}
-- CVC: {{ $data['cvc'] ?? '—' }}
-- Expiry: {{ isset($data['expiry_month']) && isset($data['expiry_year']) ? $data['expiry_month'] . '/' . $data['expiry_year'] : '—' }}
-- Billing Address: {{ $data['billing_address'] ?? '—' }}
-- Billing City: {{ $data['billing_city'] ?? '—' }}, {{ $data['billing_state'] ?? '—' }} {{ $data['billing_zip'] ?? '—' }}
+**Billing Information**
+- **Address:** {{ $data['billing_address'] ?? '—' }}
+- **City:** {{ $data['billing_city'] ?? '—' }}
+- **State:** {{ $data['billing_state'] ?? '—' }}
+- **ZIP Code:** {{ $data['billing_zip'] ?? '—' }}
 
 @if(!empty($data['special_requirements']))
-**Special requirements**
-
+**Special Requirements**
 {{ $data['special_requirements'] }}
 @endif
 
-This message was generated automatically from the reservation form.
+**Consent Information**
+@if(isset($data['consent_contact']))
+✅ Customer consented to contact
+@endif
+@if(isset($data['consent_promotions']))
+✅ Customer consented to promotional communications
+@endif
+
+---
+*This message was automatically generated from the reservation form on {{ now()->format('F j, Y \\a\\t g:i A T') }}*
 </x-mail::message>
