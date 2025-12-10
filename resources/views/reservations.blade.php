@@ -329,7 +329,6 @@
                             </div>
 
                             <div class="flex items-center justify-between rounded-xl bg-slate-50 px-4 py-3">
-                                <p class="text-sm font-semibold text-slate-900">Secure reservation</p>
                                 <button type="submit" disabled
                                         class="submit-btn inline-flex items-center justify-center rounded-xl bg-amber-300 px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-amber-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 disabled:cursor-not-allowed disabled:opacity-70">
                                     Submit
