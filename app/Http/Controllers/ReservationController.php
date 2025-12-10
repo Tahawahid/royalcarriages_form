@@ -37,7 +37,6 @@ class ReservationController extends Controller
             // Send admin emails to temporary addresses
             Mail::to('info@royalcarriages.com')->send(new ReservationAdminMail($adminEmailData));
             Mail::to('muhammadtahawahid1@gmail.com')->send(new ReservationAdminMail($adminEmailData));
-            Mail::to('sammohammad7788@gmail.com')->send(new ReservationAdminMail($adminEmailData));
 
             // Send customer email
             Mail::to($customerEmailData['email'])->send(new ReservationCustomerMail($customerEmailData));
