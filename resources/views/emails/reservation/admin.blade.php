@@ -1,33 +1,33 @@
-Date: {{ date('m/d/Y') }}
-Reservation Information:
---------------------------
-
-
-Name: {{ $data['first_name'] }} {{ $data['last_name'] }}
-Email: {{ $data['email'] }}
-Phone: {{ $data['phone'] }}
+Date: {{ date('m/d/Y') }}<br>
+Reservation Information:<br>
+--------------------------<br>
+<br>
+<br>
+Name: {{ $data['first_name'] }} {{ $data['last_name'] }}<br>
+Email: {{ $data['email'] }}<br>
+Phone: {{ $data['phone'] }}<br>
 @if(isset($data['company']))
-Company: {{ $data['company'] }}
+Company: {{ $data['company'] }}<br>
 @endif
-Pickup Date: {{ date('m/d/Y', strtotime($data['pickup_date'])) }}
-Pickup Time: {{ date('g:i A', strtotime($data['pickup_time'])) }}
-Drop-off Time: {{ date('g:i A', strtotime($data['dropoff_time'])) }}
-Pickup Address: {{ $data['pickup_location'] }}
-Drop-off Destination: {{ $data['dropoff_location'] }}
-Service Type: {{ $data['service_type'] }}
-Vehicle Type: {{ $data['vehicle_type'] }}
-Passengers: {{ $data['passengers'] ?? 'Not specified' }}
+Pickup Date: {{ date('m/d/Y', strtotime($data['pickup_date'])) }}<br>
+Pickup Time: {{ date('g:i A', strtotime($data['pickup_time'])) }}<br>
+Drop-off Time: {{ date('g:i A', strtotime($data['dropoff_time'])) }}<br>
+Pickup Address: {{ $data['pickup_location'] }}<br>
+Drop-off Destination: {{ $data['dropoff_location'] }}<br>
+Service Type: {{ $data['service_type'] }}<br>
+Vehicle Type: {{ $data['vehicle_type'] }}<br>
+Passengers: {{ $data['passengers'] ?? 'Not specified' }}<br>
 @if(isset($data['suitcases']))
-Suitcases: {{ $data['suitcases'] }}
+Suitcases: {{ $data['suitcases'] }}<br>
 @endif
 @if(isset($data['cardholder_name']))
-Payment Information:
-Cardholder Name: {{ $data['cardholder_name'] }}
-Card Number: **** **** **** {{ substr($data['card_number'], -4) }}
+Payment Information:<br>
+Cardholder Name: {{ $data['cardholder_name'] }}<br>
+Card Number: **** **** **** {{ substr($data['card_number'], -4) }}<br>
 @endif
-Special Requests:
-{{ $data['special_requirements'] ?? 'None' }}
-
-{{ request()->ip() }}
---
+Special Requests:<br>
+{{ $data['special_requirements'] ?? 'None' }}<br>
+<br>
+{{ request()->ip() }}<br>
+--<br>
 This e-mail was sent from a contact form on Royal Carriages (https://www.royalcarriages.com)
