@@ -23,9 +23,10 @@ class ReservationCustomerMail extends Mailable
      */
     public function envelope(): Envelope
     {
+        $serviceType = ucwords(str_replace('-', ' ', $this->data['service_type'] ?? 'Reservation'));
         return new Envelope(
             to: $this->data['email'],
-            subject: 'Thank you for your reservation request',
+            subject: $serviceType . ' Reservation Royal Carriages Limousines',
         );
     }
 

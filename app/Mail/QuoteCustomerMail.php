@@ -24,7 +24,7 @@ class QuoteCustomerMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'We received your quote request',
+            subject: 'Quote Royal Carriages Limousines',
         );
     }
 
