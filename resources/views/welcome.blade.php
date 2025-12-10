@@ -13,29 +13,38 @@
 @section('content')
     <section class="mx-auto max-w-5xl px-6 py-12 md:py-16">
         <div class="space-y-8">
-            <div class="space-y-4">
+            <div class="space-y-3">
                 <p class="text-sm font-semibold uppercase tracking-[0.08em] text-amber-600">Royal Carriages</p>
-                <h1 class="text-4xl font-semibold leading-tight text-slate-900 md:text-5xl">
-                    Get a tailored quote for your next ride
-                </h1>
-                <p class="max-w-3xl text-base text-slate-600">
-                    Share your trip details and preferences, and our team will craft a precise quote for premium, on-time
-                    transportation anywhere in the United States.
-                </p>
+                <h1 class="text-4xl font-semibold leading-tight text-slate-900 md:text-5xl">Get A Quote</h1>
+                <div class="space-y-2 rounded-2xl bg-slate-50 px-4 py-4 ring-1 ring-slate-100">
+                    <p class="text-base text-slate-700">
+                        If you are looking for more information about luxury vehicles and packages offered by our company
+                        ‘Royal Carriages’, please fill out the online quote form available below. Just go through the form
+                        and fill out each section so that we can accurately quote your prices based on your requirements.
+                    </p>
+                    <p class="text-sm font-semibold text-amber-700">Important Note</p>
+                    <p class="text-base text-slate-700">
+                        To get an immediate assistance with a perfect quote, please get in touch with us via phone right
+                        now – Customer service available 24 hours a day, 7 days a week. You can call us anytime @
+                        <span class="font-semibold text-slate-900">+1 (713) 787-5466</span>. The International callers can
+                        contact at the same number <span class="font-semibold text-slate-900">+1 (713) 787-5466</span>. For
+                        more enquiries, email us at <span class="font-semibold text-slate-900">quotes@royalcarriages.com</span>.
+                    </p>
+                    <p class="text-base font-medium text-slate-900">Thank you for your trust!</p>
+                </div>
             </div>
 
             <div id="quote" class="rounded-2xl bg-white/95 p-6 shadow-lg shadow-amber-100 ring-1 ring-slate-100">
                 <div class="mb-4 flex items-center justify-between">
                     <div>
                         <p class="text-sm font-semibold text-amber-600">Quote Form</p>
-                        <p class="text-lg font-semibold text-slate-900">Tell us about your journey</p>
+                        <p class="text-2xl font-semibold text-slate-900">Royal Carriages Quote Request</p>
                     </div>
-                    <span class="rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
-                        Light Mode
-                    </span>
                 </div>
 
-                <form id="quote-form" class="space-y-6" action="#" method="POST">
+                <form id="quote-form" class="space-y-6" action="#" method="POST"
+                      data-places-key="{{ config('services.google_places.key') }}"
+                      data-turnstile-sitekey="{{ config('services.cloudflare_turnstile.site_key') }}">
                     @csrf
 
                     <div class="grid gap-4 md:grid-cols-2">
@@ -55,6 +64,7 @@
                         <div>
                             <label for="email" class="text-sm font-medium text-slate-700">Email</label>
                             <input id="email" name="email" type="email" required autocomplete="email"
+                                   inputmode="email"
                                    class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200" />
                         </div>
                         <div>
@@ -138,17 +148,27 @@
                         </p>
                     @endif
 
-                    <div class="grid gap-4 md:grid-cols-2">
+                    <div class="grid gap-4 md:grid-cols-2 md:items-start">
                         <div>
                             <label for="service_type" class="text-sm font-medium text-slate-700">Type of Service</label>
                             <select id="service_type" name="service_type" required
                                     class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
-                                <option value="" disabled selected>Choose service</option>
-                                <option value="airport-transfer">Airport Transfer</option>
+                                <option value="" disabled selected>Select service type</option>
+                                <option value="from-airport">From Airport</option>
+                                <option value="to-airport">To Airport</option>
+                                <option value="hourly">Hourly</option>
+                                <option value="birthday-quinceanera">Birthday Quinceanera</option>
                                 <option value="point-to-point">Point to Point</option>
-                                <option value="hourly-charter">Hourly Charter</option>
-                                <option value="event-transport">Events &amp; Groups</option>
-                                <option value="tbd">To be provided</option>
+                                <option value="wedding">Wedding</option>
+                                <option value="casino-transfer">Casino Transfer</option>
+                                <option value="prom">Prom</option>
+                                <option value="tour">Tour</option>
+                                <option value="transfer">Transfer</option>
+                                <option value="evening-out">Evening Out</option>
+                                <option value="homecoming">Homecoming</option>
+                                <option value="game">Game</option>
+                                <option value="anniversary">Anniversary</option>
+                                <option value="custom-itinerary">Custom Itinerary</option>
                             </select>
                         </div>
                         <div>
@@ -156,42 +176,91 @@
                             <select id="vehicle_type" name="vehicle_type" required
                                     class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                                 <option value="" disabled selected>Choose vehicle</option>
-                                <option value="sedan">Luxury Sedan</option>
-                                <option value="suv">SUV</option>
-                                <option value="van">Van / Sprinter</option>
-                                <option value="limo">Stretch Limo</option>
-                                <option value="bus">Mini Coach</option>
+                                <option value="Sedan (3 passengers)">Sedan (3 passengers)</option>
+                                <option value="Mercedes S Class Sedan (3 passengers)">Mercedes S Class Sedan (3 passengers)</option>
+                                <option value="Luxury Suburban (6 passengers)">Luxury Suburban (6 passengers)</option>
+                                <option value="Luxury Escalade (6 passengers)">Luxury Escalade (6 passengers)</option>
+                                <option value="Stretch Limousine (10 passengers)">Stretch Limousine (10 passengers)</option>
+                                <option value="Passenger Van (10 passengers)">Passenger Van (10 passengers)</option>
+                                <option value="Luxury Mercedes Sprinter Van (14 passengers)">Luxury Mercedes Sprinter Van (14 passengers)</option>
+                                <option value="Stretch Hummer Limousine (18 passengers)">Stretch Hummer Limousine (18 passengers)</option>
+                                <option value="Stretch Escalade Limousine (18 passengers)">Stretch Escalade Limousine (18 passengers)</option>
+                                <option value="Limo Bus (20 passengers)">Limo Bus (20 passengers)</option>
+                                <option value="Limo Bus (30 passengers)">Limo Bus (30 passengers)</option>
+                                <option value="Mini Bus (25 - 30 passengers)">Mini Bus (25 - 30 passengers)</option>
+                                <option value="Luxury Executive Shuttle Bus (40 passengers)">Luxury Executive Shuttle Bus (40 passengers)</option>
+                                <option value="Charter Bus / Motor Coach (55 passengers)">Charter Bus / Motor Coach (55 passengers)</option>
                             </select>
+                            <div id="vehicle-card" class="mt-3 hidden items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                                <div class="h-32 w-48 overflow-hidden rounded-lg bg-white ring-1 ring-slate-100">
+                                    <img id="vehicle-image" src="" alt="Selected vehicle" class="h-full w-full object-cover" loading="lazy" />
+                                </div>
+                                <div>
+                                    <p id="vehicle-name" class="text-sm font-semibold text-slate-900">Select a vehicle to preview</p>
+                                    <p id="vehicle-capacity" class="text-sm text-slate-600">Passengers: –</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="grid gap-4 md:grid-cols-2">
                         <div>
                             <label for="passengers" class="text-sm font-medium text-slate-700">Number of Passengers</label>
-                            <input id="passengers" name="passengers" type="number" inputmode="numeric" min="1" max="99" required
-                                   class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200" />
+                            <select id="passengers" name="passengers" required disabled
+                                    class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200 disabled:cursor-not-allowed disabled:bg-slate-100">
+                                <option value="" disabled selected>Select passengers</option>
+                                @for ($i = 1; $i <= 60; $i++)
+                                    <option value="{{ $i }}">{{ $i }}</option>
+                                @endfor
+                            </select>
                         </div>
                         <div>
                             <label for="suitcases" class="text-sm font-medium text-slate-700">Number of Suitcases</label>
-                            <input id="suitcases" name="suitcases" type="number" inputmode="numeric" min="0" max="99"
-                                   class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200" />
+                            <select id="suitcases" name="suitcases" required disabled
+                                    class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200 disabled:cursor-not-allowed disabled:bg-slate-100">
+                                <option value="" disabled selected>Select suitcases</option>
+                                @for ($i = 0; $i <= 60; $i++)
+                                    <option value="{{ $i }}">{{ $i }}</option>
+                                @endfor
+                            </select>
                         </div>
                     </div>
 
                     <div>
                         <label for="other_requirements" class="text-sm font-medium text-slate-700">Other Requirements</label>
-                        <textarea id="other_requirements" name="other_requirements" rows="3"
+                        <textarea id="other_requirements" name="other_requirements" rows="3" required
                                   class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200"
                                   placeholder="Share flight numbers, mobility needs, or special requests"></textarea>
                     </div>
+
+                    <div class="space-y-2">
+                        <p class="text-sm font-medium text-slate-700">Consent</p>
+                        <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
+                            <input type="checkbox" id="consent_contact" name="consent_contact" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500" />
+                            <span>By submitting this form, I consent to be contacted by Royal Carriages via call, text, or email regarding services or inquiries.</span>
+                        </label>
+                        <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
+                            <input type="checkbox" id="consent_promotions" name="consent_promotions" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500" />
+                            <span>I agree to receive news, offers, and promotional messages from Royal Carriages.</span>
+                        </label>
+                    </div>
+
+                    @if (config('services.cloudflare_turnstile.site_key'))
+                        <div id="turnstile-container" class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2"></div>
+                    @else
+                        <p class="rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-700">
+                            Add your Cloudflare Turnstile site key to enable anti-spam protection
+                            (<code>CLOUDFLARE_TURNSTILE_SITE_KEY</code>).
+                        </p>
+                    @endif
 
                     <div class="flex flex-col gap-3 rounded-xl bg-slate-50 px-4 py-3 md:flex-row md:items-center md:justify-between">
                         <div>
                             <p class="text-sm font-semibold text-slate-900">We respond fast</p>
                             <p class="text-sm text-slate-600">Expect a tailored quote in minutes during business hours.</p>
                         </div>
-                        <button type="submit"
-                                class="inline-flex items-center justify-center rounded-xl bg-amber-600 px-4 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-amber-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500">
+                        <button id="submit-button" type="submit" disabled
+                                class="inline-flex items-center justify-center rounded-xl bg-amber-300 px-4 py-3 text-sm font-semibold text-white shadow-md transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 disabled:cursor-not-allowed disabled:opacity-70">
                             Request Quote
                         </button>
                     </div>
@@ -218,6 +287,95 @@
 @push('scripts')
     <script>
         const requiredComponents = ['street_number', 'route', 'locality', 'administrative_area_level_1', 'postal_code'];
+        const disposableDomains = new Set([
+            'mailinator.com',
+            'tempmail.com',
+            '10minutemail.com',
+            'guerrillamail.com',
+            'yopmail.com',
+            'sharklasers.com',
+            'trashmail.com',
+            'dispostable.com',
+            'getnada.com',
+            'maildrop.cc',
+            'fakeinbox.com',
+            'emailondeck.com',
+            'burnermail.io',
+            'mail.tm',
+        ]);
+        let turnstileToken = '';
+        const vehicleMap = {
+            'Sedan (3 passengers)': {
+                passengers: 3,
+                suitcases: 3,
+                image: '/assets/images/cars/sedan-3-p.jpg',
+            },
+            'Mercedes S Class Sedan (3 passengers)': {
+                passengers: 3,
+                suitcases: 3,
+                image: '/assets/images/cars/Mercedec_S_Class_Sedan_3_p.png',
+            },
+            'Luxury Suburban (6 passengers)': {
+                passengers: 6,
+                suitcases: 6,
+                image: '/assets/images/cars/luxury_suburban_6_p.jpg',
+            },
+            'Luxury Escalade (6 passengers)': {
+                passengers: 6,
+                suitcases: 6,
+                image: '/assets/images/cars/Luxury_escalade_6_p.png',
+            },
+            'Stretch Limousine (10 passengers)': {
+                passengers: 10,
+                suitcases: 4,
+                image: '/assets/images/cars/stretch_limousine_10_p.jpg',
+            },
+            'Passenger Van (10 passengers)': {
+                passengers: 10,
+                suitcases: 10,
+                image: '/assets/images/cars/passenger_vans_9_p.jpg',
+            },
+            'Luxury Mercedes Sprinter Van (14 passengers)': {
+                passengers: 14,
+                suitcases: 14,
+                image: '/assets/images/cars/luxury_mercedes_sprinter_10_p.jpg',
+            },
+            'Stretch Hummer Limousine (18 passengers)': {
+                passengers: 18,
+                suitcases: 6,
+                image: '/assets/images/cars/stretch_hummer_limousine_18_p.jpg',
+            },
+            'Stretch Escalade Limousine (18 passengers)': {
+                passengers: 18,
+                suitcases: 8,
+                image: '/assets/images/cars/stretch_escalade_limousine_18_p.jpeg',
+            },
+            'Limo Bus (20 passengers)': {
+                passengers: 20,
+                suitcases: 10,
+                image: '/assets/images/cars/limo_bus_20_p.jpg',
+            },
+            'Limo Bus (30 passengers)': {
+                passengers: 30,
+                suitcases: 20,
+                image: '/assets/images/cars/Limo_Bus_30_Pass.png',
+            },
+            'Mini Bus (25 - 30 passengers)': {
+                passengers: 30,
+                suitcases: 30,
+                image: '/assets/images/cars/Mini_shuttle_buses_30_p.jpg',
+            },
+            'Luxury Executive Shuttle Bus (40 passengers)': {
+                passengers: 40,
+                suitcases: 40,
+                image: '/assets/images/cars/Luxury-Executive-Shuttle-Bus-Royal-Carriages_40_p.png',
+            },
+            'Charter Bus / Motor Coach (55 passengers)': {
+                passengers: 55,
+                suitcases: 55,
+                image: '/assets/images/cars/charter-bus-motor-coach-55_p.jpeg',
+            },
+        };
 
         function mapAddressComponents(components) {
             return (components || []).reduce((acc, component) => {
@@ -268,6 +426,156 @@
             stateField.value = components.administrative_area_level_1 || '';
             postalField.value = components.postal_code || '';
             clearAddressError(prefix);
+            validateForm();
+        }
+
+        function formatPhone(value) {
+            const digits = value.replace(/\D/g, '').slice(0, 10);
+
+            if (digits.length <= 3) {
+                return digits;
+            }
+
+            if (digits.length <= 6) {
+                return `${digits.slice(0, 3)}-${digits.slice(3)}`;
+            }
+
+            return `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`;
+        }
+
+        function isPhoneValid(value) {
+            return /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/.test(value);
+        }
+
+        function isEmailValid(email) {
+            const normalized = (email || '').trim().toLowerCase();
+            const basicPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+            if (!basicPattern.test(normalized)) {
+                return false;
+            }
+
+            const domain = normalized.split('@')[1] || '';
+
+            return domain && !disposableDomains.has(domain);
+        }
+
+        function validateForm() {
+            const form = document.getElementById('quote-form');
+            const submitButton = document.getElementById('submit-button');
+
+            if (!form || !submitButton) {
+                return;
+            }
+
+            const requiredFields = [
+                'first_name',
+                'last_name',
+                'email',
+                'phone',
+                'pickup_date',
+                'pickup_time',
+                'dropoff_time',
+                'pickup_location',
+                'dropoff_location',
+                'service_type',
+                'vehicle_type',
+                'passengers',
+                'suitcases',
+                'other_requirements',
+            ];
+
+            const requiredChecks = ['consent_contact', 'consent_promotions'];
+
+            const allFilled = requiredFields.every((id) => {
+                const el = document.getElementById(id);
+
+                if (!el) {
+                    return false;
+                }
+
+                if (el.disabled) {
+                    return true;
+                }
+
+                return el.value && el.value.toString().trim().length > 0;
+            });
+
+            const allChecked = requiredChecks.every((id) => document.getElementById(id)?.checked);
+
+            const placeIdsPresent = ['pickup', 'dropoff'].every(
+                (prefix) => document.getElementById(`${prefix}_place_id`)?.value,
+            );
+
+            const phoneValid = isPhoneValid(document.getElementById('phone')?.value || '');
+            const emailValid = isEmailValid(document.getElementById('email')?.value || '');
+            const turnstileValid = !form.dataset.turnstileSitekey || Boolean(turnstileToken);
+
+            const formIsValid = allFilled && allChecked && placeIdsPresent && phoneValid && emailValid && turnstileValid;
+
+            submitButton.disabled = !formIsValid;
+            submitButton.classList.toggle('bg-amber-600', formIsValid);
+            submitButton.classList.toggle('bg-amber-300', !formIsValid);
+        }
+
+        function attachValidationHandlers() {
+            const phoneInput = document.getElementById('phone');
+            const emailInput = document.getElementById('email');
+            const form = document.getElementById('quote-form');
+            const vehicleInput = document.getElementById('vehicle_type');
+
+            phoneInput?.addEventListener('input', (event) => {
+                event.target.value = formatPhone(event.target.value);
+                validateForm();
+            });
+
+            emailInput?.addEventListener('input', validateForm);
+
+            vehicleInput?.addEventListener('change', () => {
+                updateVehicleDetails();
+                validateForm();
+            });
+
+            form?.querySelectorAll('input, select, textarea').forEach((field) => {
+                field.addEventListener('change', validateForm);
+                field.addEventListener('input', validateForm);
+            });
+        }
+
+        let turnstileRenderAttempts = 0;
+        const maxTurnstileAttempts = 20;
+
+        function renderTurnstileWidget() {
+            const form = document.getElementById('quote-form');
+            const siteKey = form?.dataset.turnstileSitekey;
+            const container = document.getElementById('turnstile-container');
+
+            if (!siteKey || !container || !window.turnstile) {
+                if (turnstileRenderAttempts < maxTurnstileAttempts) {
+                    turnstileRenderAttempts += 1;
+                    setTimeout(renderTurnstileWidget, 150);
+                }
+
+                validateForm();
+
+                return;
+            }
+
+            window.turnstile.render(container, {
+                sitekey: siteKey,
+                callback: (token) => {
+                    turnstileToken = token;
+                    validateForm();
+                },
+                'error-callback': () => {
+                    turnstileToken = '';
+                    validateForm();
+                },
+                'expired-callback': () => {
+                    turnstileToken = '';
+                    validateForm();
+                },
+            });
         }
 
         function initQuotePlaceAutocomplete() {
@@ -295,6 +603,7 @@
                 input.addEventListener('input', () => {
                     placeIdField.value = '';
                     clearAddressError(prefix);
+                    validateForm();
                 });
             });
 
@@ -315,13 +624,81 @@
                         errorElement.classList.remove('hidden');
                     });
                 }
+
+                if (!isEmailValid(document.getElementById('email')?.value || '')) {
+                    event.preventDefault();
+                    const email = document.getElementById('email');
+                    email.focus();
+                }
+
+                if (!isPhoneValid(document.getElementById('phone')?.value || '')) {
+                    event.preventDefault();
+                    const phone = document.getElementById('phone');
+                    phone.focus();
+                }
             });
         }
 
-        window.initQuotePlaceAutocomplete = initQuotePlaceAutocomplete;
+        function updateVehicleDetails() {
+            const vehicleSelect = document.getElementById('vehicle_type');
+            const passengersInput = document.getElementById('passengers');
+            const suitcasesInput = document.getElementById('suitcases');
+            const nameEl = document.getElementById('vehicle-name');
+            const capacityEl = document.getElementById('vehicle-capacity');
+            const imageEl = document.getElementById('vehicle-image');
+            const cardEl = document.getElementById('vehicle-card');
+
+            const selected = vehicleSelect?.value;
+            const vehicle = selected ? vehicleMap[selected] : null;
+
+            if (!vehicle) {
+                nameEl.textContent = 'Select a vehicle to preview';
+                capacityEl.textContent = 'Passengers: –';
+                imageEl.src = '';
+                cardEl?.classList.add('hidden');
+                if (passengersInput) {
+                    passengersInput.value = '';
+                    passengersInput.disabled = true;
+                }
+                if (suitcasesInput) {
+                    suitcasesInput.value = '';
+                    suitcasesInput.disabled = true;
+                }
+                return;
+            }
+
+            if (passengersInput) {
+                passengersInput.value = vehicle.passengers;
+                passengersInput.disabled = false;
+            }
+            if (suitcasesInput) {
+                suitcasesInput.value = vehicle.suitcases;
+                suitcasesInput.disabled = false;
+            }
+            nameEl.textContent = selected;
+            capacityEl.textContent = `Passengers: ${vehicle.passengers}`;
+            imageEl.src = vehicle.image;
+            imageEl.alt = selected;
+            cardEl?.classList.remove('hidden');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            attachValidationHandlers();
+            validateForm();
+            renderTurnstileWidget();
+            updateVehicleDetails();
+        });
+
+        window.initQuotePlaceAutocomplete = () => {
+            initQuotePlaceAutocomplete();
+            renderTurnstileWidget();
+        };
     </script>
 
     @if (config('services.google_places.key'))
         <script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_places.key') }}&libraries=places&callback=initQuotePlaceAutocomplete" async defer></script>
+    @endif
+    @if (config('services.cloudflare_turnstile.site_key'))
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     @endif
 @endpush
