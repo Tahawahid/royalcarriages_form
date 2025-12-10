@@ -22,6 +22,7 @@ class ReservationRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'reservation_type'          => ['required', 'string', 'in:one-way,round-trip,hourly'],
             'first_name'                => ['required', 'string', 'max:80'],
             'last_name'                 => ['required', 'string', 'max:80'],
             'email'                     => ['required', 'string', 'email:rfc', 'max:150'],

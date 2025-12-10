@@ -23,10 +23,10 @@ class ReservationCustomerMail extends Mailable
      */
     public function envelope(): Envelope
     {
-        $serviceType = ucwords(str_replace('-', ' ', $this->data['service_type'] ?? 'Reservation'));
+        $reservationType = ucwords(str_replace('-', ' ', $this->data['reservation_type'] ?? 'Reservation'));
         return new Envelope(
             to: $this->data['email'],
-            subject: $serviceType . ' Reservation Royal Carriages Limousines',
+            subject: $reservationType . ' Reservation Royal Carriages Limousines',
         );
     }
 
@@ -35,8 +35,11 @@ class ReservationCustomerMail extends Mailable
      */
     public function content(): Content
     {
+        $reservationType = $this->data['reservation_type'] ?? 'one-way';
+        $template        = "emails.reservation.{$reservationType}-customer";
+
         return new Content(
-            view: 'emails.reservation.customer',
+            view: $template,
             with: [
                 'data' => $this->data,
             ],

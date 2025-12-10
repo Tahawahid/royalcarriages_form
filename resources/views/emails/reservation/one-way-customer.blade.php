@@ -1,44 +1,27 @@
 Dear {{ $data['first_name'] }} {{ $data['last_name'] }},<br>
 <br>
-Thank you for your reservation with Royal Carriages!<br>
+Thank you for your one way reservation with Royal Carriages!<br>
 <br>
-We have confirmed your {{ ucwords(str_replace('-', ' ', $data['reservation_type'] ?? 'reservation')) }} for {{ date('m/d/Y', strtotime($data['pickup_date'])) }} at {{ date('g:i A', strtotime($data['pickup_time'])) }}.<br>
+We have confirmed your reservation for {{ date('m/d/Y', strtotime($data['pickup_date'])) }} at {{ date('g:i A', strtotime($data['pickup_time'])) }}.<br>
 <br>
 Your Reservation Details:<br>
 --------------------------<br>
-<br>
-OUTBOUND TRIP:<br>
 Pickup Date: {{ date('m/d/Y', strtotime($data['pickup_date'])) }}<br>
 Pickup Time: {{ date('g:i A', strtotime($data['pickup_time'])) }}<br>
 Pickup Location: {{ $data['pickup_location'] }}<br>
 Drop-off Location: {{ $data['dropoff_location'] }}<br>
 Drop-off Time: {{ date('g:i A', strtotime($data['dropoff_time'])) }}<br>
-<br>
-@if(isset($data['return_pickup_date']))
-RETURN TRIP:<br>
-Return Pickup Date: {{ date('m/d/Y', strtotime($data['return_pickup_date'])) }}<br>
-Return Pickup Time: {{ date('g:i A', strtotime($data['return_pickup_time'])) }}<br>
-Return Pickup Location: {{ $data['return_pickup_location'] }}<br>
-Return Drop-off Location: {{ $data['return_dropoff_location'] }}<br>
-Return Drop-off Time: {{ date('g:i A', strtotime($data['return_dropoff_time'])) }}<br>
-<br>
-@endif
 Vehicle: {{ $data['vehicle_type'] }}<br>
 Passengers: {{ $data['passengers'] ?? 'Not specified' }}<br>
-@if(isset($data['card_holder']))
 <br>
 Payment Information:<br>
 Cardholder: {{ $data['card_holder'] }}<br>
 Card: **** **** **** {{ substr($data['card_number'], -4) }}<br>
-@endif
 <br>
 Important Information:<br>
 - Please be ready 15 minutes before your scheduled pickup time<br>
 - Our chauffeur will contact you 30 minutes before arrival<br>
 - For any changes or cancellations, please call us at least 24 hours in advance<br>
-@if(isset($data['return_pickup_date']))
-- For round trip service, please be ready for return pickup as scheduled<br>
-@endif
 <br>
 If you have any questions, please contact us:<br>
 Phone: (713) 787-5466<br>

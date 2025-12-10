@@ -23,9 +23,9 @@ class ReservationAdminMail extends Mailable
      */
     public function envelope(): Envelope
     {
-        $serviceType = ucwords(str_replace('-', ' ', $this->data['service_type'] ?? 'Reservation'));
+        $reservationType = ucwords(str_replace('-', ' ', $this->data['reservation_type'] ?? 'Reservation'));
         return new Envelope(
-            subject: $serviceType . ' Reservation Royal Carriages Limousines',
+            subject: $reservationType . ' Reservation Royal Carriages Limousines',
         );
     }
 
@@ -34,8 +34,11 @@ class ReservationAdminMail extends Mailable
      */
     public function content(): Content
     {
+        $reservationType = $this->data['reservation_type'] ?? 'one-way';
+        $template        = "emails.reservation.{$reservationType}-admin";
+
         return new Content(
-            view: 'emails.reservation.admin',
+            view: $template,
             with: [
                 'data' => $this->data,
             ],

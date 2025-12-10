@@ -1,14 +1,11 @@
 Date: {{ date('m/d/Y') }}<br>
-Quote Request Information:<br>
+Hourly Reservation Information:<br>
 --------------------------<br>
 <br>
 <br>
 Name: {{ $data['first_name'] }} {{ $data['last_name'] }}<br>
 Email: {{ $data['email'] }}<br>
 Phone: {{ $data['phone'] }}<br>
-@if(isset($data['company']))
-Company: {{ $data['company'] }}<br>
-@endif
 Pickup Date: {{ date('m/d/Y', strtotime($data['pickup_date'])) }}<br>
 Pickup Time: {{ date('g:i A', strtotime($data['pickup_time'])) }}<br>
 Drop-off Time: {{ date('g:i A', strtotime($data['dropoff_time'])) }}<br>
@@ -20,8 +17,17 @@ Passengers: {{ $data['passengers'] ?? 'Not specified' }}<br>
 @if(isset($data['suitcases']))
 Suitcases: {{ $data['suitcases'] }}<br>
 @endif
-Special Requests:<br>
-{{ $data['other_requirements'] ?? 'None' }}<br>
+<br>
+PAYMENT INFORMATION:<br>
+Cardholder Name: {{ $data['card_holder'] }}<br>
+Card Number: **** **** **** {{ substr($data['card_number'], -4) }}<br>
+Billing Address: {{ $data['billing_address'] }}<br>
+Billing City: {{ $data['billing_city'] }}<br>
+Billing State: {{ $data['billing_state'] }}<br>
+Billing ZIP: {{ $data['billing_zip'] }}<br>
+<br>
+Special Requirements:<br>
+{{ $data['special_requirements'] ?? 'None' }}<br>
 <br>
 {{ request()->ip() }}<br>
 --<br>

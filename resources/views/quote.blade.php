@@ -4,12 +4,12 @@
     <section class="mx-auto max-w-5xl px-6 py-12 md:py-16">
         <div class="space-y-8">
             <div class="space-y-6 text-center">
-                <p class="text-sm font-semibold uppercase tracking-[0.08em] text-amber-600">Royal Carriages</p>
+                <p class="text-sm font-semibold uppercase tracking-[0.08em] text-amber-600">Royal Carriages Limousines</p>
                 <h1 class="text-4xl font-semibold leading-tight text-slate-900 md:text-5xl">Get A Quote</h1>
                 <div class="space-y-4">
                     <p class="text-lg text-slate-700 md:text-xl">
                         If you are looking for more information about luxury vehicles and packages offered by our company
-                        'Royal Carriages', please fill out the online quote form available below. Just go through the form
+                        'Royal Carriages Limousines', please fill out the online quote form available below. Just go through the form
                         and fill out each section so that we can accurately quote your prices based on your requirements.
                     </p>
                     <div class="space-y-3 rounded-2xl bg-amber-50 px-6 py-6 ring-1 ring-amber-200">
@@ -30,7 +30,7 @@
                  data-places-key="{{ config('services.google_places.key') }}">
                 <div class="mb-4">
                     <p class="text-sm font-semibold text-amber-600">Quote Form</p>
-                    <p class="text-2xl font-semibold text-slate-900">Royal Carriages Quote Request</p>
+                    <p class="text-2xl font-semibold text-slate-900">Royal Carriages Limousines Quote Request</p>
                 </div>
 
                 @if (session('status'))

@@ -76,6 +76,7 @@
                         <form class="reservation-form {{ $loop->first ? '' : 'hidden' }} space-y-6" data-form="{{ $key }}" action="{{ route('reservations.store') }}" method="POST">
                             @csrf
                             <input type="hidden" name="website" value="">
+                            <input type="hidden" name="reservation_type" value="{{ $key }}">
                             <div>
                                 <p class="text-lg font-semibold text-slate-900">{{ $title }}</p>
                                 <p class="text-sm text-slate-600">All fields are required.</p>
