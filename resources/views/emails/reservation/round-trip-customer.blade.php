@@ -1,46 +1,119 @@
-Dear {{ $data['first_name'] }} {{ $data['last_name'] }},<br>
-<br>
-Thank you for your round trip reservation with Royal Carriages!<br>
-<br>
-We have confirmed your round trip reservation starting {{ date('m/d/Y', strtotime($data['pickup_date'])) }} at {{ date('g:i A', strtotime($data['pickup_time'])) }}.<br>
-<br>
-Your Reservation Details:<br>
---------------------------<br>
-<br>
-OUTBOUND TRIP:<br>
-Pickup Date: {{ date('m/d/Y', strtotime($data['pickup_date'])) }}<br>
-Pickup Time: {{ date('g:i A', strtotime($data['pickup_time'])) }}<br>
-Pickup Location: {{ $data['pickup_location'] }}<br>
-Drop-off Location: {{ $data['dropoff_location'] }}<br>
-Drop-off Time: {{ date('g:i A', strtotime($data['dropoff_time'])) }}<br>
-<br>
-RETURN TRIP:<br>
-Return Pickup Date: {{ date('m/d/Y', strtotime($data['return_pickup_date'])) }}<br>
-Return Pickup Time: {{ date('g:i A', strtotime($data['return_pickup_time'])) }}<br>
-Return Pickup Location: {{ $data['return_pickup_location'] }}<br>
-Return Drop-off Location: {{ $data['return_dropoff_location'] }}<br>
-Return Drop-off Time: {{ date('g:i A', strtotime($data['return_dropoff_time'])) }}<br>
-<br>
-Vehicle: {{ $data['vehicle_type'] }}<br>
-Passengers: {{ $data['passengers'] ?? 'Not specified' }}<br>
-<br>
-Payment Information:<br>
-Cardholder: {{ $data['card_holder'] }}<br>
-Card: **** **** **** {{ substr($data['card_number'], -4) }}<br>
-<br>
-Important Information:<br>
-- Please be ready 15 minutes before your scheduled pickup times<br>
-- Our chauffeur will contact you 30 minutes before each pickup<br>
-- For any changes or cancellations, please call us at least 24 hours in advance<br>
-- This is a round trip service - please be ready for both pickup times<br>
-<br>
-If you have any questions, please contact us:<br>
-Phone: (713) 787-5466<br>
-Email: info@royalcarriages.com<br>
-<br>
-Thank you for choosing Royal Carriages!<br>
-<br>
-Best regards,<br>
-Royal Carriages Team<br>
---<br>
-This e-mail was sent from Royal Carriages (https://www.royalcarriages.com)
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round-Trip Reservation Confirmation - Royal Carriages</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header { background: linear-gradient(135deg, #d97706, #f59e0b); color: white; padding: 20px; text-align: center; }
+        .content { padding: 25px; }
+        .greeting { font-size: 18px; color: #1f2937; margin-bottom: 20px; }
+        .section { margin-bottom: 20px; }
+        .section-title { font-size: 16px; font-weight: bold; color: #374151; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid #f59e0b; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+        .info-item { background: #fef3c7; padding: 12px; border-radius: 6px; border-left: 3px solid #f59e0b; }
+        .label { font-weight: bold; color: #6b7280; font-size: 12px; text-transform: uppercase; margin-bottom: 4px; }
+        .value { color: #1f2937; font-size: 14px; }
+        .full-width { grid-column: span 2; }
+        .trip-section { background: #f0f9ff; border: 1px solid #3b82f6; border-radius: 8px; padding: 15px; margin: 15px 0; }
+        .contact-box { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; padding: 20px; text-align: center; margin: 20px 0; }
+        .contact-phone { font-size: 20px; font-weight: bold; color: #92400e; margin: 10px 0; }
+        .important-info { background: #dcfce7; border: 1px solid #10b981; border-radius: 8px; padding: 15px; margin: 15px 0; }
+        .footer { background: #f3f4f6; padding: 15px; text-align: center; font-size: 11px; color: #6b7280; }
+        @media (max-width: 480px) { .info-grid { grid-template-columns: 1fr; } .full-width { grid-column: span 1; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 style="margin: 0; font-size: 24px;">Royal Carriages Limousines</h1>
+            <p style="margin: 8px 0 0 0; opacity: 0.9;">Round-Trip Reservation Confirmation</p>
+        </div>
+        
+        <div class="content">
+            <div class="greeting">Dear {{ $data['first_name'] }},</div>
+            <p style="color: #4b5563; line-height: 1.6; margin-bottom: 20px;">Thank you for choosing Royal Carriages Limousines! Your round-trip reservation has been confirmed. We look forward to providing you with exceptional luxury transportation service.</p>
+            
+            <div class="trip-section">
+                <div style="font-weight: bold; color: #1e40af; margin-bottom: 12px; font-size: 14px;">🛫 OUTBOUND TRIP</div>
+                <div class="info-grid">
+                    <div class="info-item" style="background: white;">
+                        <div class="label">Date & Time</div>
+                        <div class="value">{{ date('m/d/Y', strtotime($data['pickup_date'])) }} at {{ date('g:i A', strtotime($data['pickup_time'])) }}</div>
+                    </div>
+                    <div class="info-item" style="background: white;">
+                        <div class="label">Drop-off Time</div>
+                        <div class="value">{{ date('g:i A', strtotime($data['dropoff_time'])) }}</div>
+                    </div>
+                    <div class="info-item full-width" style="background: white;">
+                        <div class="label">Route</div>
+                        <div class="value">{{ $data['pickup_location'] }} → {{ $data['dropoff_location'] }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trip-section">
+                <div style="font-weight: bold; color: #1e40af; margin-bottom: 12px; font-size: 14px;">🛬 RETURN TRIP</div>
+                <div class="info-grid">
+                    <div class="info-item" style="background: white;">
+                        <div class="label">Date & Time</div>
+                        <div class="value">{{ date('m/d/Y', strtotime($data['return_pickup_date'])) }} at {{ date('g:i A', strtotime($data['return_pickup_time'])) }}</div>
+                    </div>
+                    <div class="info-item" style="background: white;">
+                        <div class="label">Drop-off Time</div>
+                        <div class="value">{{ date('g:i A', strtotime($data['return_dropoff_time'])) }}</div>
+                    </div>
+                    <div class="info-item full-width" style="background: white;">
+                        <div class="label">Route</div>
+                        <div class="value">{{ $data['return_pickup_location'] }} → {{ $data['return_dropoff_location'] }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Service Details</div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Vehicle</div>
+                        <div class="value">{{ $data['vehicle_type'] }}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Passengers</div>
+                        <div class="value">{{ $data['passengers'] ?? 'Not specified' }}</div>
+                    </div>
+                    <div class="info-item full-width">
+                        <div class="label">Payment Card</div>
+                        <div class="value">{{ $data['card_holder'] }} - {{ $data['card_last_four'] ?? '**** **** **** ' . substr($data['card_number'] ?? '', -4) }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="important-info">
+                <div style="font-weight: bold; color: #065f46; margin-bottom: 10px; font-size: 14px;">ℹ️ Important Information</div>
+                <ul style="color: #065f46; margin: 0; padding-left: 20px; font-size: 13px;">
+                    <li>Please be ready 15 minutes before your scheduled pickup times</li>
+                    <li>Our chauffeur will contact you 30 minutes before each pickup</li>
+                    <li>For any changes or cancellations, please call us at least 24 hours in advance</li>
+                    <li>This is a round trip service - please be ready for both pickup times</li>
+                </ul>
+            </div>
+
+            <div class="contact-box">
+                <p style="margin: 0; font-size: 16px; color: #92400e;">Questions or changes needed?</p>
+                <div class="contact-phone">+1 (713) 787-5466</div>
+                <p style="margin: 0; font-size: 14px; color: #92400e;">Available 24/7</p>
+            </div>
+
+            <p style="color: #4b5563; line-height: 1.6; margin-bottom: 0;">We appreciate your business and look forward to serving you!</p>
+            <p style="color: #4b5563; margin-top: 5px;"><strong>Royal Carriages Team</strong></p>
+        </div>
+        
+        <div class="footer">
+            <p style="margin: 0;">Reservation confirmed on {{ date('m/d/Y g:i A') }}</p>
+            <p style="margin: 5px 0 0 0;">Royal Carriages Limousines | www.royalcarriages.com</p>
+        </div>
+    </div>
+</body>
+</html>
