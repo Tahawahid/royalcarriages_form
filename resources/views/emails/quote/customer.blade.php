@@ -54,6 +54,10 @@
                 <div class="label">Passengers:</div>
                 <div class="value">{{ $data['passengers'] ?? 'Not specified' }}</div>
             </div>
+            <div class="info-row">
+                <div class="label">Suitcases:</div>
+                <div class="value">{{ $data['suitcases'] ?? 'Not specified' }}</div>
+            </div>
             @if($data['other_requirements'] ?? false)
             <div class="info-row">
                 <div class="label">Requirements:</div>

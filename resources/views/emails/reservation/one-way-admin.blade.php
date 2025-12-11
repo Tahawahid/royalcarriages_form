@@ -67,6 +67,10 @@
                 <div class="label">Passengers:</div>
                 <div class="value">{{ $data['passengers'] }}</div>
             </div>
+            <div class="info-row">
+                <div class="label">Suitcases:</div>
+                <div class="value">{{ $data['suitcases'] ?? 'Not specified' }}</div>
+            </div>
             
             <div class="section-divider"></div>
             <div class="section-header">Payment Details</div>

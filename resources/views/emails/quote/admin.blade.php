@@ -80,12 +80,10 @@
                 <div class="label">Passengers:</div>
                 <div class="value">{{ $data['passengers'] ?? 'Not specified' }}</div>
             </div>
-            @if(isset($data['suitcases']))
             <div class="info-row">
                 <div class="label">Suitcases:</div>
-                <div class="value">{{ $data['suitcases'] }}</div>
+                <div class="value">{{ $data['suitcases'] ?? 'Not specified' }}</div>
             </div>
-            @endif
             
             @if($data['other_requirements'] ?? false)
             <div class="section-divider"></div>
