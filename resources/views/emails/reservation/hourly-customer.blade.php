@@ -10,82 +10,89 @@
         .header { background: linear-gradient(135deg, #d97706, #f59e0b); color: white; padding: 20px; text-align: center; }
         .content { padding: 25px; }
         .greeting { font-size: 18px; color: #1f2937; margin-bottom: 20px; }
-        .section { margin-bottom: 20px; }
-        .section-title { font-size: 16px; font-weight: bold; color: #374151; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid #f59e0b; }
-        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
-        .info-item { background: #fef3c7; padding: 12px; border-radius: 6px; border-left: 3px solid #f59e0b; }
-        .label { font-weight: bold; color: #6b7280; font-size: 12px; text-transform: uppercase; margin-bottom: 4px; }
-        .value { color: #1f2937; font-size: 14px; }
-        .full-width { grid-column: span 2; }
+        .info-row { display: flex; padding: 8px 0; border-bottom: 1px solid #f3f4f6; }
+        .info-row:last-child { border-bottom: none; }
+        .label { font-weight: bold; color: #374151; min-width: 120px; margin-right: 15px; }
+        .value { color: #1f2937; flex: 1; }
+        .section-divider { height: 1px; background: #f59e0b; margin: 20px 0; }
+        .section-header { font-weight: bold; color: #d97706; font-size: 14px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .status-confirmed { background: #d1fae5; color: #065f46; padding: 8px 15px; border-radius: 20px; display: inline-block; font-weight: bold; margin-bottom: 20px; }
         .contact-box { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; padding: 20px; text-align: center; margin: 20px 0; }
         .contact-phone { font-size: 20px; font-weight: bold; color: #92400e; margin: 10px 0; }
-        .important-info { background: #dcfce7; border: 1px solid #10b981; border-radius: 8px; padding: 15px; margin: 15px 0; }
         .footer { background: #f3f4f6; padding: 15px; text-align: center; font-size: 11px; color: #6b7280; }
-        @media (max-width: 480px) { .info-grid { grid-template-columns: 1fr; } .full-width { grid-column: span 1; } }
+        @media (max-width: 480px) { .info-row { flex-direction: column; } .label { min-width: auto; margin-bottom: 5px; } }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1 style="margin: 0; font-size: 24px;">Royal Carriages Limousines</h1>
-            <p style="margin: 8px 0 0 0; opacity: 0.9;">Hourly Reservation Confirmation</p>
+            <p style="margin: 8px 0 0 0; opacity: 0.9;">Hourly Service Confirmed</p>
         </div>
         
         <div class="content">
             <div class="greeting">Dear {{ $data['first_name'] }},</div>
-            <p style="color: #4b5563; line-height: 1.6; margin-bottom: 20px;">Thank you for choosing Royal Carriages Limousines! Your hourly reservation has been confirmed. We look forward to providing you with exceptional luxury transportation service.</p>
+            <div class="status-confirmed">✓ HOURLY SERVICE CONFIRMED</div>
+            <p style="color: #4b5563; line-height: 1.6; margin-bottom: 20px;">Your hourly luxury transportation is confirmed! Please save this confirmation for your records.</p>
             
-            <div class="section">
-                <div class="section-title">Your Reservation Details</div>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="label">Date & Time</div>
-                        <div class="value">{{ date('m/d/Y', strtotime($data['pickup_date'])) }} at {{ date('g:i A', strtotime($data['pickup_time'])) }}</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="label">Service End Time</div>
-                        <div class="value">{{ date('g:i A', strtotime($data['dropoff_time'])) }}</div>
-                    </div>
-                    <div class="info-item full-width">
-                        <div class="label">Pickup Location</div>
-                        <div class="value">{{ $data['pickup_location'] }}</div>
-                    </div>
-                    <div class="info-item full-width">
-                        <div class="label">Drop-off Location</div>
-                        <div class="value">{{ $data['dropoff_location'] }}</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="label">Vehicle</div>
-                        <div class="value">{{ $data['vehicle_type'] }}</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="label">Passengers</div>
-                        <div class="value">{{ $data['passengers'] ?? 'Not specified' }}</div>
-                    </div>
-                    <div class="info-item full-width">
-                        <div class="label">Payment Card</div>
-                        <div class="value">{{ $data['card_holder'] }} - {{ $data['card_last_four'] ?? '**** **** **** ' . substr($data['card_number'] ?? '', -4) }}</div>
-                    </div>
-                </div>
+            <div class="section-header">Service Details</div>
+            <div class="info-row">
+                <div class="label">Date:</div>
+                <div class="value">{{ date('m/d/Y', strtotime($data['pickup_date'])) }}</div>
             </div>
-
-            <div class="important-info">
-                <div style="font-weight: bold; color: #065f46; margin-bottom: 10px; font-size: 14px;">ℹ️ Important Information</div>
-                <ul style="color: #065f46; margin: 0; padding-left: 20px; font-size: 13px;">
-                    <li>Please be ready 15 minutes before your scheduled pickup time</li>
-                    <li>Our chauffeur will contact you 30 minutes before arrival</li>
-                    <li>This is an hourly service - the vehicle will remain available during your booking period</li>
-                    <li>For any changes or cancellations, please call us at least 24 hours in advance</li>
-                </ul>
+            <div class="info-row">
+                <div class="label">Service Time:</div>
+                <div class="value">{{ date('g:i A', strtotime($data['pickup_time'])) }} - {{ date('g:i A', strtotime($data['dropoff_time'])) }}</div>
             </div>
+            <div class="info-row">
+                <div class="label">Duration:</div>
+                <div class="value">{{ $data['hours'] ?? 'N/A' }} hours</div>
+            </div>
+            <div class="info-row">
+                <div class="label">Pickup Location:</div>
+                <div class="value">{{ $data['pickup_location'] }}</div>
+            </div>
+            <div class="info-row">
+                <div class="label">Service Area:</div>
+                <div class="value">{{ $data['dropoff_location'] ?? $data['service_area'] ?? 'As directed' }}</div>
+            </div>
+            <div class="info-row">
+                <div class="label">Vehicle:</div>
+                <div class="value">{{ $data['vehicle_type'] }}</div>
+            </div>
+            <div class="info-row">
+                <div class="label">Passengers:</div>
+                <div class="value">{{ $data['passengers'] }}</div>
+            </div>
+            
+            <div class="section-divider"></div>
+            <div class="section-header">Payment Information</div>
+            <div class="info-row">
+                <div class="label">Total Amount:</div>
+                <div class="value">${{ number_format($data['total_amount'], 2) }}</div>
+            </div>
+            <div class="info-row">
+                <div class="label">Payment Card:</div>
+                <div class="value">**** **** **** {{ $data['card_last_four'] ?? substr($data['card_number'] ?? '', -4) }}</div>
+            </div>
+            <div class="info-row">
+                <div class="label">Payment Status:</div>
+                <div class="value">{{ ucfirst($data['payment_status']) }}</div>
+            </div>
+            
+            @if($data['special_requests'] ?? false)
+            <div class="section-divider"></div>
+            <div class="section-header">Special Requests</div>
+            <div style="color: #1f2937; line-height: 1.5; white-space: pre-wrap;">{{ $data['special_requests'] }}</div>
+            @endif
 
             <div class="contact-box">
-                <p style="margin: 0; font-size: 16px; color: #92400e;">Questions or changes needed?</p>
+                <p style="margin: 0; font-size: 16px; color: #92400e;">Questions? Contact us anytime!</p>
                 <div class="contact-phone">+1 (713) 787-5466</div>
                 <p style="margin: 0; font-size: 14px; color: #92400e;">Available 24/7</p>
             </div>
 
-            <p style="color: #4b5563; line-height: 1.6; margin-bottom: 0;">We appreciate your business and look forward to serving you!</p>
+            <p style="color: #4b5563; line-height: 1.6; margin-bottom: 0;">Thank you for choosing Royal Carriages!</p>
             <p style="color: #4b5563; margin-top: 5px;"><strong>Royal Carriages Team</strong></p>
         </div>
         
