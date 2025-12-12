@@ -173,6 +173,28 @@
                 </div>
                 @endif
                 
+                <div class="section">
+                    <div class="section-title">
+                        <span class="section-icon">⚡</span> Action Required
+                    </div>
+                    <div class="requirements-card">
+                        <div class="info-item" style="margin-bottom: 15px;">
+                            <div class="info-label">Task</div>
+                            <div class="info-value">📞 Contact customer within 24 hours to provide quote</div>
+                        </div>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">📱 Phone:</div>
+                                <div class="info-value"><a href="tel:{{ $data['phone'] }}" style="color: #3b82f6; text-decoration: none;">{{ $data['phone'] }}</a></div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">📧 Email:</div>
+                                <div class="info-value"><a href="mailto:{{ $data['email'] }}" style="color: #3b82f6; text-decoration: none;">{{ $data['email'] }}</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="priority-section">
                     <div class="priority-icon">⏰</div>
                     <h3 class="priority-title">Response Required Within 24 Hours</h3>
