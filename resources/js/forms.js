@@ -94,11 +94,11 @@ class RoyalCarriageForms {
     }
 
     validateAllForms() {
-        document.querySelectorAll('form').forEach(form => this.validateForm(form));
+        document.querySelectorAll('.reservation-form').forEach(form => this.validateForm(form));
     }
 
     attachValidation() {
-        document.querySelectorAll('form').forEach(form => {
+        document.querySelectorAll('.reservation-form').forEach(form => {
             // Skip if already attached
             if (form.dataset.validationAttached) return;
             form.dataset.validationAttached = 'true';
@@ -143,10 +143,10 @@ class RoyalCarriageForms {
             vehicleSelect.dataset.vehicleAttached = 'true';
 
             const form = vehicleSelect.closest('form') || vehicleSelect.closest('.vehicle-container') || document;
-            const vehicleDisplay = form.querySelector('#vehicle-display');
-            const vehicleImage = form.querySelector('#vehicle-image');
-            const vehicleName = form.querySelector('#vehicle-name');
-            const vehicleCapacity = form.querySelector('#vehicle-capacity');
+            const vehicleDisplay = form.querySelector('.vehicle-display');
+            const vehicleImage = form.querySelector('.vehicle-image');
+            const vehicleName = form.querySelector('.vehicle-name');
+            const vehicleCapacity = form.querySelector('.vehicle-capacity');
             const passengersSelect = form.querySelector('select[name="passengers"]');
             const suitcasesSelect = form.querySelector('select[name="suitcases"]');
 
@@ -238,7 +238,7 @@ class RoyalCarriageForms {
 
     attachTabSwitching() {
         const tabs = document.querySelectorAll('.form-tab');
-        const forms = document.querySelectorAll('.reservation-form, .quote-form, [data-form]');
+        const forms = document.querySelectorAll('.reservation-form, .quote-form');
 
         tabs.forEach((tab) => {
             tab.addEventListener('click', () => {
