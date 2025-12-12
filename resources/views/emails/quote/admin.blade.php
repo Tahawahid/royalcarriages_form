@@ -48,46 +48,50 @@
             @endif
             
             <div class="section-divider"></div>
-            <div class="section-header">Service Details</div>
+            <div class="section-header">Schedule and Location</div>
             <div class="info-row">
-                <div class="label">Date:</div>
+                <div class="label">Pick Date:</div>
                 <div class="value">{{ date('m/d/Y', strtotime($data['pickup_date'])) }}</div>
             </div>
             <div class="info-row">
-                <div class="label">Service Type:</div>
-                <div class="value">{{ $data['service_type'] }}</div>
+                <div class="label">Pickup Time:</div>
+                <div class="value">{{ date('g:i A', strtotime($data['pickup_time'])) }}</div>
             </div>
             <div class="info-row">
-                <div class="label">Times:</div>
-                <div class="value">{{ date('g:i A', strtotime($data['pickup_time'])) }} - {{ date('g:i A', strtotime($data['dropoff_time'])) }}</div>
+                <div class="label">Drop Off Time:</div>
+                <div class="value">{{ date('g:i A', strtotime($data['dropoff_time'])) }}</div>
             </div>
             <div class="info-row">
-                <div class="label">Pickup:</div>
+                <div class="label">Pickup Location:</div>
                 <div class="value">{{ $data['pickup_location'] }}</div>
             </div>
             <div class="info-row">
-                <div class="label">Drop-off:</div>
+                <div class="label">Drop Off Location:</div>
                 <div class="value">{{ $data['dropoff_location'] }}</div>
             </div>
             
             <div class="section-divider"></div>
-            <div class="section-header">Vehicle & Passengers</div>
+            <div class="section-header">Trip Details</div>
             <div class="info-row">
-                <div class="label">Vehicle:</div>
+                <div class="label">Type of Service:</div>
+                <div class="value">{{ $data['service_type'] }}</div>
+            </div>
+            <div class="info-row">
+                <div class="label">Type of Vehicle:</div>
                 <div class="value">{{ $data['vehicle_type'] }}</div>
             </div>
             <div class="info-row">
-                <div class="label">Passengers:</div>
+                <div class="label">Number of Passengers:</div>
                 <div class="value">{{ $data['passengers'] ?? 'Not specified' }}</div>
             </div>
             <div class="info-row">
-                <div class="label">Suitcases:</div>
+                <div class="label">Number of Suitcases:</div>
                 <div class="value">{{ $data['suitcases'] }}</div>
             </div>
             
             @if($data['other_requirements'] ?? false)
             <div class="section-divider"></div>
-            <div class="section-header">Special Requirements</div>
+            <div class="section-header">Other Requirements</div>
             <div style="color: #1f2937; line-height: 1.5; white-space: pre-wrap;">{{ $data['other_requirements'] }}</div>
             @endif
         </div>

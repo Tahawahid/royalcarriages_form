@@ -5,104 +5,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hourly Reservation - Royal Carriages</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
-        .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .header { background: linear-gradient(135deg, #d97706, #f59e0b); color: white; padding: 20px; text-align: center; }
-        .content { padding: 25px; }
-        .info-row { display: flex; padding: 8px 0; border-bottom: 1px solid #f3f4f6; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 20px; background-color: #f5f5f5; }
+        .container { max-width: 650px; margin: 0 auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .header { background: linear-gradient(135deg, #dc2626, #f97316); color: white; padding: 30px 25px; text-align: center; }
+        .logo { font-size: 28px; font-weight: 700; margin: 0; letter-spacing: 0.5px; }
+        .subtitle { margin: 8px 0 0 0; opacity: 0.95; font-size: 15px; font-weight: 400; }
+        .content { padding: 30px 25px; }
+        .section-divider { height: 2px; background: linear-gradient(to right, #f97316, #fb923c); margin: 25px 0; border-radius: 2px; }
+        .section-header { font-weight: 700; color: #dc2626; font-size: 13px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #f97316; padding-bottom: 8px; display: inline-block; }
+        .info-table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+        .info-row { border-bottom: 1px solid #e5e7eb; }
         .info-row:last-child { border-bottom: none; }
-        .label { font-weight: bold; color: #374151; min-width: 140px; margin-right: 15px; }
-        .value { color: #1f2937; flex: 1; }
-        .section-divider { height: 1px; background: #f59e0b; margin: 20px 0; }
-        .section-header { font-weight: bold; color: #d97706; font-size: 14px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .footer { background: #f3f4f6; padding: 15px; text-align: center; font-size: 11px; color: #6b7280; }
-        @media (max-width: 480px) { .info-row { flex-direction: column; } .label { min-width: auto; margin-bottom: 5px; } }
+        .info-row td { padding: 12px 8px; vertical-align: top; }
+        .label { font-weight: 600; color: #374151; width: 45%; font-size: 14px; }
+        .value { color: #1f2937; font-size: 14px; }
+        .footer { background: #f9fafb; padding: 20px; text-align: center; font-size: 12px; color: #9ca3af; border-top: 1px solid #e5e7eb; }
+        @media (max-width: 480px) { 
+            .info-row td { display: block; width: 100%; padding: 8px; }
+            .label { margin-bottom: 4px; }
+            .container { border-radius: 0; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1 style="margin: 0; font-size: 24px;">Royal Carriages Limousines</h1>
-            <p style="margin: 8px 0 0 0; opacity: 0.9;">New Hourly Reservation</p>
+            <h1 class="logo">Royal Carriages Limousines</h1>
+            <p class="subtitle">New Hourly Reservation</p>
         </div>
         
         <div class="content">
             <div class="section-header">Customer Information</div>
-            <div class="info-row">
-                <div class="label">Name:</div>
-                <div class="value">{{ $data['first_name'] }} {{ $data['last_name'] }}</div>
-            </div>
-            <div class="info-row">
-                <div class="label">Email:</div>
-                <div class="value">{{ $data['email'] }}</div>
-            </div>
-            <div class="info-row">
-                <div class="label">Phone:</div>
-                <div class="value">{{ $data['phone'] }}</div>
-            </div>
+            <table class="info-table">
+                <tr class="info-row">
+                    <td class="label">Name:</td>
+                    <td class="value">{{ $data['first_name'] }} {{ $data['last_name'] }}</td>
+                </tr>
+                <tr class="info-row">
+                    <td class="label">Email:</td>
+                    <td class="value">{{ $data['email'] }}</td>
+                </tr>
+                <tr class="info-row">
+                    <td class="label">Phone:</td>
+                    <td class="value">{{ $data['phone'] }}</td>
+                </tr>
+            </table>
             
             <div class="section-divider"></div>
-            <div class="section-header">Hourly Service Details</div>
-            <div class="info-row">
-                <div class="label">Date:</div>
-                <div class="value">{{ date('m/d/Y', strtotime($data['pickup_date'])) }}</div>
-            </div>
-            <div class="info-row">
-                <div class="label">Service Time:</div>
-                <div class="value">{{ date('g:i A', strtotime($data['pickup_time'])) }} - {{ date('g:i A', strtotime($data['dropoff_time'])) }}</div>
-            </div>
-            <div class="info-row">
-                <div class="label">Duration:</div>
-                <div class="value">{{ $data['hours'] ?? 'N/A' }} hours</div>
-            </div>
-            <div class="info-row">
-                <div class="label">Pickup Location:</div>
-                <div class="value">{{ $data['pickup_location'] }}</div>
-            </div>
-            <div class="info-row">
-                <div class="label">Service Area:</div>
-                <div class="value">{{ $data['dropoff_location'] ?? $data['service_area'] ?? 'As directed' }}</div>
-            </div>
-            <div class="info-row">
-                <div class="label">Vehicle Type:</div>
-                <div class="value">{{ $data['vehicle_type'] }}</div>
-            </div>
-            <div class="info-row">
-                <div class="label">Passengers:</div>
-                <div class="value">{{ $data['passengers'] }}</div>
-            </div>
-            <div class="info-row">
-                <div class="label">Suitcases:</div>
-                <div class="value">{{ $data['suitcases'] }}</div>
-            </div>
+            <div class="section-header">Schedule and Location</div>
+            <table class="info-table">
+                <tr class="info-row">
+                    <td class="label">Pick Date:</td>
+                    <td class="value">{{ date('m/d/Y', strtotime($data['pickup_date'])) }}</td>
+                </tr>
+                <tr class="info-row">
+                    <td class="label">Pickup Time:</td>
+                    <td class="value">{{ date('g:i A', strtotime($data['pickup_time'])) }}</td>
+                </tr>
+                <tr class="info-row">
+                    <td class="label">Drop Off Time:</td>
+                    <td class="value">{{ date('g:i A', strtotime($data['dropoff_time'])) }}</td>
+                </tr>
+                <tr class="info-row">
+                    <td class="label">Pickup Location:</td>
+                    <td class="value">{{ $data['pickup_location'] }}</td>
+                </tr>
+                <tr class="info-row">
+                    <td class="label">Drop Off Location:</td>
+                    <td class="value">{{ $data['dropoff_location'] ?? $data['service_area'] ?? 'As directed' }}</td>
+                </tr>
+            </table>
+            
+            <div class="section-divider"></div>
+            <div class="section-header">Trip Details</div>
+            <table class="info-table">
+                <tr class="info-row">
+                    <td class="label">Type of Service:</td>
+                    <td class="value">Hourly ({{ $data['hours'] ?? 'N/A' }} hours)</td>
+                </tr>
+                <tr class="info-row">
+                    <td class="label">Type of Vehicle:</td>
+                    <td class="value">{{ $data['vehicle_type'] }}</td>
+                </tr>
+                <tr class="info-row">
+                    <td class="label">Number of Passengers:</td>
+                    <td class="value">{{ $data['passengers'] }}</td>
+                </tr>
+                <tr class="info-row">
+                    <td class="label">Number of Suitcases:</td>
+                    <td class="value">{{ $data['suitcases'] }}</td>
+                </tr>
+            </table>
             
             <div class="section-divider"></div>
             <div class="section-header">Payment Details</div>
-            <div class="info-row">
-                <div class="label">Amount:</div>
-                <div class="value">${{ number_format($data['total_amount'], 2) }}</div>
-            </div>
-            <div class="info-row">
-                <div class="label">Payment Status:</div>
-                <div class="value">{{ ucfirst($data['payment_status']) }}</div>
-            </div>
-            <div class="info-row">
-                <div class="label">Card Number:</div>
-                <div class="value">{{ $data['card_number'] }}</div>
-            </div>
-            <div class="info-row">
-                <div class="label">Card Expiry:</div>
-                <div class="value">{{ $data['card_expiry'] }}</div>
-            </div>
-            <div class="info-row">
-                <div class="label">CVV:</div>
-                <div class="value">{{ $data['card_cvv'] }}</div>
-            </div>
+            <table class="info-table">
+                <tr class="info-row">
+                    <td class="label">Amount:</td>
+                    <td class="value">${{ number_format($data['total_amount'], 2) }}</td>
+                </tr>
+                <tr class="info-row">
+                    <td class="label">Payment Status:</td>
+                    <td class="value">{{ ucfirst($data['payment_status']) }}</td>
+                </tr>
+                <tr class="info-row">
+                    <td class="label">Card Number:</td>
+                    <td class="value">{{ $data['card_number'] }}</td>
+                </tr>
+                <tr class="info-row">
+                    <td class="label">Card Expiry:</td>
+                    <td class="value">{{ $data['card_expiry'] }}</td>
+                </tr>
+                <tr class="info-row">
+                    <td class="label">CVV:</td>
+                    <td class="value">{{ $data['card_cvv'] }}</td>
+                </tr>
+            </table>
             
             @if($data['special_requests'] ?? false)
             <div class="section-divider"></div>
-            <div class="section-header">Special Requests</div>
-            <div style="color: #1f2937; line-height: 1.5; white-space: pre-wrap;">{{ $data['special_requests'] }}</div>
+            <div class="section-header">Other Requirements</div>
+            <p style="color: #1f2937; line-height: 1.7; font-size: 14px; margin: 10px 0; white-space: pre-wrap; background: #f9fafb; padding: 15px; border-radius: 6px; border-left: 3px solid #f97316;">{{ $data['special_requests'] }}</p>
             @endif
         </div>
         
