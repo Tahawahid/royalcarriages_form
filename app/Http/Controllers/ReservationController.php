@@ -79,7 +79,7 @@ class ReservationController extends Controller
             return redirect()
                 ->back()
                 ->withInput($request->except('turnstile_token', 'card_number', 'cvc'))
-                ->withErrors(['submission' => 'There was an issue submitting your reservation. Please try again or contact us directly.']);
+                ->withErrors(['submission' => 'Error: ' . $e->getMessage() . ' (File: ' . $e->getFile() . ' Line: ' . $e->getLine() . ')']);
         }
     }
 
