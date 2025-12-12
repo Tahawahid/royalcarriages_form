@@ -99,6 +99,10 @@
                                 <div class="info-value">{{ $data['last_name'] }}</div>
                             </div>
                             <div class="info-item">
+                                <div class="info-label">Company:</div>
+                                <div class="info-value">{{ $data['company'] ?? 'Personal' }}</div>
+                            </div>
+                            <div class="info-item">
                                 <div class="info-label">Email Address:</div>
                                 <div class="info-value">{{ $data['email'] }}</div>
                             </div>

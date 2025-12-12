@@ -122,8 +122,10 @@
                                 <div class="detail-label">Name</div>
                                 <div class="detail-value">{{ $data['first_name'] ?? '' }} {{ $data['last_name'] ?? '' }}</div>
                             </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Email</div>
+                            <div class="detail-item">                                <div class="detail-label">Company:</div>
+                                <div class="detail-value">{{ $data['company'] ?? 'Personal' }}</div>
+                            </div>
+                            <div class="detail-item">                                <div class="detail-label">Email</div>
                                 <div class="detail-value">{{ $data['email'] ?? 'Not provided' }}</div>
                             </div>
                             <div class="detail-item">

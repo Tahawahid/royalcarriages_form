@@ -58,15 +58,15 @@
                  data-places-key="{{ config('services.google_places.key') }}">
                 <div class="mb-4 grid grid-cols-1 gap-2 md:grid-cols-3">
                     <button type="button" data-form="one-way"
-                            class="form-tab active inline-flex items-center justify-center rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:border-amber-400 hover:text-amber-700">
+                            class="form-tab active inline-flex items-center justify-center rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:border-amber-400 hover:text-amber-700 active:border-amber-400 active:text-amber-700">
                         One Way
                     </button>
                     <button type="button" data-form="round-trip"
-                            class="form-tab inline-flex items-center justify-center rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:border-amber-400 hover:text-amber-700">
+                            class="form-tab inline-flex items-center justify-center rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:border-amber-400 hover:text-amber-700 active:border-amber-400 active:text-amber-700">
                         Round Trip
                     </button>
                     <button type="button" data-form="hourly"
-                            class="form-tab inline-flex items-center justify-center rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:border-amber-400 hover:text-amber-700">
+                            class="form-tab inline-flex items-center justify-center rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:border-amber-400 hover:text-amber-700 active:border-amber-400 active:text-amber-700">
                         Hourly
                     </button>
                 </div>
@@ -90,6 +90,11 @@
                                 <label class="text-sm font-medium text-slate-700">Last Name</label>
                                 <input type="text" name="last_name" required class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                             </div>
+                        </div>
+
+                        <div>
+                            <label class="text-sm font-medium text-slate-700">Company (Optional)</label>
+                            <input type="text" name="company" placeholder="Company name (optional)" class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                         </div>
 
                         <div class="grid gap-4 md:grid-cols-2">
@@ -304,6 +309,11 @@
                                 <label class="text-sm font-medium text-slate-700">Last Name</label>
                                 <input type="text" name="last_name" required class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                             </div>
+                        </div>
+
+                        <div>
+                            <label class="text-sm font-medium text-slate-700">Company (Optional)</label>
+                            <input type="text" name="company" placeholder="Company name (optional)" class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                         </div>
 
                         <div class="grid gap-4 md:grid-cols-2">
@@ -563,6 +573,11 @@
                                 <label class="text-sm font-medium text-slate-700">Last Name</label>
                                 <input type="text" name="last_name" required class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                             </div>
+                        </div>
+
+                        <div>
+                            <label class="text-sm font-medium text-slate-700">Company (Optional)</label>
+                            <input type="text" name="company" placeholder="Company name (optional)" class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                         </div>
 
                         <div class="grid gap-4 md:grid-cols-2">
