@@ -108,38 +108,6 @@
                                 <div class="info-label">Phone Number:</div>
                                 <div class="info-value">{{ $data['phone'] }}</div>
                             </div>
-                            <div class="info-item">
-                                <div class="info-label">Company:</div>
-                                <div class="info-value">{{ $data['company'] ?? 'Not specified' }}</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Address:</div>
-                                <div class="info-value">{{ $data['address'] ?? 'Not specified' }}</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">City:</div>
-                                <div class="info-value">{{ $data['city'] ?? 'Not specified' }}</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">State:</div>
-                                <div class="info-value">{{ $data['state'] ?? 'Not specified' }}</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">ZIP Code:</div>
-                                <div class="info-value">{{ $data['zip'] ?? 'Not specified' }}</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Country:</div>
-                                <div class="info-value">{{ $data['country'] ?? 'Not specified' }}</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Emergency Contact:</div>
-                                <div class="info-value">{{ $data['emergency_contact'] ?? 'Not specified' }}</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Customer Notes:</div>
-                                <div class="info-value">{{ $data['customer_notes'] ?? 'None' }}</div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -183,7 +151,7 @@
                         <div class="info-grid">
                             <div class="info-item">
                                 <div class="info-label">Return Date:</div>
-                                <div class="info-value">{{ isset($data['return_date']) ? date('l, F j, Y', strtotime($data['return_date'])) : 'Not specified' }}</div>
+                                <div class="info-value">{{ isset($data['return_pickup_date']) ? date('l, F j, Y', strtotime($data['return_pickup_date'])) : 'Not specified' }}</div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Return Pickup Time:</div>
@@ -201,6 +169,12 @@
                                 <div class="info-label">Return Drop Off Location:</div>
                                 <div class="info-value">{{ $data['return_dropoff_location'] ?? 'Not specified' }}</div>
                             </div>
+                            @if(!empty($data['return_other_requirements']))
+                            <div class="info-item">
+                                <div class="info-label">Return Notes:</div>
+                                <div class="info-value">{{ $data['return_other_requirements'] }}</div>
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -224,7 +198,7 @@
                                 <div class="info-value">{{ $data['passengers'] ?? 'Not specified' }}</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-label">Number of Suits:</div>
+                                <div class="info-label">Suitcases:</div>
                                 <div class="info-value">{{ $data['suitcases'] ?? 'Not specified' }}</div>
                             </div>
                         </div>
@@ -237,14 +211,6 @@
                     </div>
                     <div class="info-card">
                         <div class="info-grid">
-                            <div class="info-item">
-                                <div class="info-label">Payment Method:</div>
-                                <div class="info-value">{{ $data['payment_method'] ?? 'Credit Card' }}</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Card Type:</div>
-                                <div class="info-value">{{ $data['card_type'] ?? 'N/A' }}</div>
-                            </div>
                             <div class="info-item">
                                 <div class="info-label">Card Holder:</div>
                                 <div class="info-value">{{ $data['card_holder'] ?? 'N/A' }}</div>

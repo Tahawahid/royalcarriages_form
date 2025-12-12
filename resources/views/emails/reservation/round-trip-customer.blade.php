@@ -19,16 +19,12 @@
         
         .content { padding: 40px 30px; background: white; }
         .greeting { font-size: 18px; color: #1f2937; margin-bottom: 12px; font-weight: 600; }
-        .greeting-emoji { font-size: 20px; margin-right: 8px; }
         .intro-text { color: #64748b; line-height: 1.6; margin-bottom: 30px; font-size: 15px; }
         
-        .section { margin: 35px 0; }
-        .section-icon { font-size: 18px; margin-right: 8px; }
-        .section-title { font-size: 16px; font-weight: 700; color: #059669; margin-bottom: 20px; display: flex; align-items: center; }
-        .trip-divider { height: 3px; background: linear-gradient(to right, #f59e0b, #fbbf24); margin: 30px 0 20px; border-radius: 2px; }
+        .section { margin: 30px 0; }
+        .section-title { font-size: 16px; font-weight: 700; color: #059669; margin-bottom: 18px; display: flex; align-items: center; }
         
         .detail-card { background: #f8fafc; border-radius: 12px; padding: 25px; border-left: 4px solid #10b981; }
-        .return-card { background: #fef3e2; border-radius: 12px; padding: 25px; border-left: 4px solid #f59e0b; }
         .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .detail-item { margin-bottom: 12px; }
         .detail-item:last-child { margin-bottom: 0; }
@@ -39,21 +35,23 @@
         .requirements-card { background: #f0f9ff; border-radius: 12px; padding: 25px; border-left: 4px solid #0ea5e9; }
         .requirements-text { font-size: 14px; color: #1e293b; line-height: 1.6; white-space: pre-wrap; }
         
-        .contact-section { background: linear-gradient(135deg, #059669 0%, #10b981 100%); border-radius: 16px; padding: 30px; text-align: center; margin: 40px 0; box-shadow: 0 8px 25px rgba(5, 150, 105, 0.3); }
-        .contact-icon { font-size: 24px; margin-bottom: 12px; }
-        .contact-title { margin: 0 0 12px 0; font-size: 18px; font-weight: 700; color: white; }
-        .contact-phone { font-size: 28px; font-weight: 800; margin: 15px 0; letter-spacing: 0.5px; color: white; text-decoration: none; }
+        .next-steps { background: #fff7ed; border-radius: 12px; padding: 25px; margin: 35px 0; border-left: 4px solid #ea580c; }
+        .next-steps-title { font-size: 16px; font-weight: 700; color: #c2410c; margin-bottom: 15px; display: flex; align-items: center; }
+        .steps-list { margin: 0; padding-left: 20px; color: #92400e; font-size: 14px; }
+        .steps-list li { margin-bottom: 8px; }
+        
+        .contact-section { background: linear-gradient(135deg, #059669 0%, #10b981 100%); border-radius: 16px; padding: 30px; text-align: center; margin: 40px 0; box-shadow: 0 8px 25px rgba(5, 150, 105, 0.3); color: white; }
+        .contact-title { margin: 0 0 12px 0; font-size: 18px; font-weight: 700; }
+        .contact-phone { font-size: 28px; font-weight: 800; margin: 15px 0; letter-spacing: 0.5px; color: white; text-decoration: none; display: inline-block; }
         .contact-subtitle { margin: 0; font-size: 14px; color: rgba(255,255,255,0.9); }
-        .contact-hours { margin: 15px 0 5px 0; font-size: 13px; color: rgba(255,255,255,0.8); }
-        .contact-email { font-size: 13px; color: rgba(255,255,255,0.8); }
+        .contact-hours { margin: 15px 0 5px 0; font-size: 13px; color: rgba(255,255,255,0.85); }
+        .contact-email { font-size: 13px; color: rgba(255,255,255,0.9); }
         .contact-email a { color: rgba(255,255,255,0.9); text-decoration: none; }
         
         .closing-section { text-align: center; margin: 40px 0 20px 0; }
-        .closing-icon { font-size: 24px; margin-bottom: 12px; }
         .closing-title { font-size: 18px; font-weight: 700; color: #1f2937; margin-bottom: 8px; }
         .closing-text { color: #64748b; font-size: 14px; line-height: 1.6; margin-bottom: 12px; }
         .priority-text { color: #3b82f6; font-weight: 600; font-size: 14px; }
-        .team-signature { color: #1f2937; font-weight: 600; font-size: 14px; }
         
         .footer { background: #f8fafc; padding: 25px 30px; text-align: center; border-top: 1px solid #e2e8f0; }
         .footer-company { font-size: 13px; color: #64748b; margin-bottom: 8px; }
@@ -74,229 +72,171 @@
             <div class="header">
                 <div class="logo-section">
                     <h1 class="company-logo">Royal Carriages</h1>
-                    <p class="company-subtitle">Limousines & Charter • Worldwide Transportation</p>
-                    <h2 class="header-title">Reservation Request Received!</h2>
-                    <p class="header-message">We'll contact you soon to confirm your reservation 💫</p>
+                    <p class="company-subtitle">Limousines &amp; Charter | Worldwide Transportation</p>
+                    <h2 class="header-title">Round-Trip Request Received</h2>
+                    <div class="status-confirmed">Round-Trip Reservation</div>
                 </div>
             </div>
             
             <div class="content">
                 <div class="greeting">
-                    <span class="greeting-emoji">👋</span>Hi {{ $data['first_name'] }},
+                    Hi {{ $data['first_name'] }},
                 </div>
                 <p class="intro-text">
-                    Thank you for your interest in Royal Carriages! We have received your reservation request and our team will review your requirements. <span class="highlight-text">Someone from our team will contact you within 24 hours to confirm your reservation and discuss payment</span>. We're excited to help make your transportation experience exceptional!
+                    Thank you for choosing Royal Carriages. We have received your round-trip reservation request and will review it shortly. A team member will reach out within 24 hours to confirm both legs of your trip and finalize payment.
                 </p>
                 
-                <div class="schedule-section">
-                    <div class="section-title">
-                        <span class="section-icon">✈️</span> Outbound Trip Details
-                    </div>
+                <div class="section">
+                    <div class="section-title">Outbound Trip</div>
                     <div class="detail-card">
                         <div class="detail-grid">
                             <div class="detail-item">
-                                <div class="detail-label">Pickup Date:</div>
+                                <div class="detail-label">Pickup Date</div>
                                 <div class="detail-value">{{ date('l, F j, Y', strtotime($data['pickup_date'])) }}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Pickup Time:</div>
+                                <div class="detail-label">Pickup Time</div>
                                 <div class="detail-value">{{ date('g:i A', strtotime($data['pickup_time'])) }}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Pickup Location:</div>
+                                <div class="detail-label">Drop Off Time</div>
+                                <div class="detail-value">{{ date('g:i A', strtotime($data['dropoff_time'])) }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Pickup Location</div>
                                 <div class="detail-value">{{ $data['pickup_location'] }}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Drop Off Location:</div>
+                                <div class="detail-label">Drop Off Location</div>
                                 <div class="detail-value">{{ $data['dropoff_location'] }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="trip-divider"></div>
-                
-                <div class="schedule-section">
-                    <div class="section-title">
-                        <span class="section-icon">🔄</span> Return Trip Details
-                    </div>
-                    <div class="return-card">
+                <div class="section">
+                    <div class="section-title">Return Trip</div>
+                    <div class="detail-card">
                         <div class="detail-grid">
                             <div class="detail-item">
-                                <div class="detail-label">Return Date:</div>
-                                <div class="detail-value">{{ isset($data['return_date']) ? date('l, F j, Y', strtotime($data['return_date'])) : 'Not specified' }}</div>
+                                <div class="detail-label">Return Date</div>
+                                <div class="detail-value">
+                                    @if(!empty($data['return_pickup_date']))
+                                        {{ date('l, F j, Y', strtotime($data['return_pickup_date'])) }}
+                                    @else
+                                        Not provided
+                                    @endif
+                                </div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Return Time:</div>
-                                <div class="detail-value">{{ isset($data['return_pickup_time']) ? date('g:i A', strtotime($data['return_pickup_time'])) : 'Not specified' }}</div>
+                                <div class="detail-label">Return Pickup Time</div>
+                                <div class="detail-value">
+                                    @if(!empty($data['return_pickup_time']))
+                                        {{ date('g:i A', strtotime($data['return_pickup_time'])) }}
+                                    @else
+                                        Not provided
+                                    @endif
+                                </div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Return Pickup:</div>
-                                <div class="detail-value">{{ $data['return_pickup_location'] ?? 'Not specified' }}</div>
+                                <div class="detail-label">Return Drop Off Time</div>
+                                <div class="detail-value">
+                                    @if(!empty($data['return_dropoff_time']))
+                                        {{ date('g:i A', strtotime($data['return_dropoff_time'])) }}
+                                    @else
+                                        Not provided
+                                    @endif
+                                </div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Return Drop Off:</div>
-                                <div class="detail-value">{{ $data['return_dropoff_location'] ?? 'Not specified' }}</div>
+                                <div class="detail-label">Return Pickup Location</div>
+                                <div class="detail-value">{{ $data['return_pickup_location'] ?? 'Not provided' }}</div>
                             </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Return Drop Off Location</div>
+                                <div class="detail-value">{{ $data['return_dropoff_location'] ?? 'Not provided' }}</div>
+                            </div>
+                            @if(!empty($data['return_other_requirements']))
+                            <div class="detail-item">
+                                <div class="detail-label">Return Notes</div>
+                                <div class="detail-value">{{ $data['return_other_requirements'] }}</div>
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
                 
-                <div class="details-section">
-                    <div class="section-title">
-                        <span class="section-icon">�</span> Your Information
-                    </div>
+                <div class="section">
+                    <div class="section-title">Your Information</div>
                     <div class="detail-card">
                         <div class="detail-grid">
                             <div class="detail-item">
-                                <div class="detail-label">Name:</div>
+                                <div class="detail-label">Name</div>
                                 <div class="detail-value">{{ $data['first_name'] }} {{ $data['last_name'] }}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Email:</div>
+                                <div class="detail-label">Email</div>
                                 <div class="detail-value">{{ $data['email'] }}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Phone:</div>
+                                <div class="detail-label">Phone</div>
                                 <div class="detail-value">{{ $data['phone'] }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Company:</div>
-                                <div class="detail-value">{{ $data['company'] ?? 'Not specified' }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Address:</div>
-                                <div class="detail-value">{{ $data['address'] ?? 'Not specified' }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">City, State ZIP:</div>
-                                <div class="detail-value">{{ $data['city'] ?? '' }}{{ isset($data['state']) ? ', ' . $data['state'] : '' }}{{ isset($data['zip']) ? ' ' . $data['zip'] : '' }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Country:</div>
-                                <div class="detail-value">{{ $data['country'] ?? 'Not specified' }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Emergency Contact:</div>
-                                <div class="detail-value">{{ $data['emergency_contact'] ?? 'Not specified' }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="details-section">
-                    <div class="section-title">
-                        <span class="section-icon">🚗</span> Service Details
-                    </div>
+                <div class="section">
+                    <div class="section-title">Service Details</div>
                     <div class="detail-card">
                         <div class="detail-grid">
                             <div class="detail-item">
-                                <div class="detail-label">Service Type:</div>
+                                <div class="detail-label">Service Type</div>
                                 <div class="detail-value">{{ $data['service_type'] ?? 'Round Trip' }}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Type of Vehicle:</div>
+                                <div class="detail-label">Vehicle</div>
                                 <div class="detail-value">{{ $data['vehicle_type'] }}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Number of Passengers:</div>
+                                <div class="detail-label">Passengers</div>
                                 <div class="detail-value">{{ $data['passengers'] ?? 'Not specified' }}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Number of Suits:</div>
+                                <div class="detail-label">Suitcases</div>
                                 <div class="detail-value">{{ $data['suitcases'] ?? 'Not specified' }}</div>
                             </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Total Distance:</div>
-                                <div class="detail-value">{{ $data['distance'] ?? 'Calculated upon booking' }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Trip Duration:</div>
-                                <div class="detail-value">{{ $data['duration'] ?? 'Estimated upon booking' }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Rate Type:</div>
-                                <div class="detail-value">{{ $data['rate_type'] ?? 'Standard' }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Base Rate:</div>
-                                <div class="detail-value">${{ $data['base_rate'] ?? 'TBD' }}</div>
-                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="details-section">
-                    <div class="section-title">
-                        <span class="section-icon">💳</span> Payment Information
-                    </div>
+                <div class="section">
+                    <div class="section-title">Payment &amp; Billing</div>
                     <div class="detail-card">
                         <div class="detail-grid">
                             <div class="detail-item">
-                                <div class="detail-label">Payment Method:</div>
-                                <div class="detail-value">{{ $data['payment_method'] ?? 'Credit Card' }}</div>
+                                <div class="detail-label">Card Holder</div>
+                                <div class="detail-value">{{ $data['card_holder'] ?? 'Not provided' }}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Card Type:</div>
-                                <div class="detail-value">{{ $data['card_type'] ?? 'Not specified' }}</div>
+                                <div class="detail-label">Card Ending</div>
+                                <div class="detail-value">{{ $data['card_last_four'] ?? 'Not provided' }}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Card Holder:</div>
-                                <div class="detail-value">{{ $data['card_holder'] ?? 'Not specified' }}</div>
+                                <div class="detail-label">Billing Address</div>
+                                <div class="detail-value">{{ $data['billing_address'] ?? 'Not provided' }}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Card Number:</div>
-                                <div class="detail-value">****-****-****-{{ $data['card_last_four'] ?? substr($data['card_number'] ?? '0000', -4) }}</div>
+                                <div class="detail-label">Billing City</div>
+                                <div class="detail-value">{{ $data['billing_city'] ?? 'Not provided' }}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Billing Address:</div>
-                                <div class="detail-value">{{ $data['billing_address'] ?? $data['address'] ?? 'Same as service address' }}</div>
+                                <div class="detail-label">Billing State</div>
+                                <div class="detail-value">{{ $data['billing_state'] ?? 'Not provided' }}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Billing City:</div>
-                                <div class="detail-value">{{ $data['billing_city'] ?? $data['city'] ?? 'Not specified' }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Billing State:</div>
-                                <div class="detail-value">{{ $data['billing_state'] ?? $data['state'] ?? 'Not specified' }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Billing ZIP:</div>
-                                <div class="detail-value">{{ $data['billing_zip'] ?? $data['zip'] ?? 'Not specified' }}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="details-section">
-                    <div class="section-title">
-                        <span class="section-icon">📋</span> Reservation Details
-                    </div>
-                    <div class="detail-card">
-                        <div class="detail-grid">
-                            <div class="detail-item">
-                                <div class="detail-label">Reservation ID:</div>
-                                <div class="detail-value">{{ $data['reservation_id'] ?? 'Pending assignment' }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Booking Date:</div>
-                                <div class="detail-value">{{ date('F j, Y g:i A') }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Booking Source:</div>
-                                <div class="detail-value">{{ $data['booking_source'] ?? 'Online' }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Customer Notes:</div>
-                                <div class="detail-value">{{ $data['customer_notes'] ?? 'None provided' }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Trip Status:</div>
-                                <div class="detail-value">Pending Confirmation</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Confirmation Status:</div>
-                                <div class="detail-value">{{ $data['confirmation_status'] ?? 'Awaiting Review' }}</div>
+                                <div class="detail-label">Billing ZIP</div>
+                                <div class="detail-value">{{ $data['billing_zip'] ?? 'Not provided' }}</div>
                             </div>
                         </div>
                     </div>
@@ -304,9 +244,7 @@
                 
                 @if($data['special_requirements'] ?? false)
                 <div class="requirements-section">
-                    <div class="section-title">
-                        <span class="section-icon">📝</span> Your Special Requirements
-                    </div>
+                    <div class="section-title">Special Requirements</div>
                     <div class="requirements-card">
                         <div class="requirements-text">{{ $data['special_requirements'] }}</div>
                     </div>
@@ -314,39 +252,34 @@
                 @endif
                 
                 <div class="next-steps">
-                    <div class="next-steps-title">
-                        <span class="section-icon">⏭️</span> What happens next?
-                    </div>
+                    <div class="next-steps-title">What Happens Next</div>
                     <ul class="steps-list">
-                        <li>We'll review your round-trip reservation details</li>
-                        <li>Our team will contact you within 24 hours to confirm both legs</li>
-                        <li>You'll receive final confirmation with driver details</li>
-                        <li>Enjoy your luxury round-trip transportation experience!</li>
+                        <li>Our team reviews your reservation details and vehicle availability.</li>
+                        <li>We will contact you within 24 hours to confirm both legs of your trip.</li>
+                        <li>Once confirmed, we will finalize payment and send a confirmation.</li>
                     </ul>
                 </div>
                 
                 <div class="contact-section">
-                    <div class="contact-icon">📞</div>
                     <h3 class="contact-title">Need to Speak with Us?</h3>
-                    <p class="contact-subtitle">Have questions or need to modify your request? We're here to help!</p>
-                    <a href="tel:+17137875466" class="contact-phone">📱 Call: (713) 787-5466</a>
+                    <p class="contact-subtitle">Have questions or need to modify your request? We're here to help.</p>
+                    <a href="tel:+17137875466" class="contact-phone">Call: (713) 787-5466</a>
                     <div class="contact-hours"><strong>Business Hours:</strong> Monday - Sunday, 24/7</div>
                     <div class="contact-email"><strong>Email:</strong> <a href="mailto:reservations@royalcarriages.com">reservations@royalcarriages.com</a></div>
                 </div>
                 
                 <div class="closing-section">
-                    <div class="closing-icon">🌟</div>
-                    <h3 class="closing-title">Thank you for considering Royal Carriages!</h3>
+                    <h3 class="closing-title">Thank you for choosing Royal Carriages</h3>
                     <p class="closing-text">
-                        We're committed to providing you with exceptional luxury transportation service.
+                        We look forward to providing exceptional luxury transportation for your upcoming trip.
                     </p>
                     <p class="priority-text">Your reservation request is our priority.</p>
                 </div>
             </div>
             
             <div class="footer">
-                <div class="footer-company">Royal Carriages • Luxury Transportation Services</div>
-                <div class="footer-timestamp">This is an automated confirmation email sent on {{ date('F j, Y \a\t g:i A T') }}</div>
+                <div class="footer-company">Royal Carriages | Luxury Transportation Services</div>
+                <div class="footer-timestamp">This confirmation was sent on {{ date('F j, Y \\a\\t g:i A T') }}</div>
             </div>
         </div>
     </div>
