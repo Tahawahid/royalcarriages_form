@@ -7,7 +7,7 @@
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #f1f5f9; }
         .email-container { width: 100%; padding: 20px 15px; box-sizing: border-box; }
-        .container { max-width: 700px; margin: 0 auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+        .container { width: 100%; margin: 0 auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
         
         .header { background: linear-gradient(135deg, #dc2626 0%, #ea580c 50%, #f59e0b 100%); color: white; padding: 25px 30px; position: relative; }
         .header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="adminGrain" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.8" fill="%23ffffff" opacity="0.15"/><circle cx="40" cy="40" r="0.8" fill="%23ffffff" opacity="0.15"/><circle cx="25" cy="35" r="0.8" fill="%23ffffff" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23adminGrain)"/></svg>'); }
@@ -28,8 +28,8 @@
         .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .info-item { margin-bottom: 12px; }
         .info-item:last-child { margin-bottom: 0; }
-        .info-label { font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-        .info-value { font-size: 14px; color: #1f2937; font-weight: 500; word-break: break-word; }
+        .info-label { font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; display: inline; }
+        .info-value { font-size: 14px; color: #1f2937; font-weight: 500; word-break: break-word; display: inline; margin-left: 4px; }
         
         .schedule-card { background: #fff7ed; border-radius: 10px; padding: 20px; border-left: 4px solid #ea580c; }
         .location-section { margin-bottom: 20px; }
@@ -85,20 +85,24 @@
                     <div class="info-card">
                         <div class="info-grid">
                             <div class="info-item">
-                                <div class="info-label">Full Name</div>
-                                <div class="info-value">{{ $data['first_name'] }} {{ $data['last_name'] }}</div>
+                                <div class="info-label">First Name:</div>
+                                <div class="info-value">{{ $data['first_name'] }}</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-label">Email Address</div>
+                                <div class="info-label">Last Name:</div>
+                                <div class="info-value">{{ $data['last_name'] }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Email Address:</div>
                                 <div class="info-value">{{ $data['email'] }}</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-label">Phone Number</div>
+                                <div class="info-label">Phone Number:</div>
                                 <div class="info-value">{{ $data['phone'] }}</div>
                             </div>
                             @if(isset($data['company']))
                             <div class="info-item">
-                                <div class="info-label">Company</div>
+                                <div class="info-label">Company:</div>
                                 <div class="info-value">{{ $data['company'] }}</div>
                             </div>
                             @endif
