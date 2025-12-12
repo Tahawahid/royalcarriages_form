@@ -204,13 +204,13 @@
                     </div>
                 </div>
                 
-                @if($data['special_requests'] ?? false)
+                @if($data['special_requirements'] ?? false)
                 <div class="section">
                     <div class="section-title">
                         <span class="section-icon">📝</span> Special Requirements
                     </div>
                     <div class="requirements-card">
-                        <div class="requirements-text">{{ $data['special_requests'] }}</div>
+                        <div class="requirements-text">{{ $data['special_requirements'] }}</div>
                     </div>
                 </div>
                 @endif
