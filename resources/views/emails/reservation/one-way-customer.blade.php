@@ -94,6 +94,59 @@
                     Thank you for your interest in Royal Carriages! We have received your reservation request and our team will review your requirements. <span class="highlight-text">Someone from our team will contact you within 24 hours to confirm your reservation and discuss payment</span>. We're excited to help make your transportation experience exceptional!
                 </p>
                 
+                <div class="schedule-section">
+                    <div class="section-title">
+                        <span class="section-icon">📅</span> Your Trip Details
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <div class="detail-label">Pickup Date:</div>
+                                <div class="detail-value">{{ date('l, F j, Y', strtotime($data['pickup_date'])) }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Pickup Time:</div>
+                                <div class="detail-value">{{ date('g:i A', strtotime($data['pickup_time'])) }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Drop Off Time:</div>
+                                <div class="detail-value">{{ date('g:i A', strtotime($data['dropoff_time'])) }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Pickup Location:</div>
+                                <div class="detail-value">{{ $data['pickup_location'] }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Drop Off Location:</div>
+                                <div class="detail-value">{{ $data['dropoff_location'] }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Vehicle Type:</div>
+                                <div class="detail-value">{{ $data['vehicle_type'] }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Passengers:</div>
+                                <div class="detail-value">{{ $data['passengers'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Payment Method:</div>
+                                <div class="detail-value">{{ $data['card_type'] ?? 'Credit Card' }} ending in {{ substr($data['card_number'] ?? '0000', -4) }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                @if($data['special_requirements'] ?? false)
+                <div class="requirements-section">
+                    <div class="section-title">
+                        <span class="section-icon">📝</span> Your Special Requirements
+                    </div>
+                    <div class="requirements-card">
+                        <div class="requirements-text">{{ $data['special_requirements'] }}</div>
+                    </div>
+                </div>
+                @endif
+                
                 <div class="next-steps">
                     <div class="next-steps-title">
                         <span class="section-icon">⏰</span> What Happens Next?

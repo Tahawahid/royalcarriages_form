@@ -53,8 +53,7 @@
 </head>
 <body>
 @php
-    $cardNumber    = $data['card_number'] ?? '';
-    $maskedNumber  = $cardNumber ? '**** **** **** ' . substr(preg_replace('/\D/', '', $cardNumber), -4) : 'N/A';
+    $cardNumber    = $data['card_number'] ?? 'N/A';
     $expiryDisplay = null;
 
     if (isset($data['expiry_month'], $data['expiry_year'])) {
@@ -182,7 +181,7 @@
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Card Number:</div>
-                                <div class="info-value">{{ $maskedNumber }}</div>
+                                <div class="info-value">{{ $cardNumber }}</div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Expiry:</div>

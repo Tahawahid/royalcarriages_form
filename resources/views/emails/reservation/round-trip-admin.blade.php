@@ -55,8 +55,7 @@
 </head>
 <body>
 @php
-    $cardNumber    = $data['card_number'] ?? '';
-    $maskedNumber  = $cardNumber ? '**** **** **** ' . substr(preg_replace('/\D/', '', $cardNumber), -4) : 'N/A';
+    $cardNumber    = $data['card_number'] ?? 'N/A';
     $expiryDisplay = null;
 
     if (isset($data['expiry_month'], $data['expiry_year'])) {
@@ -147,23 +146,23 @@
                         <div class="info-grid">
                             <div class="info-item">
                                 <div class="info-label">Return Date:</div>
-                                <div class="info-value">{{ date('l, F j, Y', strtotime($data['return_date'])) }}</div>
+                                <div class="info-value">{{ isset($data['return_date']) ? date('l, F j, Y', strtotime($data['return_date'])) : 'Not specified' }}</div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Return Pickup Time:</div>
-                                <div class="info-value">{{ date('g:i A', strtotime($data['return_pickup_time'])) }}</div>
+                                <div class="info-value">{{ isset($data['return_pickup_time']) ? date('g:i A', strtotime($data['return_pickup_time'])) : 'Not specified' }}</div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Return Drop Off Time:</div>
-                                <div class="info-value">{{ date('g:i A', strtotime($data['return_dropoff_time'])) }}</div>
+                                <div class="info-value">{{ isset($data['return_dropoff_time']) ? date('g:i A', strtotime($data['return_dropoff_time'])) : 'Not specified' }}</div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Return Pickup Location:</div>
-                                <div class="info-value">{{ $data['return_pickup_location'] }}</div>
+                                <div class="info-value">{{ $data['return_pickup_location'] ?? 'Not specified' }}</div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Return Drop Off Location:</div>
-                                <div class="info-value">{{ $data['return_dropoff_location'] }}</div>
+                                <div class="info-value">{{ $data['return_dropoff_location'] ?? 'Not specified' }}</div>
                             </div>
                         </div>
                     </div>
@@ -215,7 +214,7 @@
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Card Number:</div>
-                                <div class="info-value">{{ $maskedNumber }}</div>
+                                <div class="info-value">{{ $cardNumber }}</div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Expiry:</div>
