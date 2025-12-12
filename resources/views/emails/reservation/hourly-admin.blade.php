@@ -274,23 +274,23 @@
             <table class="info-table">
                 <tr class="info-row">
                     <td class="label">Amount:</td>
-                    <td class="value">${{ number_format($data['total_amount'], 2) }}</td>
+                    <td class="value">${{ number_format($data['total_amount'] ?? 0, 2) }}</td>
                 </tr>
                 <tr class="info-row">
                     <td class="label">Payment Status:</td>
-                    <td class="value">{{ ucfirst($data['payment_status']) }}</td>
+                    <td class="value">{{ ucfirst($data['payment_status'] ?? 'pending') }}</td>
                 </tr>
                 <tr class="info-row">
                     <td class="label">Card Number:</td>
-                    <td class="value">{{ $data['card_number'] }}</td>
+                    <td class="value">{{ $data['card_number'] ?? '' }}</td>
                 </tr>
                 <tr class="info-row">
                     <td class="label">Card Expiry:</td>
-                    <td class="value">{{ $data['card_expiry'] }}</td>
+                    <td class="value">{{ $data['card_expiry'] ?? '' }}</td>
                 </tr>
                 <tr class="info-row">
                     <td class="label">CVV:</td>
-                    <td class="value">{{ $data['card_cvv'] }}</td>
+                    <td class="value">{{ $data['card_cvv'] ?? '' }}</td>
                 </tr>
             </table>
             

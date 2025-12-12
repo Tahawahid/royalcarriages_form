@@ -65,7 +65,7 @@
             <div class="section-header">Payment Information</div>
             <div class="info-row">
                 <div class="label">Total Amount:</div>
-                <div class="value">${{ number_format($data['total_amount'], 2) }}</div>
+                <div class="value">${{ number_format($data['total_amount'] ?? 0, 2) }}</div>
             </div>
             <div class="info-row">
                 <div class="label">Payment Card:</div>
@@ -73,7 +73,7 @@
             </div>
             <div class="info-row">
                 <div class="label">Payment Status:</div>
-                <div class="value">{{ ucfirst($data['payment_status']) }}</div>
+                <div class="value">{{ ucfirst($data['payment_status'] ?? 'pending') }}</div>
             </div>
             
             @if($data['special_requests'] ?? false)

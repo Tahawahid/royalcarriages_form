@@ -248,7 +248,7 @@
             <table class="info-table">
                 <tr class="info-row">
                     <td class="label">Total Amount:</td>
-                    <td class="value">${{ number_format($data['total_amount'], 2) }}</td>
+                    <td class="value">${{ number_format($data['total_amount'] ?? 0, 2) }}</td>
                 </tr>
                 <tr class="info-row">
                     <td class="label">Payment Card:</td>
@@ -256,7 +256,7 @@
                 </tr>
                 <tr class="info-row">
                     <td class="label">Payment Status:</td>
-                    <td class="value">{{ ucfirst($data['payment_status']) }}</td>
+                    <td class="value">{{ ucfirst($data['payment_status'] ?? 'pending') }}</td>
                 </tr>
             </table>
             
