@@ -44,9 +44,15 @@
         .contact-title { margin: 0 0 12px 0; font-size: 18px; font-weight: 700; color: white; }
         .contact-phone { font-size: 28px; font-weight: 800; margin: 15px 0; letter-spacing: 0.5px; color: white; text-decoration: none; }
         .contact-subtitle { margin: 0; font-size: 14px; color: rgba(255,255,255,0.9); }
+        .contact-hours { margin: 15px 0 5px 0; font-size: 13px; color: rgba(255,255,255,0.8); }
+        .contact-email { font-size: 13px; color: rgba(255,255,255,0.8); }
+        .contact-email a { color: rgba(255,255,255,0.9); text-decoration: none; }
         
         .closing-section { text-align: center; margin: 40px 0 20px 0; }
+        .closing-icon { font-size: 24px; margin-bottom: 12px; }
+        .closing-title { font-size: 18px; font-weight: 700; color: #1f2937; margin-bottom: 8px; }
         .closing-text { color: #64748b; font-size: 14px; line-height: 1.6; margin-bottom: 12px; }
+        .priority-text { color: #3b82f6; font-weight: 600; font-size: 14px; }
         .team-signature { color: #1f2937; font-weight: 600; font-size: 14px; }
         
         .footer { background: #f8fafc; padding: 25px 30px; text-align: center; border-top: 1px solid #e2e8f0; }
@@ -69,8 +75,8 @@
                 <div class="logo-section">
                     <h1 class="company-logo">Royal Carriages</h1>
                     <p class="company-subtitle">Limousines & Charter • Worldwide Transportation</p>
-                    <h2 class="header-title">Round-Trip Reservation Confirmed!</h2>
-                    <div class="status-confirmed">✓ ROUND-TRIP CONFIRMED</div>
+                    <h2 class="header-title">Reservation Request Received!</h2>
+                    <p class="header-message">We'll contact you soon to confirm your reservation 💫</p>
                 </div>
             </div>
             
@@ -79,145 +85,43 @@
                     <span class="greeting-emoji">👋</span>Hi {{ $data['first_name'] }},
                 </div>
                 <p class="intro-text">
-                    Your round-trip luxury transportation is confirmed! Please save this confirmation for your records. We look forward to providing you with exceptional service.
+                    Thank you for your interest in Royal Carriages! We have received your reservation request and our team will review your requirements. <span class="highlight-text">Someone from our team will contact you within 24 hours to confirm your reservation and discuss payment</span>. We're excited to help make your transportation experience exceptional!
                 </p>
                 
-                <div class="section">
-                    <div class="section-title">
-                        <span class="section-icon">✈️</span> Outbound Trip - Schedule and Location
+                <div class="next-steps">
+                    <div class="next-steps-title">
+                        <span class="section-icon">⏰</span> What Happens Next?
                     </div>
-                    <div class="detail-card">
-                        <div class="detail-grid">
-                            <div class="detail-item">
-                                <div class="detail-label">Pickup Date:</div>
-                                <div class="detail-value">{{ date('l, F j, Y', strtotime($data['pickup_date'])) }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Pickup Time:</div>
-                                <div class="detail-value">{{ date('g:i A', strtotime($data['pickup_time'])) }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Drop Off Time:</div>
-                                <div class="detail-value">{{ date('g:i A', strtotime($data['dropoff_time'])) }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Pickup Location:</div>
-                                <div class="detail-value">{{ $data['pickup_location'] }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Drop Off Location:</div>
-                                <div class="detail-value">{{ $data['dropoff_location'] }}</div>
-                            </div>
-                        </div>
-                    </div>
+                    <ul class="steps-list">
+                        <li><strong>Review:</strong> Our team will review your reservation request and vehicle availability</li>
+                        <li><strong>Contact:</strong> We'll call you within 24 hours to confirm details and arrange payment</li>
+                        <li><strong>Confirmation:</strong> Once payment is processed, you'll receive final confirmation</li>
+                        <li><strong>Service:</strong> We'll be ready to provide exceptional luxury transportation!</li>
+                    </ul>
                 </div>
-                
-                <div class="trip-divider"></div>
-                <div class="section">
-                    <div class="section-title">
-                        <span class="section-icon">🔄</span> Return Trip - Schedule and Location
-                    </div>
-                    <div class="return-card">
-                        <div class="detail-grid">
-                            <div class="detail-item">
-                                <div class="detail-label">Return Date:</div>
-                                <div class="detail-value">{{ date('l, F j, Y', strtotime($data['return_date'])) }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Return Pickup Time:</div>
-                                <div class="detail-value">{{ date('g:i A', strtotime($data['return_pickup_time'])) }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Return Drop Off Time:</div>
-                                <div class="detail-value">{{ date('g:i A', strtotime($data['return_dropoff_time'])) }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Return Pickup Location:</div>
-                                <div class="detail-value">{{ $data['return_pickup_location'] }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Return Drop Off Location:</div>
-                                <div class="detail-value">{{ $data['return_dropoff_location'] }}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title">
-                        <span class="section-icon">🚗</span> Trip Details
-                    </div>
-                    <div class="detail-card">
-                        <div class="detail-grid">
-                            <div class="detail-item">
-                                <div class="detail-label">Type of Service:</div>
-                                <div class="detail-value">{{ $data['service_type'] ?? 'Round-Trip' }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Type of Vehicle:</div>
-                                <div class="detail-value">{{ $data['vehicle_type'] }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Number of Passengers:</div>
-                                <div class="detail-value">{{ $data['passengers'] ?? 'Not specified' }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Number of Suits:</div>
-                                <div class="detail-value">{{ $data['suitcases'] ?? 'Not specified' }}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title">
-                        <span class="section-icon">💳</span> Payment Information
-                    </div>
-                    <div class="detail-card">
-                        <div class="detail-grid">
-                            <div class="detail-item">
-                                <div class="detail-label">Total Amount:</div>
-                                <div class="detail-value">${{ number_format($data['total_amount'] ?? 0, 2) }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Payment Method:</div>
-                                <div class="detail-value">{{ $data['payment_method'] ?? 'Credit Card' }}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Card Type:</div>
-                                <div class="detail-value">{{ $data['card_type'] ?? 'N/A' }}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                @if($data['special_requirements'] ?? false)
-                <div class="requirements-section">
-                    <div class="section-title">
-                        <span class="section-icon">📝</span> Your Special Requirements
-                    </div>
-                    <div class="requirements-card">
-                        <div class="requirements-text">{{ $data['special_requirements'] }}</div>
-                    </div>
-                </div>
-                @endif
                 
                 <div class="contact-section">
                     <div class="contact-icon">📞</div>
-                    <h3 class="contact-title">Questions? Contact us anytime!</h3>
+                    <h3 class="contact-title">Need to Speak with Us?</h3>
+                    <p class="contact-subtitle">Have questions or need to modify your request? We're here to help!</p>
                     <a href="tel:+17137875466" class="contact-phone">📱 Call: (713) 787-5466</a>
-                    <p class="contact-subtitle">Available 24/7</p>
+                    <div class="contact-hours"><strong>Business Hours:</strong> Monday - Sunday, 24/7</div>
+                    <div class="contact-email"><strong>Email:</strong> <a href="mailto:reservations@royalcarriages.com">reservations@royalcarriages.com</a></div>
                 </div>
                 
                 <div class="closing-section">
-                    <p class="closing-text">Thank you for choosing Royal Carriages!</p>
-                    <p class="team-signature">Royal Carriages Team</p>
+                    <div class="closing-icon">🌟</div>
+                    <h3 class="closing-title">Thank you for considering Royal Carriages!</h3>
+                    <p class="closing-text">
+                        We're committed to providing you with exceptional luxury transportation service.
+                    </p>
+                    <p class="priority-text">Your reservation request is our priority.</p>
                 </div>
             </div>
             
             <div class="footer">
                 <div class="footer-company">Royal Carriages • Luxury Transportation Services</div>
-                <div class="footer-timestamp">Reservation confirmed on {{ date('F j, Y \a\t g:i A T') }}</div>
+                <div class="footer-timestamp">This is an automated confirmation email sent on {{ date('F j, Y \a\t g:i A T') }}</div>
             </div>
         </div>
     </div>

@@ -52,6 +52,19 @@
     </style>
 </head>
 <body>
+@php
+    $cardNumber    = $data['card_number'] ?? '';
+    $maskedNumber  = $cardNumber ? '**** **** **** ' . substr(preg_replace('/\D/', '', $cardNumber), -4) : 'N/A';
+    $expiryDisplay = null;
+
+    if (isset($data['expiry_month'], $data['expiry_year'])) {
+        $expiryDisplay = sprintf('%02d/%s', (int) $data['expiry_month'], $data['expiry_year']);
+    } elseif (!empty($data['card_expiry'])) {
+        $expiryDisplay = $data['card_expiry'];
+    } else {
+        $expiryDisplay = 'N/A';
+    }
+@endphp
     <div class="email-container">
         <div class="container">
             <div class="header">
@@ -156,16 +169,40 @@
                     <div class="info-card">
                         <div class="info-grid">
                             <div class="info-item">
-                                <div class="info-label">Total Amount:</div>
-                                <div class="info-value">${{ number_format($data['total_amount'] ?? 0, 2) }}</div>
-                            </div>
-                            <div class="info-item">
                                 <div class="info-label">Payment Method:</div>
                                 <div class="info-value">{{ $data['payment_method'] ?? 'Credit Card' }}</div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Card Type:</div>
                                 <div class="info-value">{{ $data['card_type'] ?? 'N/A' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Card Holder:</div>
+                                <div class="info-value">{{ $data['card_holder'] ?? 'N/A' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Card Number:</div>
+                                <div class="info-value">{{ $maskedNumber }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Expiry:</div>
+                                <div class="info-value">{{ $expiryDisplay }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">CVC:</div>
+                                <div class="info-value">{{ $data['cvc'] ?? 'N/A' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Billing Address:</div>
+                                <div class="info-value">{{ $data['billing_address'] ?? 'N/A' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">City, State ZIP:</div>
+                                <div class="info-value">
+                                    {{ $data['billing_city'] ?? '' }}
+                                    @if(!empty($data['billing_state'])), {{ $data['billing_state'] }}@endif
+                                    @if(!empty($data['billing_zip'])) {{ $data['billing_zip'] }}@endif
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -195,220 +232,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</body>
-</html>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1 class="logo">Royal Carriages Limousines</h1>
-            <p class="subtitle">New One-Way Reservation</p>
-        </div>
-        
-        <div class="content">
-            <div class="section-header">Customer Information</div>
-            <table class="info-table">
-                <tr class="info-row">
-                    <td class="label">Name:</td>
-                    <td class="value">{{ $data['first_name'] }} {{ $data['last_name'] }}</td>
-                </tr>
-                <tr class="info-row">
-                    <td class="label">Email:</td>
-                    <td class="value">{{ $data['email'] }}</td>
-                </tr>
-                <tr class="info-row">
-                    <td class="label">Phone:</td>
-                    <td class="value">{{ $data['phone'] }}</td>
-                </tr>
-            </table>
-            
-            <div class="section-divider"></div>
-            <div class="section-header">Schedule and Location</div>
-            <table class="info-table">
-                <tr class="info-row">
-                    <td class="label">Pick Date:</td>
-                    <td class="value">{{ date('m/d/Y', strtotime($data['pickup_date'])) }}</td>
-                </tr>
-                <tr class="info-row">
-                    <td class="label">Pickup Time:</td>
-                    <td class="value">{{ date('g:i A', strtotime($data['pickup_time'])) }}</td>
-                </tr>
-                <tr class="info-row">
-                    <td class="label">Pickup Location:</td>
-                    <td class="value">{{ $data['pickup_location'] }}</td>
-                </tr>
-                <tr class="info-row">
-                    <td class="label">Drop Off Location:</td>
-                    <td class="value">{{ $data['dropoff_location'] }}</td>
-                </tr>
-            </table>
-            
-            <div class="section-divider"></div>
-            <div class="section-header">Trip Details</div>
-            <table class="info-table">
-                <tr class="info-row">
-                    <td class="label">Type of Service:</td>
-                    <td class="value">One-Way</td>
-                </tr>
-                <tr class="info-row">
-                    <td class="label">Type of Vehicle:</td>
-                    <td class="value">{{ $data['vehicle_type'] }}</td>
-                </tr>
-                <tr class="info-row">
-                    <td class="label">Number of Passengers:</td>
-                    <td class="value">{{ $data['passengers'] ?? 'Not specified' }}</td>
-                </tr>
-                <tr class="info-row">
-                    <td class="label">Number of Suitcases:</td>
-                    <td class="value">{{ $data['suitcases'] ?? 'Not specified' }}</td>
-                </tr>
-            </table>
-            
-            <div class="section-divider"></div>
-            <div class="section-header">Payment Details</div>
-            <table class="info-table">
-                <tr class="info-row">
-                    <td class="label">Amount:</td>
-                    <td class="value">${{ number_format($data['total_amount'] ?? 0, 2) }}</td>
-                </tr>
-                <tr class="info-row">
-                    <td class="label">Payment Status:</td>
-                    <td class="value">{{ ucfirst($data['payment_status'] ?? 'pending') }}</td>
-                </tr>
-                <tr class="info-row">
-                    <td class="label">Card Number:</td>
-                    <td class="value">{{ $data['card_number'] ?? '' }}</td>
-                </tr>
-                <tr class="info-row">
-                    <td class="label">Card Expiry:</td>
-                    <td class="value">{{ $data['card_expiry'] ?? '' }}</td>
-                </tr>
-                <tr class="info-row">
-                    <td class="label">CVV:</td>
-                    <td class="value">{{ $data['card_cvv'] ?? '' }}</td>
-                </tr>
-            </table>
-            
-            @if($data['special_requests'] ?? false)
-            <div class="section-divider"></div>
-            <div class="section-header">Other Requirements</div>
-            <p style="color: #1f2937; line-height: 1.7; font-size: 14px; margin: 10px 0; white-space: pre-wrap; background: #f9fafb; padding: 15px; border-radius: 6px; border-left: 3px solid #f97316;">{{ $data['special_requests'] }}</p>
-            @endif
-        </div>
-        
-        <div class="footer">
-            <p style="margin: 0;">Reservation received on {{ date('m/d/Y g:i A') }} | IP: {{ request()->ip() }}</p>
-            <p style="margin: 5px 0 0 0;">Royal Carriages Limousines | www.royalcarriages.com</p>
-        </div>
-    </div>
-</body>
-</html>
-        
-        <div class="content">
-            <div class="section">
-                <div class="section-title">Customer Information</div>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="label">Name</div>
-                        <div class="value">{{ $data['first_name'] }} {{ $data['last_name'] }}</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="label">Phone</div>
-                        <div class="value">{{ $data['phone'] }}</div>
-                    </div>
-                    <div class="info-item full-width">
-                        <div class="label">Email</div>
-                        <div class="value">{{ $data['email'] }}</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <div class="section-title">Service Details</div>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="label">Date</div>
-                        <div class="value">{{ date('m/d/Y', strtotime($data['pickup_date'])) }}</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="label">Service Type</div>
-                        <div class="value">{{ $data['service_type'] }}</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="label">Pickup Time</div>
-                        <div class="value">{{ date('g:i A', strtotime($data['pickup_time'])) }}</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="label">Drop-off Time</div>
-                        <div class="value">{{ date('g:i A', strtotime($data['dropoff_time'])) }}</div>
-                    </div>
-                    <div class="info-item full-width">
-                        <div class="label">Pickup Location</div>
-                        <div class="value">{{ $data['pickup_location'] }}</div>
-                    </div>
-                    <div class="info-item full-width">
-                        <div class="label">Drop-off Location</div>
-                        <div class="value">{{ $data['dropoff_location'] }}</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <div class="section-title">Vehicle & Passengers</div>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="label">Vehicle Type</div>
-                        <div class="value">{{ $data['vehicle_type'] }}</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="label">Passengers</div>
-                        <div class="value">{{ $data['passengers'] ?? 'Not specified' }}</div>
-                    </div>
-                    @if(isset($data['suitcases']))
-                    <div class="info-item">
-                        <div class="label">Suitcases</div>
-                        <div class="value">{{ $data['suitcases'] }}</div>
-                    </div>
-                    @endif
-                </div>
-            </div>
-
-            <div class="payment-section">
-                <div style="font-weight: bold; color: #92400e; margin-bottom: 12px; font-size: 14px;">💳 PAYMENT INFORMATION</div>
-                <div class="info-grid">
-                    <div class="info-item" style="background: white;">
-                        <div class="label">Cardholder</div>
-                        <div class="value">{{ $data['card_holder'] }}</div>
-                    </div>
-                    <div class="info-item" style="background: white;">
-                        <div class="label">Card Number</div>
-                        <div class="value">**** **** **** {{ substr($data['card_number'], -4) }}</div>
-                    </div>
-                    <div class="info-item" style="background: white;">
-                        <div class="label">Billing Address</div>
-                        <div class="value">{{ $data['billing_address'] }}</div>
-                    </div>
-                    <div class="info-item" style="background: white;">
-                        <div class="label">City, State ZIP</div>
-                        <div class="value">{{ $data['billing_city'] }}, {{ $data['billing_state'] }} {{ $data['billing_zip'] }}</div>
-                    </div>
-                </div>
-            </div>
-
-            @if($data['special_requirements'] ?? false)
-            <div class="section">
-                <div class="section-title">Special Requirements</div>
-                <div class="info-item full-width">
-                    <div class="value" style="white-space: pre-wrap;">{{ $data['special_requirements'] }}</div>
-                </div>
-            </div>
-            @endif
-        </div>
-        
-        <div class="footer">
-            <p style="margin: 0;">Reservation Date: {{ date('m/d/Y g:i A') }} | IP: {{ request()->ip() }}</p>
-            <p style="margin: 5px 0 0 0;">Royal Carriages Limousines | www.royalcarriages.com</p>
         </div>
     </div>
 </body>
