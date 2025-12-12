@@ -106,6 +106,38 @@
                                 <div class="info-label">Phone Number:</div>
                                 <div class="info-value">{{ $data['phone'] }}</div>
                             </div>
+                            <div class="info-item">
+                                <div class="info-label">Company:</div>
+                                <div class="info-value">{{ $data['company'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Address:</div>
+                                <div class="info-value">{{ $data['address'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">City:</div>
+                                <div class="info-value">{{ $data['city'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">State:</div>
+                                <div class="info-value">{{ $data['state'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">ZIP Code:</div>
+                                <div class="info-value">{{ $data['zip'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Country:</div>
+                                <div class="info-value">{{ $data['country'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Emergency Contact:</div>
+                                <div class="info-value">{{ $data['emergency_contact'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Customer Notes:</div>
+                                <div class="info-value">{{ $data['customer_notes'] ?? 'None' }}</div>
+                            </div>
                         </div>
                     </div>
                 </div>

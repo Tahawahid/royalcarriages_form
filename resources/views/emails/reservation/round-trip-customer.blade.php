@@ -144,21 +144,159 @@
                 
                 <div class="details-section">
                     <div class="section-title">
+                        <span class="section-icon">�</span> Your Information
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <div class="detail-label">Name:</div>
+                                <div class="detail-value">{{ $data['first_name'] }} {{ $data['last_name'] }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Email:</div>
+                                <div class="detail-value">{{ $data['email'] }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Phone:</div>
+                                <div class="detail-value">{{ $data['phone'] }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Company:</div>
+                                <div class="detail-value">{{ $data['company'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Address:</div>
+                                <div class="detail-value">{{ $data['address'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">City, State ZIP:</div>
+                                <div class="detail-value">{{ $data['city'] ?? '' }}{{ isset($data['state']) ? ', ' . $data['state'] : '' }}{{ isset($data['zip']) ? ' ' . $data['zip'] : '' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Country:</div>
+                                <div class="detail-value">{{ $data['country'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Emergency Contact:</div>
+                                <div class="detail-value">{{ $data['emergency_contact'] ?? 'Not specified' }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="details-section">
+                    <div class="section-title">
                         <span class="section-icon">🚗</span> Service Details
                     </div>
                     <div class="detail-card">
                         <div class="detail-grid">
                             <div class="detail-item">
-                                <div class="detail-label">Vehicle Type:</div>
+                                <div class="detail-label">Service Type:</div>
+                                <div class="detail-value">{{ $data['service_type'] ?? 'Round Trip' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Type of Vehicle:</div>
                                 <div class="detail-value">{{ $data['vehicle_type'] }}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">Passengers:</div>
+                                <div class="detail-label">Number of Passengers:</div>
                                 <div class="detail-value">{{ $data['passengers'] ?? 'Not specified' }}</div>
                             </div>
                             <div class="detail-item">
+                                <div class="detail-label">Number of Suits:</div>
+                                <div class="detail-value">{{ $data['suitcases'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Total Distance:</div>
+                                <div class="detail-value">{{ $data['distance'] ?? 'Calculated upon booking' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Trip Duration:</div>
+                                <div class="detail-value">{{ $data['duration'] ?? 'Estimated upon booking' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Rate Type:</div>
+                                <div class="detail-value">{{ $data['rate_type'] ?? 'Standard' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Base Rate:</div>
+                                <div class="detail-value">${{ $data['base_rate'] ?? 'TBD' }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="details-section">
+                    <div class="section-title">
+                        <span class="section-icon">💳</span> Payment Information
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-grid">
+                            <div class="detail-item">
                                 <div class="detail-label">Payment Method:</div>
-                                <div class="detail-value">{{ $data['card_type'] ?? 'Card' }} •••• {{ $data['card_last_four'] ?? substr($data['card_number'] ?? '', -4) }}</div>
+                                <div class="detail-value">{{ $data['payment_method'] ?? 'Credit Card' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Card Type:</div>
+                                <div class="detail-value">{{ $data['card_type'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Card Holder:</div>
+                                <div class="detail-value">{{ $data['card_holder'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Card Number:</div>
+                                <div class="detail-value">****-****-****-{{ $data['card_last_four'] ?? substr($data['card_number'] ?? '0000', -4) }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Billing Address:</div>
+                                <div class="detail-value">{{ $data['billing_address'] ?? $data['address'] ?? 'Same as service address' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Billing City:</div>
+                                <div class="detail-value">{{ $data['billing_city'] ?? $data['city'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Billing State:</div>
+                                <div class="detail-value">{{ $data['billing_state'] ?? $data['state'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Billing ZIP:</div>
+                                <div class="detail-value">{{ $data['billing_zip'] ?? $data['zip'] ?? 'Not specified' }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="details-section">
+                    <div class="section-title">
+                        <span class="section-icon">📋</span> Reservation Details
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <div class="detail-label">Reservation ID:</div>
+                                <div class="detail-value">{{ $data['reservation_id'] ?? 'Pending assignment' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Booking Date:</div>
+                                <div class="detail-value">{{ date('F j, Y g:i A') }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Booking Source:</div>
+                                <div class="detail-value">{{ $data['booking_source'] ?? 'Online' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Customer Notes:</div>
+                                <div class="detail-value">{{ $data['customer_notes'] ?? 'None provided' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Trip Status:</div>
+                                <div class="detail-value">Pending Confirmation</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Confirmation Status:</div>
+                                <div class="detail-value">{{ $data['confirmation_status'] ?? 'Awaiting Review' }}</div>
                             </div>
                         </div>
                     </div>

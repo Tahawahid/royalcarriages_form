@@ -96,10 +96,26 @@
                 
                 <div class="schedule-section">
                     <div class="section-title">
-                        <span class="section-icon">📅</span> Your Trip Details
+                        <span class="section-icon">📅</span> Complete Trip & Customer Details
                     </div>
                     <div class="detail-card">
                         <div class="detail-grid">
+                            <div class="detail-item">
+                                <div class="detail-label">Customer Name:</div>
+                                <div class="detail-value">{{ $data['first_name'] ?? '' }} {{ $data['last_name'] ?? '' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Email:</div>
+                                <div class="detail-value">{{ $data['email'] ?? 'N/A' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Phone:</div>
+                                <div class="detail-value">{{ $data['phone'] ?? 'N/A' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Company:</div>
+                                <div class="detail-value">{{ $data['company'] ?? 'Personal' }}</div>
+                            </div>
                             <div class="detail-item">
                                 <div class="detail-label">Pickup Date:</div>
                                 <div class="detail-value">{{ date('l, F j, Y', strtotime($data['pickup_date'])) }}</div>
@@ -110,15 +126,35 @@
                             </div>
                             <div class="detail-item">
                                 <div class="detail-label">Drop Off Time:</div>
-                                <div class="detail-value">{{ date('g:i A', strtotime($data['dropoff_time'])) }}</div>
+                                <div class="detail-value">{{ isset($data['dropoff_time']) ? date('g:i A', strtotime($data['dropoff_time'])) : 'TBD' }}</div>
                             </div>
                             <div class="detail-item">
                                 <div class="detail-label">Pickup Location:</div>
                                 <div class="detail-value">{{ $data['pickup_location'] }}</div>
                             </div>
                             <div class="detail-item">
+                                <div class="detail-label">Pickup Address:</div>
+                                <div class="detail-value">{{ $data['pickup_address'] ?? $data['pickup_location'] }}</div>
+                            </div>
+                            <div class="detail-item">
                                 <div class="detail-label">Drop Off Location:</div>
                                 <div class="detail-value">{{ $data['dropoff_location'] }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Dropoff Address:</div>
+                                <div class="detail-value">{{ $data['dropoff_address'] ?? $data['dropoff_location'] }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Flight Number:</div>
+                                <div class="detail-value">{{ $data['flight_number'] ?? 'N/A' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Airline:</div>
+                                <div class="detail-value">{{ $data['airline'] ?? 'N/A' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Terminal:</div>
+                                <div class="detail-value">{{ $data['terminal'] ?? 'N/A' }}</div>
                             </div>
                             <div class="detail-item">
                                 <div class="detail-label">Vehicle Type:</div>
@@ -129,8 +165,52 @@
                                 <div class="detail-value">{{ $data['passengers'] ?? 'Not specified' }}</div>
                             </div>
                             <div class="detail-item">
+                                <div class="detail-label">Luggage/Bags:</div>
+                                <div class="detail-value">{{ $data['bags'] ?? $data['luggage'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Child Seats:</div>
+                                <div class="detail-value">{{ $data['child_seats'] ?? 'None' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Meet & Greet:</div>
+                                <div class="detail-value">{{ ($data['meet_greet'] ?? false) ? 'Yes' : 'No' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Waiting Time:</div>
+                                <div class="detail-value">{{ $data['waiting_time'] ?? 'Standard' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Distance:</div>
+                                <div class="detail-value">{{ $data['distance'] ?? 'TBD' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Duration:</div>
+                                <div class="detail-value">{{ $data['duration'] ?? 'TBD' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Total Amount:</div>
+                                <div class="detail-value">${{ number_format($data['total_amount'] ?? 0, 2) }}</div>
+                            </div>
+                            <div class="detail-item">
                                 <div class="detail-label">Payment Method:</div>
                                 <div class="detail-value">{{ $data['card_type'] ?? 'Card' }} •••• {{ $data['card_last_four'] ?? substr($data['card_number'] ?? '', -4) }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Payment Status:</div>
+                                <div class="detail-value">{{ ucfirst($data['payment_status'] ?? 'pending') }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Gratuity:</div>
+                                <div class="detail-value">{{ $data['gratuity'] ?? 'Not specified' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Reservation ID:</div>
+                                <div class="detail-value">{{ $data['reservation_id'] ?? $data['id'] ?? 'TBD' }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Emergency Contact:</div>
+                                <div class="detail-value">{{ $data['emergency_contact'] ?? 'N/A' }}</div>
                             </div>
                         </div>
                     </div>

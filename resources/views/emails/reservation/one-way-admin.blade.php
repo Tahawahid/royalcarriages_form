@@ -92,19 +92,51 @@
                         <div class="info-grid">
                             <div class="info-item">
                                 <div class="info-label">First Name:</div>
-                                <div class="info-value">{{ $data['first_name'] }}</div>
+                                <div class="info-value">{{ $data['first_name'] ?? 'N/A' }}</div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Last Name:</div>
-                                <div class="info-value">{{ $data['last_name'] }}</div>
+                                <div class="info-value">{{ $data['last_name'] ?? 'N/A' }}</div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Email Address:</div>
-                                <div class="info-value">{{ $data['email'] }}</div>
+                                <div class="info-value">{{ $data['email'] ?? 'N/A' }}</div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Phone Number:</div>
-                                <div class="info-value">{{ $data['phone'] }}</div>
+                                <div class="info-value">{{ $data['phone'] ?? 'N/A' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Company:</div>
+                                <div class="info-value">{{ $data['company'] ?? 'Personal' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Address:</div>
+                                <div class="info-value">{{ $data['address'] ?? 'N/A' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">City:</div>
+                                <div class="info-value">{{ $data['city'] ?? 'N/A' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">State:</div>
+                                <div class="info-value">{{ $data['state'] ?? 'N/A' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">ZIP Code:</div>
+                                <div class="info-value">{{ $data['zip'] ?? 'N/A' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Country:</div>
+                                <div class="info-value">{{ $data['country'] ?? 'US' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Emergency Contact:</div>
+                                <div class="info-value">{{ $data['emergency_contact'] ?? 'N/A' }}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Customer Notes:</div>
+                                <div class="info-value">{{ $data['customer_notes'] ?? 'None' }}</div>
                             </div>
                         </div>
                     </div>
