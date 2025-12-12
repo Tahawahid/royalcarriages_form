@@ -79,6 +79,11 @@
                     <p class="alert-text">⚡ New reservation received - Customer ready for service</p>
                 </div>
                 
+                <div style="background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; padding: 15px 20px; margin-bottom: 25px;">
+                    <p style="color: #92400e; font-size: 14px; font-weight: 600; margin: 0 0 5px 0;">⏰ Response Required Within 24 Hours</p>
+                    <p style="color: #92400e; font-size: 13px; margin: 0;">Please review this reservation request and respond to the customer promptly to maintain service excellence.</p>
+                </div>
+                
                 <div class="section">
                     <div class="section-title">
                         <span class="section-icon">👤</span> Customer Information
