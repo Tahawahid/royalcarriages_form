@@ -103,11 +103,11 @@
                 </tr>
                 <tr class="info-row">
                     <td class="label">Number of Passengers:</td>
-                    <td class="value">{{ $data['passengers'] }}</td>
+                    <td class="value">{{ $data['passengers'] ?? 'Not specified' }}</td>
                 </tr>
                 <tr class="info-row">
                     <td class="label">Number of Suitcases:</td>
-                    <td class="value">{{ $data['suitcases'] }}</td>
+                    <td class="value">{{ $data['suitcases'] ?? 'Not specified' }}</td>
                 </tr>
             </table>
             

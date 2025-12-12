@@ -86,7 +86,7 @@
             </div>
             <div class="info-row">
                 <div class="label">Number of Suitcases:</div>
-                <div class="value">{{ $data['suitcases'] }}</div>
+                <div class="value">{{ $data['suitcases'] ?? 'Not specified' }}</div>
             </div>
             
             @if($data['other_requirements'] ?? false)
