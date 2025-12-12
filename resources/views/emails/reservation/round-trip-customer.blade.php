@@ -158,7 +158,7 @@
                             </div>
                             <div class="detail-item">
                                 <div class="detail-label">Payment Method:</div>
-                                <div class="detail-value">{{ $data['card_type'] ?? 'Credit Card' }} ending in {{ substr($data['card_number'] ?? '0000', -4) }}</div>
+                                <div class="detail-value">{{ $data['card_type'] ?? 'Card' }} •••• {{ $data['card_last_four'] ?? substr($data['card_number'] ?? '', -4) }}</div>
                             </div>
                         </div>
                     </div>
@@ -177,13 +177,13 @@
                 
                 <div class="next-steps">
                     <div class="next-steps-title">
-                        <span class="section-icon">⏰</span> What Happens Next?
+                        <span class="section-icon">⏭️</span> What happens next?
                     </div>
                     <ul class="steps-list">
-                        <li><strong>Review:</strong> Our team will review your reservation request and vehicle availability</li>
-                        <li><strong>Contact:</strong> We'll call you within 24 hours to confirm details and arrange payment</li>
-                        <li><strong>Confirmation:</strong> Once payment is processed, you'll receive final confirmation</li>
-                        <li><strong>Service:</strong> We'll be ready to provide exceptional luxury transportation!</li>
+                        <li>We'll review your round-trip reservation details</li>
+                        <li>Our team will contact you within 24 hours to confirm both legs</li>
+                        <li>You'll receive final confirmation with driver details</li>
+                        <li>Enjoy your luxury round-trip transportation experience!</li>
                     </ul>
                 </div>
                 

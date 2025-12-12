@@ -130,7 +130,7 @@
                             </div>
                             <div class="detail-item">
                                 <div class="detail-label">Payment Method:</div>
-                                <div class="detail-value">{{ $data['card_type'] ?? 'Credit Card' }} ending in {{ substr($data['card_number'] ?? '0000', -4) }}</div>
+                                <div class="detail-value">{{ $data['card_type'] ?? 'Card' }} •••• {{ $data['card_last_four'] ?? substr($data['card_number'] ?? '', -4) }}</div>
                             </div>
                         </div>
                     </div>
@@ -248,7 +248,7 @@
                 </tr>
                 <tr class="info-row">
                     <td class="label">Payment Card:</td>
-                    <td class="value">**** **** **** {{ $data['card_last_four'] ?? substr($data['card_number'] ?? '', -4) }}</td>
+                    <td class="value">{{ $data['card_type'] ?? 'Card' }} •••• {{ $data['card_last_four'] ?? substr($data['card_number'] ?? '', -4) }}</td>
                 </tr>
                 <tr class="info-row">
                     <td class="label">Payment Status:</td>
@@ -270,75 +270,6 @@
 
             <p class="footer-text">Thank you for choosing Royal Carriages!</p>
             <p class="team-signature">Royal Carriages Team</p>
-        </div>
-        
-        <div class="footer">
-            <p style="margin: 0;">Reservation confirmed on {{ date('m/d/Y g:i A') }}</p>
-            <p style="margin: 5px 0 0 0;">Royal Carriages Limousines | www.royalcarriages.com</p>
-        </div>
-    </div>
-</body>
-</html>
-            <p style="margin: 8px 0 0 0; opacity: 0.9;">One-Way Reservation Confirmation</p>
-        </div>
-        
-        <div class="content">
-            <div class="greeting">Dear {{ $data['first_name'] }},</div>
-            <p style="color: #4b5563; line-height: 1.6; margin-bottom: 20px;">Thank you for choosing Royal Carriages Limousines! Your one-way reservation has been confirmed. We look forward to providing you with exceptional luxury transportation service.</p>
-            
-            <div class="section">
-                <div class="section-title">Your Reservation Details</div>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="label">Date & Time</div>
-                        <div class="value">{{ date('m/d/Y', strtotime($data['pickup_date'])) }} at {{ date('g:i A', strtotime($data['pickup_time'])) }}</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="label">Drop-off Time</div>
-                        <div class="value">{{ date('g:i A', strtotime($data['dropoff_time'])) }}</div>
-                    </div>
-                    <div class="info-item full-width">
-                        <div class="label">Route</div>
-                        <div class="value">{{ $data['pickup_location'] }} → {{ $data['dropoff_location'] }}</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="label">Vehicle</div>
-                        <div class="value">{{ $data['vehicle_type'] }}</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="label">Passengers</div>
-                        <div class="value">{{ $data['passengers'] ?? 'Not specified' }}</div>
-                    </div>
-                    <div class="info-item full-width">
-                        <div class="label">Payment Card</div>
-                        <div class="value">{{ $data['card_holder'] }} - {{ $data['card_last_four'] ?? '**** **** **** ' . substr($data['card_number'] ?? '', -4) }}</div>
-                    </div>
-                    @if($data['special_requirements'] ?? false)
-                    <div class="info-item full-width">
-                        <div class="label">Special Requirements</div>
-                        <div class="value">{{ $data['special_requirements'] }}</div>
-                    </div>
-                    @endif
-                </div>
-            </div>
-
-            <div class="important-info">
-                <div style="font-weight: bold; color: #92400e; margin-bottom: 10px; font-size: 14px;">ℹ️ Important Information</div>
-                <ul style="color: #92400e; margin: 0; padding-left: 20px; font-size: 13px;">
-                    <li>Please be ready 15 minutes before your scheduled pickup time</li>
-                    <li>Our chauffeur will contact you 30 minutes before arrival</li>
-                    <li>For any changes or cancellations, please call us at least 24 hours in advance</li>
-                </ul>
-            </div>
-
-            <div class="contact-box">
-                <p style="margin: 0; font-size: 16px; color: #065f46;">Questions or changes needed?</p>
-                <div class="contact-phone">+1 (713) 787-5466</div>
-                <p style="margin: 0; font-size: 14px; color: #065f46;">Available 24/7</p>
-            </div>
-
-            <p style="color: #4b5563; line-height: 1.6; margin-bottom: 0;">We appreciate your business and look forward to serving you!</p>
-            <p style="color: #4b5563; margin-top: 5px;"><strong>Royal Carriages Team</strong></p>
         </div>
         
         <div class="footer">

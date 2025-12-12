@@ -126,7 +126,7 @@
                             </div>
                             <div class="detail-item">
                                 <div class="detail-label">Payment Method:</div>
-                                <div class="detail-value">{{ $data['card_type'] ?? 'Credit Card' }} ending in {{ substr($data['card_number'] ?? '0000', -4) }}</div>
+                                <div class="detail-value">{{ $data['card_type'] ?? 'Card' }} •••• {{ $data['card_last_four'] ?? substr($data['card_number'] ?? '', -4) }}</div>
                             </div>
                         </div>
                     </div>
@@ -180,5 +180,5 @@
             </div>
         </div>
     </div>
-
+</body>
 </html>
