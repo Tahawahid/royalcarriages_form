@@ -100,7 +100,7 @@
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Company:</div>
-                                <div class="info-value">{{ $data['company'] ?? '' }}</div>
+                                <div class="info-value">{{ $data['company'] ?? 'N/A' }}</div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Email Address:</div>

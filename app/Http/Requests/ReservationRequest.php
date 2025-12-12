@@ -25,6 +25,7 @@ class ReservationRequest extends FormRequest
             'reservation_type'          => ['required', 'string', 'in:one-way,round-trip,hourly'],
             'first_name'                => ['required', 'string', 'max:80'],
             'last_name'                 => ['required', 'string', 'max:80'],
+            'company'                   => ['nullable', 'string', 'max:100'],
             'email'                     => ['required', 'string', 'email:rfc', 'max:150'],
             'phone'                     => ['required', 'regex:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/'],
             'pickup_date'               => ['required', 'date'],
