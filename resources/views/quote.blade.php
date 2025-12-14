@@ -19,7 +19,7 @@
                             now – Customer service available 24 hours a day, 7 days a week. You can call us anytime @
                             <span class="font-semibold text-slate-900">+1 (713) 787-5466</span>. The International callers can
                             contact at the same number <span class="font-semibold text-slate-900">+1 (713) 787-5466</span>. For
-                            more enquiries, email us at <span class="font-semibold text-slate-900">quotes@royalcarriages.com</span>.
+                            more enquiries, email us at <span class="font-semibold text-slate-900">quote@limoserviceinhouston.com</span>.
                         </p>
                         <p class="text-lg font-semibold text-slate-900">Thank you for your trust!</p>
                     </div>

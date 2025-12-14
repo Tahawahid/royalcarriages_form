@@ -197,7 +197,7 @@
                     <p class="contact-subtitle">Have questions or need to modify your request? We're here to help!</p>
                     <a href="tel:+17137875466" class="contact-phone">📱 Call: (713) 787-5466</a>
                     <div class="contact-hours"><strong>Business Hours:</strong> Monday - Sunday, 24/7</div>
-                    <div class="contact-email"><strong>Email:</strong> <a href="mailto:quotes@royalcarriages.com">quotes@royalcarriages.com</a></div>
+                    <div class="contact-email"><strong>Email:</strong> <a href="mailto:quote@limoserviceinhouston.com">quote@limoserviceinhouston.com</a></div>
                 </div>
                 
                 <div class="closing-section">

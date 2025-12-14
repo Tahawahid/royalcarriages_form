@@ -23,7 +23,7 @@
         </div>
         
         <div class="text-xs text-slate-400">
-            <p>Contact: +1 (713) 787-5466 | quotes@royalcarriages.com</p>
+            <p>Contact: +1 (713) 787-5466 | quote@limoserviceinhouston.com</p>
         </div>
     </div>
 </section>
