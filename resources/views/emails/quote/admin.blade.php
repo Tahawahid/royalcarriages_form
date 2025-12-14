@@ -159,7 +159,7 @@
                                 <div class="info-value">{{ $data['passengers'] ?? 'Not specified' }}</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-label">Number of Suits:</div>
+                                <div class="info-label">Number of Suitcases:</div>
                                 <div class="info-value">{{ $data['suitcases'] ?? 'Not specified' }}</div>
                             </div>
                         </div>
