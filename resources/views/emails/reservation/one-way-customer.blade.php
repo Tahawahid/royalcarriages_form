@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One-Way Reservation Confirmation - Royal Carriages</title>
+    <title>One-Way Reservation Confirmation - Limo Service in Houston</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #f1f5f9; }
         .email-container { width: 100%; padding: 20px 15px; box-sizing: border-box; }
@@ -71,14 +71,14 @@
             <div class="header">
                 <div class="header-content">
                     <div class="urgent-badge">Reservation received</div>
-                    <h1 class="company-logo">Royal Carriages Limousines</h1>
+                    <h1 class="company-logo">Limo Service in Houston</h1>
                     <p class="header-title">Your One-Way Reservation Request</p>
                 </div>
             </div>
             
             <div class="content">
                 <div class="alert-banner">
-                    <p class="alert-text">Thank you for choosing Royal Carriages. We are reviewing your one-way request and will confirm your trip within 24 hours.</p>
+                    <p class="alert-text">Thank you for choosing Limo Service in Houston. We are reviewing your one-way request and will confirm your trip within 24 hours.</p>
                 </div>
                 
                 <div class="section">
@@ -231,15 +231,16 @@
                 </div>
                 
                 <div class="closing-note">
-                    <span class="closing-strong">Thank you for trusting Royal Carriages.</span> We are excited to provide a smooth, punctual, and comfortable experience for your upcoming ride.
+                    <span class="closing-strong">Thank you for trusting Limo Service in Houston.</span> We are excited to provide a smooth, punctual, and comfortable experience for your upcoming ride.
                 </div>
             </div>
             
             <div class="footer">
-                Royal Carriages Limousines &middot; Luxury Transportation Services<br>
+                Limo Service in Houston &middot; Luxury Transportation Services<br>
                 This confirmation was sent on {{ date('F j, Y \\a\\t g:i A T') }}
             </div>
         </div>
     </div>
 </body>
 </html>
+

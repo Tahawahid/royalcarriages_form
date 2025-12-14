@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quote Confirmation - Royal Carriages</title>
+    <title>Quote Confirmation - Limo Service in Houston</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: linear-gradient(135deg, #f0f4ff 0%, #e0f2fe 100%); }
         .email-container { width: 100%; padding: 30px 15px; box-sizing: border-box; }
@@ -90,7 +90,7 @@
         <div class="container">
             <div class="header">
                 <div class="logo-section">
-                    <h1 class="company-logo">Royal Carriages</h1>
+                    <h1 class="company-logo">Limo Service in Houston</h1>
                     <p class="company-subtitle">Limousines & Charter • Worldwide Transportation</p>
                     <h2 class="header-title">Quote Request Received!</h2>
                     <p class="header-message">We'll get back to you soon with your personalized quote 💫</p>
@@ -102,7 +102,7 @@
                     <span class="greeting-emoji">👋</span>Hi {{ $data['first_name'] }},
                 </div>
                 <p class="intro-text">
-                    Thank you for your interest in Royal Carriages! We have received your quote request and our team will review your requirements and provide you with a <span class="highlight-text">personalized quote within 24 hours</span>. We're excited to help make your transportation experience exceptional!
+                    Thank you for your interest in Limo Service in Houston! We have received your quote request and our team will review your requirements and provide you with a <span class="highlight-text">personalized quote within 24 hours</span>. We're excited to help make your transportation experience exceptional!
                 </p>
                 
                 <div class="schedule-section">
@@ -202,7 +202,7 @@
                 
                 <div class="closing-section">
                     <div class="closing-icon">🌟</div>
-                    <h3 class="closing-title">Thank you for considering Royal Carriages!</h3>
+                    <h3 class="closing-title">Thank you for considering Limo Service in Houston!</h3>
                     <p class="closing-text">
                         We're committed to providing you with exceptional luxury transportation service.
                     </p>
@@ -211,10 +211,12 @@
             </div>
             
             <div class="footer">
-                <div class="footer-company">Royal Carriages • Luxury Transportation Services</div>
+                <div class="footer-company">Limo Service in Houston • Luxury Transportation Services</div>
                 <div class="footer-timestamp">This is an automated confirmation email sent on {{ date('F j, Y \a\t g:i A T') }}</div>
             </div>
         </div>
     </div>
 </body>
 </html>
+
+

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New One-Way Reservation - Royal Carriages</title>
+    <title>New One-Way Reservation - Limo Service in Houston</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #f1f5f9; }
         .email-container { width: 100%; padding: 20px 15px; box-sizing: border-box; }
@@ -69,7 +69,7 @@
             <div class="header">
                 <div class="header-content">
                     <div class="urgent-badge">🚨 New One-Way Reservation</div>
-                    <h1 class="company-logo">Royal Carriages Limousines</h1>
+                    <h1 class="company-logo">Limo Service in Houston</h1>
                     <p class="header-title">One-Way Reservation Notification</p>
                 </div>
             </div>
@@ -223,7 +223,7 @@
             <div class="footer">
                 <div class="footer-grid">
                     <div class="footer-info">
-                        <strong>Royal Carriages Limousines</strong><br>
+                        <strong>Limo Service in Houston</strong><br>
                         Admin Notification System
                     </div>
                     <div class="footer-timestamp">
@@ -236,3 +236,4 @@
     </div>
 </body>
 </html>
+
