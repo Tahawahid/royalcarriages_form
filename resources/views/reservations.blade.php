@@ -193,15 +193,15 @@
                             </div>
                         </div>
 
-                        <div class="vehicle-display hidden grid gap-6 md:grid-cols-2">
+                        <div id="vehicle-display" class="vehicle-display hidden grid gap-6 md:grid-cols-2">
                             <div>
                                 <h4 class="mb-2 text-sm font-medium text-slate-700">Selected Vehicle</h4>
-                                <div class="vehicle-name text-lg font-semibold text-slate-900"></div>
-                                <div class="vehicle-capacity mt-1 text-2xl font-bold text-red-600"></div>
+                                <div id="vehicle-name" class="vehicle-name text-lg font-semibold text-slate-900"></div>
+                                <div id="vehicle-capacity" class="vehicle-capacity mt-1 text-2xl font-bold text-red-600"></div>
                             </div>
                             <div>
                                 <div class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-                                    <img src="" alt="" class="vehicle-image h-48 w-full rounded-lg bg-slate-100 object-cover">
+                                    <img id="vehicle-image" src="" alt="" class="vehicle-image h-48 w-full rounded-lg bg-slate-100 object-cover">
                                 </div>
                             </div>
                         </div>
@@ -412,15 +412,15 @@
                             </div>
                         </div>
 
-                        <div class="vehicle-display hidden grid gap-6 md:grid-cols-2">
+                        <div id="vehicle-display" class="vehicle-display hidden grid gap-6 md:grid-cols-2">
                             <div>
                                 <h4 class="mb-2 text-sm font-medium text-slate-700">Selected Vehicle</h4>
-                                <div class="vehicle-name text-lg font-semibold text-slate-900"></div>
-                                <div class="vehicle-capacity mt-1 text-2xl font-bold text-red-600"></div>
+                                <div id="vehicle-name" class="vehicle-name text-lg font-semibold text-slate-900"></div>
+                                <div id="vehicle-capacity" class="vehicle-capacity mt-1 text-2xl font-bold text-red-600"></div>
                             </div>
                             <div>
                                 <div class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-                                    <img src="" alt="" class="vehicle-image h-48 w-full rounded-lg bg-slate-100 object-cover">
+                                    <img id="vehicle-image" src="" alt="" class="vehicle-image h-48 w-full rounded-lg bg-slate-100 object-cover">
                                 </div>
                             </div>
                         </div>
@@ -676,15 +676,15 @@
                             </div>
                         </div>
 
-                        <div class="vehicle-display hidden grid gap-6 md:grid-cols-2">
+                        <div id="vehicle-display" class="vehicle-display hidden grid gap-6 md:grid-cols-2">
                             <div>
                                 <h4 class="mb-2 text-sm font-medium text-slate-700">Selected Vehicle</h4>
-                                <div class="vehicle-name text-lg font-semibold text-slate-900"></div>
-                                <div class="vehicle-capacity mt-1 text-2xl font-bold text-red-600"></div>
+                                <div id="vehicle-name" class="vehicle-name text-lg font-semibold text-slate-900"></div>
+                                <div id="vehicle-capacity" class="vehicle-capacity mt-1 text-2xl font-bold text-red-600"></div>
                             </div>
                             <div>
                                 <div class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-                                    <img src="" alt="" class="vehicle-image h-48 w-full rounded-lg bg-slate-100 object-cover">
+                                    <img id="vehicle-image" src="" alt="" class="vehicle-image h-48 w-full rounded-lg bg-slate-100 object-cover">
                                 </div>
                             </div>
                         </div>
