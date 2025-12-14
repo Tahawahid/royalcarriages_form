@@ -19,3 +19,16 @@ Route::view('/reservations', 'reservations')->name('reservations');
 Route::post('/reservations', ReservationController::class)
     ->middleware('throttle:10,1')
     ->name('reservations.store');
+
+Route::get('/debug-reservations', function() {
+    try {
+        return view('reservations');
+    } catch (Exception $e) {
+        return response()->json([
+            'error' => $e->getMessage(),
+            'file' => $e->getFile(),
+            'line' => $e->getLine(),
+            'trace' => $e->getTraceAsString()
+        ]);
+    }
+});
