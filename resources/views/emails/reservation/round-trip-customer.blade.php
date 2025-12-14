@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Round-Trip Reservation Confirmation - Limo Service in Houston</title>
+    <title>Round-Trip Reservation Confirmation - Best Limousines</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #f1f5f9; }
         .email-container { width: 100%; padding: 20px 15px; box-sizing: border-box; }
@@ -73,14 +73,14 @@
             <div class="header">
                 <div class="header-content">
                     <div class="urgent-badge">Reservation received</div>
-                    <h1 class="company-logo">Limo Service in Houston</h1>
+                    <h1 class="company-logo">Best Limousines</h1>
                     <p class="header-title">Your Round-Trip Reservation Request</p>
                 </div>
             </div>
             
             <div class="content">
                 <div class="alert-banner">
-                    <p class="alert-text">Thank you for choosing Limo Service in Houston. We are reviewing both legs of your round-trip request and will confirm details within 24 hours.</p>
+                    <p class="alert-text">Thank you for choosing Best Limousines. We are reviewing both legs of your round-trip request and will confirm details within 24 hours.</p>
                 </div>
                 
                 <div class="section">
@@ -271,12 +271,12 @@
                 </div>
                 
                 <div class="closing-note">
-                    <span class="closing-strong">Thank you for trusting Limo Service in Houston.</span> We are excited to care for both segments of your journey and will keep you informed every step of the way.
+                    <span class="closing-strong">Thank you for trusting Best Limousines.</span> We are excited to care for both segments of your journey and will keep you informed every step of the way.
                 </div>
             </div>
             
             <div class="footer">
-                Limo Service in Houston &middot; Luxury Transportation Services<br>
+                Best Limousines &middot; Luxury Transportation Services<br>
                 This confirmation was sent on {{ date('F j, Y \\a\\t g:i A T') }}
             </div>
         </div>

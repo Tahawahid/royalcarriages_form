@@ -23,7 +23,7 @@
         </div>
         
         <div class="text-xs text-slate-400">
-            <p>Contact: +1 (713) 787-5466 | quote@limoserviceinhouston.com</p>
+            <p>Contact: +1 (713) 787-5466 | quote@bestlimousines.com</p>
         </div>
     </div>
 </section>

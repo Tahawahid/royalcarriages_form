@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Round-Trip Reservation - Limo Service in Houston</title>
+    <title>New Round-Trip Reservation - Best Limousines</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #f1f5f9; }
         .email-container { width: 100%; padding: 20px 15px; box-sizing: border-box; }
@@ -71,7 +71,7 @@
             <div class="header">
                 <div class="header-content">
                     <div class="urgent-badge">🚨 New Round-Trip Reservation</div>
-                    <h1 class="company-logo">Limo Service in Houston</h1>
+                    <h1 class="company-logo">Best Limousines</h1>
                     <p class="header-title">Round-Trip Reservation Notification</p>
                 </div>
             </div>
@@ -262,7 +262,7 @@
             <div class="footer">
                 <div class="footer-grid">
                     <div class="footer-info">
-                        <strong>Limo Service in Houston</strong><br>
+                        <strong>Best Limousines</strong><br>
                         Admin Notification System
                     </div>
                     <div class="footer-timestamp">

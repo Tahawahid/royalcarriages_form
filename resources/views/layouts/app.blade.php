@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="asset-url" content="{{ asset('') }}">
 
-    <title>{{ config('app.name', 'Limo Service in Houston') }}</title>
+    <title>{{ config('app.name', 'Best Limousines') }}</title>
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
@@ -17,7 +17,7 @@
         <header class="border-b border-slate-200 bg-white/90 backdrop-blur">
             <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
                 <div class="flex items-center gap-3">
-                    <img src="{{ asset('assets/images/logo-1.jpeg') }}" alt="Limo Service in Houston" class="h-10 w-auto object-contain" loading="lazy">
+                    <img src="{{ asset('assets/images/logo-2.jpg') }}" alt="Best Limousines" class="h-10 w-auto object-contain" loading="lazy">
                     
                 </div>
                 <div class="hidden items-center gap-4 text-sm font-medium text-slate-700 md:flex">
@@ -38,11 +38,11 @@
         <footer class="border-t border-slate-200 bg-white">
             <div class="mx-auto flex w-full max-w-6xl flex-col gap-3 px-6 py-6 text-sm text-slate-600 md:flex-row md:items-center md:justify-between">
                 <div class="flex items-center gap-3">
-                    <img src="{{ asset('assets/images/logo-1.jpeg') }}" alt="Limo Service in Houston" class="h-8 w-auto object-contain" loading="lazy">
+                    <img src="{{ asset('assets/images/logo-2.jpg') }}" alt="Best Limousines" class="h-8 w-auto object-contain" loading="lazy">
                 </div>
                 <div class="flex flex-wrap gap-3">
-                    <a href="mailto:quote@limoserviceinhouston.com" class="rounded-full bg-slate-100 px-3 py-1.5 text-slate-700 transition hover:bg-amber-50 hover:text-amber-700">
-                        quote@limoserviceinhouston.com
+                    <a href="mailto:quote@bestlimousines.com" class="rounded-full bg-slate-100 px-3 py-1.5 text-slate-700 transition hover:bg-amber-50 hover:text-amber-700">
+                        quote@bestlimousines.com
                     </a>
                     <span class="rounded-full bg-slate-100 px-3 py-1.5 text-slate-700">Available 24/7</span>
                 </div>

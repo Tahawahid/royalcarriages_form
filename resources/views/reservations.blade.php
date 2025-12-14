@@ -14,7 +14,7 @@
     <section class="mx-auto max-w-6xl px-6 py-12 md:py-16">
         <div class="space-y-6">
             <div class="text-center">
-                <img src="{{ asset('assets/images/logo-1.jpeg') }}" alt="Limo Service in Houston" class="mx-auto h-12 w-auto object-contain" loading="lazy">
+                <img src="{{ asset('assets/images/logo-2.jpg') }}" alt="Best Limousines" class="mx-auto h-12 w-auto object-contain" loading="lazy">
                 <h1 class="mt-3 text-4xl font-semibold text-slate-900 md:text-5xl">Book Your Reservation</h1>
                 <p class="mt-2 text-base text-slate-600">
                     Choose your trip type and complete the form. We'll confirm promptly.
@@ -275,11 +275,11 @@
                         <div class="space-y-2">
                             <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
                                 <input type="checkbox" name="consent_contact" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500">
-                                <span>By submitting this form, I consent to be contacted by Limo Service in Houston via call, text, or email regarding services or inquiries.</span>
+                                <span>By submitting this form, I consent to be contacted by Best Limousines via call, text, or email regarding services or inquiries.</span>
                             </label>
                             <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
                                 <input type="checkbox" name="consent_promotions" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500">
-                                <span>I agree to receive news, offers, and promotional messages from Limo Service in Houston.</span>
+                                <span>I agree to receive news, offers, and promotional messages from Best Limousines.</span>
                             </label>
                         </div>
 
@@ -539,11 +539,11 @@
                         <div class="space-y-2">
                             <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
                                 <input type="checkbox" name="consent_contact" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500">
-                                <span>By submitting this form, I consent to be contacted by Limo Service in Houston via call, text, or email regarding services or inquiries.</span>
+                                <span>By submitting this form, I consent to be contacted by Best Limousines via call, text, or email regarding services or inquiries.</span>
                             </label>
                             <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
                                 <input type="checkbox" name="consent_promotions" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500">
-                                <span>I agree to receive news, offers, and promotional messages from Limo Service in Houston.</span>
+                                <span>I agree to receive news, offers, and promotional messages from Best Limousines.</span>
                             </label>
                         </div>
 
@@ -758,11 +758,11 @@
                         <div class="space-y-2">
                             <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
                                 <input type="checkbox" name="consent_contact" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500">
-                                <span>By submitting this form, I consent to be contacted by Limo Service in Houston via call, text, or email regarding services or inquiries.</span>
+                                <span>By submitting this form, I consent to be contacted by Best Limousines via call, text, or email regarding services or inquiries.</span>
                             </label>
                             <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
                                 <input type="checkbox" name="consent_promotions" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500">
-                                <span>I agree to receive news, offers, and promotional messages from Limo Service in Houston.</span>
+                                <span>I agree to receive news, offers, and promotional messages from Best Limousines.</span>
                             </label>
                         </div>
 
