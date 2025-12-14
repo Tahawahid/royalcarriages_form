@@ -187,6 +187,7 @@
                         <li><strong>Quote:</strong> We'll prepare a personalized quote with transparent pricing</li>
                         <li><strong>Contact:</strong> You'll receive your quote via email or phone within 24 hours</li>
                         <li><strong>Book:</strong> Simply confirm your booking and we'll handle the rest!</li>
+                        <li><strong>Queries:</strong> If you have any queries regarding anything, please call us on (713) 787-5466.</li>
                     </ul>
                 </div>
                 
