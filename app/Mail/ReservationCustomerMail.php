@@ -36,7 +36,7 @@ class ReservationCustomerMail extends Mailable
     public function content(): Content
     {
         $reservationType = $this->data['reservation_type'] ?? 'one-way';
-        $template        = "emails.reservation.{$reservationType}-customer";
+        $template        = "emails.reservation.royal-{$reservationType}-customer";
 
         return new Content(
             view: $template,

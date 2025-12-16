@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class QuoteAdminMail extends Mailable
+class BestLimoQuoteAdminMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -24,7 +24,7 @@ class QuoteAdminMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Quote Royal Carriages Limousines',
+            subject: 'Quote Best Limousines',
         );
     }
 
@@ -34,7 +34,7 @@ class QuoteAdminMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.quote.royal-admin',
+            view: 'emails.quote.admin',
             with: [
                 'data' => $this->data,
             ],

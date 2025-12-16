@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.royal-app')
 
 @php
     $timeOptions = [];
@@ -14,7 +14,7 @@
     <section class="mx-auto max-w-6xl px-6 py-12 md:py-16">
         <div class="space-y-6">
             <div class="text-center">
-                <img src="{{ asset('assets/images/logo-2.jpg') }}" alt="Best Limousines" class="mx-auto h-12 w-auto object-contain" loading="lazy">
+                <img src="{{ asset('assets/images/logo.png') }}" alt="Royal Carriages" class="mx-auto h-12 w-auto object-contain" loading="lazy">
                 <h1 class="mt-3 text-4xl font-semibold text-slate-900 md:text-5xl">Book Your Reservation</h1>
                 <p class="mt-2 text-base text-slate-600">
                     Choose your trip type and complete the form. We'll confirm promptly.
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="space-y-8">
-                    <form class="reservation-form space-y-6" data-form="one-way" action="{{ route('best-limo.reservations.store') }}" method="POST">
+                    <form class="reservation-form space-y-6" data-form="one-way" action="{{ route('royal.reservations.store') }}" method="POST">
                         @csrf
                         <input type="hidden" name="website" value="">
                         <input type="hidden" name="reservation_type" value="one-way">
@@ -291,7 +291,7 @@
                         </div>
                     </form>
 
-                    <form class="reservation-form hidden space-y-6" data-form="round-trip" action="{{ route('best-limo.reservations.store') }}" method="POST">
+                    <form class="reservation-form hidden space-y-6" data-form="round-trip" action="{{ route('royal.reservations.store') }}" method="POST">
                         @csrf
                         <input type="hidden" name="website" value="">
                         <input type="hidden" name="reservation_type" value="round-trip">
@@ -555,7 +555,7 @@
                         </div>
                     </form>
 
-                    <form class="reservation-form hidden space-y-6" data-form="hourly" action="{{ route('best-limo.reservations.store') }}" method="POST">
+                    <form class="reservation-form hidden space-y-6" data-form="hourly" action="{{ route('royal.reservations.store') }}" method="POST">
                         @csrf
                         <input type="hidden" name="website" value="">
                         <input type="hidden" name="reservation_type" value="hourly">

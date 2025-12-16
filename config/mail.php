@@ -37,23 +37,68 @@ return [
 
     'mailers' => [
 
-        'smtp' => [
-            'transport' => 'smtp',
-            'scheme' => env('MAIL_SCHEME'),
-            'url' => env('MAIL_URL'),
-            'host' => env('MAIL_HOST', '127.0.0.1'),
-            'port' => env('MAIL_PORT', 2525),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
-            'timeout' => null,
+        'smtp'            => [
+            'transport'    => 'smtp',
+            'scheme'       => env('MAIL_SCHEME'),
+            'url'          => env('MAIL_URL'),
+            'host'         => env('MAIL_HOST', '127.0.0.1'),
+            'port'         => env('MAIL_PORT', 2525),
+            'username'     => env('MAIL_USERNAME'),
+            'password'     => env('MAIL_PASSWORD'),
+            'timeout'      => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ],
 
-        'ses' => [
+        'royal_carriages' => [
+            'transport'    => 'smtp',
+            'host'         => 'smtp.ionos.com',
+            'port'         => 587,
+            'username'     => 'info@royalcarriages.com',
+            'password'     => 'Tony2025$$$$',
+            'encryption'   => 'tls',
+            'timeout'      => null,
+            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+            'from'         => [
+                'address' => 'info@royalcarriages.com',
+                'name'    => 'Royal Carriages',
+            ],
+        ],
+
+        'best_limousines' => [
+            'transport'    => 'smtp',
+            'host'         => 'smtp.ionos.com',
+            'port'         => 587,
+            'username'     => 'info@bestlimousines.com',
+            'password'     => 'Tony2025$$$$',
+            'encryption'   => 'tls',
+            'timeout'      => null,
+            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+            'from'         => [
+                'address' => 'info@bestlimousines.com',
+                'name'    => 'Best Limousines',
+            ],
+        ],
+
+        'houston_limo'    => [
+            'transport'    => 'smtp',
+            'host'         => 'smtp.ionos.com',
+            'port'         => 587,
+            'username'     => 'info@limoserviceinhouston.com',
+            'password'     => 'Tony2025$$$$',
+            'encryption'   => 'tls',
+            'timeout'      => null,
+            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+            'from'         => [
+                'address' => 'info@limoserviceinhouston.com',
+                'name'    => 'Limo Service In Houston',
+            ],
+        ],
+
+        'ses'             => [
             'transport' => 'ses',
         ],
 
-        'postmark' => [
+        'postmark'        => [
             'transport' => 'postmark',
             // 'message_stream_id' => env('POSTMARK_MESSAGE_STREAM_ID'),
             // 'client' => [
@@ -61,36 +106,36 @@ return [
             // ],
         ],
 
-        'resend' => [
+        'resend'          => [
             'transport' => 'resend',
         ],
 
-        'sendmail' => [
+        'sendmail'        => [
             'transport' => 'sendmail',
-            'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs -i'),
+            'path'      => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs -i'),
         ],
 
-        'log' => [
+        'log'             => [
             'transport' => 'log',
-            'channel' => env('MAIL_LOG_CHANNEL'),
+            'channel'   => env('MAIL_LOG_CHANNEL'),
         ],
 
-        'array' => [
+        'array'           => [
             'transport' => 'array',
         ],
 
-        'failover' => [
-            'transport' => 'failover',
-            'mailers' => [
+        'failover'        => [
+            'transport'   => 'failover',
+            'mailers'     => [
                 'smtp',
                 'log',
             ],
             'retry_after' => 60,
         ],
 
-        'roundrobin' => [
-            'transport' => 'roundrobin',
-            'mailers' => [
+        'roundrobin'      => [
+            'transport'   => 'roundrobin',
+            'mailers'     => [
                 'ses',
                 'postmark',
             ],
@@ -110,9 +155,9 @@ return [
     |
     */
 
-    'from' => [
+    'from'    => [
         'address' => env('MAIL_FROM_ADDRESS', 'info@royalcarriages.com'),
-        'name' => env('MAIL_FROM_NAME', 'Royal Carriages'),
+        'name'    => env('MAIL_FROM_NAME', 'Royal Carriages'),
     ],
 
 ];

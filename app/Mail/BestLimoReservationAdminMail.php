@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class QuoteAdminMail extends Mailable
+class BestLimoReservationAdminMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -19,22 +19,26 @@ class QuoteAdminMail extends Mailable
     ) {}
 
     /**
-     * Create a new message instance.
+     * Get the message envelope.
      */
     public function envelope(): Envelope
     {
+        $reservationType = ucwords(str_replace('-', ' ', $this->data['reservation_type'] ?? 'Reservation'));
         return new Envelope(
-            subject: 'Quote Royal Carriages Limousines',
+            subject: $reservationType . ' Reservation Best Limousines',
         );
     }
 
     /**
-     * Get the message envelope.
+     * Get the message content definition.
      */
     public function content(): Content
     {
+        $reservationType = $this->data['reservation_type'] ?? 'one-way';
+        $template        = "emails.reservation.{$reservationType}-admin";
+
         return new Content(
-            view: 'emails.quote.royal-admin',
+            view: $template,
             with: [
                 'data' => $this->data,
             ],

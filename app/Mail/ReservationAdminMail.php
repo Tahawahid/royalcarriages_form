@@ -35,7 +35,7 @@ class ReservationAdminMail extends Mailable
     public function content(): Content
     {
         $reservationType = $this->data['reservation_type'] ?? 'one-way';
-        $template        = "emails.reservation.{$reservationType}-admin";
+        $template        = "emails.reservation.royal-{$reservationType}-admin";
 
         return new Content(
             view: $template,

@@ -1,15 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.royal-app')
 
 @section('content')
     <section class="mx-auto max-w-5xl px-6 py-12 md:py-16">
         <div class="space-y-8">
             <div class="space-y-6 text-center">
-                <p class="text-sm font-semibold uppercase tracking-[0.08em] text-amber-600">Best Limousines</p>
+                <p class="text-sm font-semibold uppercase tracking-[0.08em] text-amber-600">Royal Carriages</p>
                 <h1 class="text-4xl font-semibold leading-tight text-slate-900 md:text-5xl">Get A Quote</h1>
                 <div class="space-y-4">
                     <p class="text-lg text-slate-700 md:text-xl">
                         If you are looking for more information about luxury vehicles and packages offered by our company
-                        'Best Limousines', please fill out the online quote form available below. Just go through the form
+                        'Royal Carriages', please fill out the online quote form available below. Just go through the form
                         and fill out each section so that we can accurately quote your prices based on your requirements.
                     </p>
                     <div class="space-y-3 rounded-2xl bg-amber-50 px-6 py-6 ring-1 ring-amber-200">
@@ -19,7 +19,7 @@
                             now – Customer service available 24 hours a day, 7 days a week. You can call us anytime @
                             <span class="font-semibold text-slate-900">+1 (713) 787-5466</span>. The International callers can
                             contact at the same number <span class="font-semibold text-slate-900">+1 (713) 787-5466</span>. For
-                            more enquiries, email us at <span class="font-semibold text-slate-900">quote@bestlimousines.com</span>.
+                            more enquiries, email us at <span class="font-semibold text-slate-900">quote@royalcarriages.com</span>.
                         </p>
                         <p class="text-lg font-semibold text-slate-900">Thank you for your trust!</p>
                     </div>
@@ -30,7 +30,7 @@
                  data-places-key="{{ config('services.google_places.key') }}">
                 <div class="mb-4">
                     <p class="text-sm font-semibold text-amber-600">Quote Form</p>
-                    <p class="text-2xl font-semibold text-slate-900">Best Limousines Quote Request</p>
+                    <p class="text-2xl font-semibold text-slate-900">Royal Carriages Quote Request</p>
                 </div>
 
                 @if (session('status'))
@@ -39,7 +39,7 @@
                     </div>
                 @endif
 
-                <form id="quote-form" class="space-y-6" action="{{ route('best-limo.quote.store') }}" method="POST">
+                <form id="quote-form" class="space-y-6" action="{{ route('royal.quote.store') }}" method="POST">
                     @csrf
 
                     <div class="grid gap-4 md:grid-cols-2">
@@ -208,11 +208,11 @@
                     <div class="space-y-2">
                         <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
                             <input type="checkbox" name="consent_contact" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500">
-                            <span>By submitting this form, I consent to be contacted by Best Limousines via call, text, or email regarding services or inquiries.</span>
+                            <span>By submitting this form, I consent to be contacted by Royal Carriages via call, text, or email regarding services or inquiries.</span>
                         </label>
                         <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
                             <input type="checkbox" name="consent_promotions" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500">
-                            <span>I agree to receive news, offers, and promotional messages from Best Limousines.</span>
+                            <span>I agree to receive news, offers, and promotional messages from Royal Carriages.</span>
                         </label>
                     </div>
 
@@ -254,4 +254,3 @@
         <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     @endif
 @endsection
-

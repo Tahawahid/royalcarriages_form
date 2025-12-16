@@ -17,14 +17,14 @@
         <header class="border-b border-slate-200 bg-white/90 backdrop-blur">
             <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
                 <div class="flex items-center gap-3">
-                    <img src="{{ asset('assets/images/logo-2.jpg') }}" alt="Best Limousines" class="h-10 w-auto object-contain" loading="lazy">
+                    <img src="{{ asset('assets/images/logo-1.jpeg') }}" alt="Limo Service In Houston" class="h-10 w-auto object-contain" loading="lazy">
                     
                 </div>
                 <div class="hidden items-center gap-4 text-sm font-medium text-slate-700 md:flex">
-                    <a href="{{ route('best-limo.quote') }}" class="rounded-full px-3 py-1 transition hover:text-amber-700">Get a Quote</a>
-                    <a href="{{ route('best-limo.reservations') }}" class="rounded-full px-3 py-1 transition hover:text-amber-700">Reservations</a>
-                    <span class="rounded-full bg-slate-100 px-3 py-1">Call: (743) 974-5466</span>
-                    <a href="{{ route('best-limo.quote') }}" class="rounded-full bg-slate-900 px-4 py-2 text-white shadow-sm transition hover:bg-amber-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500">
+                    <a href="{{ route('houston.quote') }}" class="rounded-full px-3 py-1 transition hover:text-amber-700">Get a Quote</a>
+                    <a href="{{ route('houston.reservations') }}" class="rounded-full px-3 py-1 transition hover:text-amber-700">Reservations</a>
+                    <span class="rounded-full bg-slate-100 px-3 py-1">Call: (713) 266-5466</span>
+                    <a href="{{ route('houston.quote') }}" class="rounded-full bg-slate-900 px-4 py-2 text-white shadow-sm transition hover:bg-amber-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500">
                         Start
                     </a>
                 </div>
@@ -38,11 +38,11 @@
         <footer class="border-t border-slate-200 bg-white">
             <div class="mx-auto flex w-full max-w-6xl flex-col gap-3 px-6 py-6 text-sm text-slate-600 md:flex-row md:items-center md:justify-between">
                 <div class="flex items-center gap-3">
-                    <img src="{{ asset('assets/images/logo-2.jpg') }}" alt="Best Limousines" class="h-8 w-auto object-contain" loading="lazy">
+                    <img src="{{ asset('assets/images/logo-1.jpeg') }}" alt="Limo Service In Houston" class="h-8 w-auto object-contain" loading="lazy">
                 </div>
                 <div class="flex flex-wrap gap-3">
-                    <a href="mailto:info@bestlimousines.com" class="rounded-full bg-slate-100 px-3 py-1.5 text-slate-700 transition hover:bg-amber-50 hover:text-amber-700">
-                        info@bestlimousines.com
+                    <a href="mailto:info@limoserviceinhouston.com" class="rounded-full bg-slate-100 px-3 py-1.5 text-slate-700 transition hover:bg-amber-50 hover:text-amber-700">
+                        info@limoserviceinhouston.com
                     </a>
                     <span class="rounded-full bg-slate-100 px-3 py-1.5 text-slate-700">Available 24/7</span>
                 </div>

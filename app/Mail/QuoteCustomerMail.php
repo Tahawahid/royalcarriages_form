@@ -34,7 +34,7 @@ class QuoteCustomerMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.quote.customer',
+            view: 'emails.quote.royal-customer',
             with: [
                 'data' => $this->data,
             ],

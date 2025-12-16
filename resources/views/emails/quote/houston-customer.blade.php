@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quote Confirmation - Best Limousines</title>
+    <title>Quote Confirmation - Limo Service In Houston</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: linear-gradient(135deg, #f0f4ff 0%, #e0f2fe 100%); }
         .email-container { width: 100%; padding: 30px 15px; box-sizing: border-box; }
@@ -90,7 +90,7 @@
         <div class="container">
             <div class="header">
                 <div class="logo-section">
-                    <h1 class="company-logo">Best Limousines</h1>
+                    <h1 class="company-logo">Limo Service In Houston</h1>
                     <p class="company-subtitle">Limousines & Charter • Worldwide Transportation</p>
                     <h2 class="header-title">Quote Request Received!</h2>
                     <p class="header-message">We'll get back to you soon with your personalized quote 💫</p>
@@ -102,7 +102,7 @@
                     <span class="greeting-emoji">👋</span>Hi {{ $data['first_name'] }},
                 </div>
                 <p class="intro-text">
-                    Thank you for your interest in Best Limousines! We have received your quote request and our team will review your requirements and provide you with a <span class="highlight-text">personalized quote within 24 hours</span>. We're excited to help make your transportation experience exceptional!
+                    Thank you for your interest in Limo Service In Houston! We have received your quote request and our team will review your requirements and provide you with a <span class="highlight-text">personalized quote within 24 hours</span>. We're excited to help make your transportation experience exceptional!
                 </p>
                 
                 <div class="schedule-section">
@@ -187,7 +187,7 @@
                         <li><strong>Quote:</strong> We'll prepare a personalized quote with transparent pricing</li>
                         <li><strong>Contact:</strong> You'll receive your quote via email or phone within 24 hours</li>
                         <li><strong>Book:</strong> Simply confirm your booking and we'll handle the rest!</li>
-                        <li><strong>Queries:</strong> If you have any queries regarding anything, please call us on (743) 974-5466.</li>
+                        <li><strong>Queries:</strong> If you have any queries regarding anything, please call us on (713) 266-5466.</li>
                     </ul>
                 </div>
                 
@@ -195,9 +195,9 @@
                     <div class="contact-icon">📞</div>
                     <h3 class="contact-title">Need to Speak with Us?</h3>
                     <p class="contact-subtitle">Have questions or need to modify your request? We're here to help!</p>
-                    <a href="tel:+17439745466" class="contact-phone">📱 Call: (743) 974-5466</a>
+                    <a href="tel:+17132665466" class="contact-phone">📱 Call: (713) 266-5466</a>
                     <div class="contact-hours"><strong>Business Hours:</strong> Monday - Sunday, 24/7</div>
-                    <div class="contact-email"><strong>Email:</strong> <a href="mailto:info@bestlimousines.com">info@bestlimousines.com</a></div>
+                    <div class="contact-email"><strong>Email:</strong> <a href="mailto:info@limoserviceinhouston.com">info@limoserviceinhouston.com</a></div>
                 </div>
                 
                 <div class="closing-section">

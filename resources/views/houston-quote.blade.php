@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.houston-app')
 
 @section('content')
     <section class="mx-auto max-w-5xl px-6 py-12 md:py-16">
         <div class="space-y-8">
             <div class="space-y-6 text-center">
-                <p class="text-sm font-semibold uppercase tracking-[0.08em] text-amber-600">Best Limousines</p>
+                <p class="text-sm font-semibold uppercase tracking-[0.08em] text-amber-600">Limo Service In Houston</p>
                 <h1 class="text-4xl font-semibold leading-tight text-slate-900 md:text-5xl">Get A Quote</h1>
                 <div class="space-y-4">
                     <p class="text-lg text-slate-700 md:text-xl">
@@ -30,7 +30,7 @@
                  data-places-key="{{ config('services.google_places.key') }}">
                 <div class="mb-4">
                     <p class="text-sm font-semibold text-amber-600">Quote Form</p>
-                    <p class="text-2xl font-semibold text-slate-900">Best Limousines Quote Request</p>
+                    <p class="text-2xl font-semibold text-slate-900">Limo Service In Houston Quote Request</p>
                 </div>
 
                 @if (session('status'))
@@ -39,7 +39,7 @@
                     </div>
                 @endif
 
-                <form id="quote-form" class="space-y-6" action="{{ route('best-limo.quote.store') }}" method="POST">
+                <form id="quote-form" class="space-y-6" action="{{ route('houston.quote.store') }}" method="POST">
                     @csrf
 
                     <div class="grid gap-4 md:grid-cols-2">

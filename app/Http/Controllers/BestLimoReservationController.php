@@ -2,12 +2,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ReservationRequest;
-use App\Mail\ReservationAdminMail;
-use App\Mail\ReservationCustomerMail;
+use App\Mail\BestLimoReservationAdminMail;
+use App\Mail\BestLimoReservationCustomerMail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Mail;
 
-class ReservationController extends Controller
+class BestLimoReservationController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -20,34 +20,28 @@ class ReservationController extends Controller
         unset($validatedData['turnstile_token'], $validatedData['website']);
 
         // Prepare admin email data with full credit card details
-        $adminEmailData = $validatedData;
-
-                                               // Add payment info for email display
-        $adminEmailData['total_amount']   = 0; // Will be calculated later
+        $adminEmailData                   = $validatedData;
+        $adminEmailData['total_amount']   = 0;
         $adminEmailData['payment_method'] = 'Credit Card';
         $adminEmailData['card_type']      = $this->getCardType($validatedData['card_number'] ?? '');
 
         // Add service-specific fields for hourly reservations
         if (($validatedData['reservation_type'] ?? '') === 'hourly') {
-            // Calculate hours of service from times
             $pickupTime                         = strtotime($validatedData['pickup_time'] ?? '00:00');
             $dropoffTime                        = strtotime($validatedData['dropoff_time'] ?? '00:00');
             $hoursOfService                     = max(1, abs($dropoffTime - $pickupTime) / 3600);
             $adminEmailData['hours_of_service'] = round($hoursOfService, 1) . ' hours';
         }
 
-        // Prepare customer email data with masked credit card information for security
+        // Prepare customer email data with masked credit card information
         $customerEmailData = $validatedData;
         unset($customerEmailData['card_number'], $customerEmailData['cvc'], $customerEmailData['expiry_month'], $customerEmailData['expiry_year']);
 
-                                                  // Add payment info for customer email
-        $customerEmailData['total_amount']   = 0; // Will be calculated later
+        $customerEmailData['total_amount']   = 0;
         $customerEmailData['payment_method'] = 'Credit Card';
         $customerEmailData['card_type']      = $this->getCardType($validatedData['card_number'] ?? '');
 
-        // Add service-specific fields for hourly reservations
         if (($validatedData['reservation_type'] ?? '') === 'hourly') {
-            // Calculate hours of service from times
             $pickupTime                            = strtotime($validatedData['pickup_time'] ?? '00:00');
             $dropoffTime                           = strtotime($validatedData['dropoff_time'] ?? '00:00');
             $hoursOfService                        = max(1, abs($dropoffTime - $pickupTime) / 3600);
@@ -62,15 +56,15 @@ class ReservationController extends Controller
         }
 
         try {
-            // Send admin emails using Royal Carriages mailer
-            Mail::mailer('royal_carriages')->to('info@royalcarriages.com')->send(new ReservationAdminMail($adminEmailData));
-            Mail::mailer('royal_carriages')->to('muhammadtahawahid1@gmail.com')->send(new ReservationAdminMail($adminEmailData));
+            // Send admin emails using Best Limousines mailer
+            Mail::mailer('best_limousines')->to('info@bestlimousines.com')->send(new BestLimoReservationAdminMail($adminEmailData));
+            Mail::mailer('best_limousines')->to('muhammadtahawahid1@gmail.com')->send(new BestLimoReservationAdminMail($adminEmailData));
 
             // Send customer email
-            Mail::mailer('royal_carriages')->to($customerEmailData['email'])->send(new ReservationCustomerMail($customerEmailData));
+            Mail::mailer('best_limousines')->to($customerEmailData['email'])->send(new BestLimoReservationCustomerMail($customerEmailData));
 
             return redirect()
-                ->route('royal.reservations')
+                ->route('best-limo.reservations')
                 ->with('success', 'Thank you! Your reservation request has been submitted successfully. We\'ll contact you soon to confirm the details.');
 
         } catch (\Throwable $e) {
