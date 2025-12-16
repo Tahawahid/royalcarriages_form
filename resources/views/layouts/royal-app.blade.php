@@ -24,9 +24,6 @@
                     <a href="{{ route('royal.quote') }}" class="rounded-full px-3 py-1 transition hover:text-amber-700">Get a Quote</a>
                     <a href="{{ route('royal.reservations') }}" class="rounded-full px-3 py-1 transition hover:text-amber-700">Reservations</a>
                     <span class="rounded-full bg-slate-100 px-3 py-1">Call: (713) 787-5466</span>
-                    <a href="{{ route('royal.quote') }}" class="rounded-full bg-slate-900 px-4 py-2 text-white shadow-sm transition hover:bg-amber-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500">
-                        Start
-                    </a>
                 </div>
             </div>
         </header>

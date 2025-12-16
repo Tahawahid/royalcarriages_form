@@ -17,9 +17,9 @@
                         <p class="text-base text-slate-700 md:text-lg">
                             To get an immediate assistance with a perfect quote, please get in touch with us via phone right
                             now – Customer service available 24 hours a day, 7 days a week. You can call us anytime @
-                            <span class="font-semibold text-slate-900">+1 (743) 974-5466</span>. The International callers can
-                            contact at the same number <span class="font-semibold text-slate-900">+1 (743) 974-5466</span>. For
-                            more enquiries, email us at <span class="font-semibold text-slate-900">info@royalcarriages.com</span>.
+                            <span class="font-semibold text-slate-900"><a href="tel:+1 (743) 974-5466">+1 (743) 974-5466</a></span>. The International callers can
+                            contact at the same number <span class="font-semibold text-slate-900"><a href="tel:+1 (743) 974-5466">+1 (743) 974-5466</a></span>. For
+                            more enquiries, email us at <span class="font-semibold text-slate-900"><a href="mailto:info@royalcarriages.com">info@royalcarriages.com</a></span>.
                         </p>
                         <p class="text-lg font-semibold text-slate-900">Thank you for your trust!</p>
                     </div>
