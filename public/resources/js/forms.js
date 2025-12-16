@@ -71,12 +71,36 @@ class RoyalCarriageForms {
         const submit = form.querySelector('button[type="submit"], input[type="submit"]');
         if (!submit) return;
 
-        // Check all required fields
+        // Check all required fields except optional ones
         const requiredFields = form.querySelectorAll('input[required], select[required], textarea[required]');
         const allValid = Array.from(requiredFields).every(el => {
+            // Skip optional fields that shouldn't block submission
+            if (el.name === 'other_requirements' || el.name === 'special_requirements') {
+                return true;
+            }
+            
             if (el.type === 'checkbox' || el.type === 'radio') {
                 return el.checked;
             }
+            
+            // Special validation for phone numbers (exactly 10 digits)
+            if (el.name === 'phone') {
+                const phoneValue = el.value.replace(/\D/g, ''); // Remove non-digits
+                return phoneValue.length === 10;
+            }
+            
+            // Special validation for card number (16 digits)
+            if (el.name === 'card_number') {
+                const cardValue = el.value.replace(/\D/g, ''); // Remove non-digits
+                return cardValue.length === 16;
+            }
+            
+            // Special validation for CVC (exactly 3 digits)
+            if (el.name === 'cvc') {
+                const cvcValue = el.value.replace(/\D/g, ''); // Remove non-digits
+                return cvcValue.length === 3;
+            }
+            
             return el.value && el.value.toString().trim().length > 0;
         });
 
@@ -104,7 +128,36 @@ class RoyalCarriageForms {
             form.dataset.validationAttached = 'true';
 
             form.querySelectorAll('input, select, textarea').forEach((field) => {
-                field.addEventListener('input', () => this.validateForm(form));
+                field.addEventListener('input', () => {
+                    // Format phone number to digits only (10 digits max)
+                    if (field.name === 'phone') {
+                        let value = field.value.replace(/\D/g, ''); // Remove non-digits
+                        if (value.length > 10) {
+                            value = value.substring(0, 10);
+                        }
+                        field.value = value;
+                    }
+                    
+                    // Format card number to digits only (16 digits max)
+                    if (field.name === 'card_number') {
+                        let value = field.value.replace(/\D/g, ''); // Remove non-digits
+                        if (value.length > 16) {
+                            value = value.substring(0, 16);
+                        }
+                        field.value = value;
+                    }
+                    
+                    // Format CVC to digits only (3 digits max)
+                    if (field.name === 'cvc') {
+                        let value = field.value.replace(/\D/g, ''); // Remove non-digits
+                        if (value.length > 3) {
+                            value = value.substring(0, 3);
+                        }
+                        field.value = value;
+                    }
+                    
+                    this.validateForm(form);
+                });
                 field.addEventListener('change', () => this.validateForm(form));
             });
             
