@@ -83,6 +83,19 @@
             .header-title { font-size: 24px; }
             .contact-phone { font-size: 24px; }
         }
+        
+        /* Outlook-specific fallbacks */
+        <!--[if mso]>
+        <style>
+            .detail-grid { display: block !important; }
+            .detail-item { display: inline-block !important; width: 48% !important; vertical-align: top !important; margin: 0 1% 10px 0 !important; }
+            .section-title { display: block !important; }
+            .location-header { display: block !important; }
+            .next-steps-title { display: block !important; }
+            .closing-icon { display: block !important; }
+            .header::before { display: none !important; }
+        </style>
+        <![endif]-->
     </style>
 </head>
 <body>

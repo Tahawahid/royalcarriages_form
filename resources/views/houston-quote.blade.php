@@ -19,7 +19,7 @@
                             now – Customer service available 24 hours a day, 7 days a week. You can call us anytime @
                             <span class="font-semibold text-slate-900"><a href="tel:+1 (713) 266-5466">+1 (713) 266-5466</a></span>. The International callers can
                             contact at the same number <span class="font-semibold text-slate-900"><a href="tel:+1 (713) 266-5466">+1 (713) 266-5466</a></span>. For
-                            more enquiries, email us at <span class="font-semibold text-slate-900"><a href="mailto:info@bestlimousines.com">info@bestlimousines.com</a></span>.
+                            more enquiries, email us at <span class="font-semibold text-slate-900"><a href="mailto:info@limoserviceinhouston.com">info@limoserviceinhouston.com</a></span>.
                         </p>
                         <p class="text-lg font-semibold text-slate-900">Thank you for your trust!</p>
                     </div>
@@ -113,7 +113,7 @@
                         <div>
                             <label for="pickup_location" class="text-sm font-medium text-slate-700">Pick-up Location</label>
                             <input id="pickup_location" name="pickup_location" type="text" required 
-                                   placeholder="Start typing an address"
+                                   placeholder="If Airport Pickup please provide the Airline and flight number"
                                    class="location-input mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200" />
                             <input type="hidden" name="pickup_place_id" class="place-id">
                         </div>
@@ -200,7 +200,7 @@
 
                     <div>
                         <label for="other_requirements" class="text-sm font-medium text-slate-700">Other Requirements</label>
-                        <textarea id="other_requirements" name="other_requirements" rows="3" required
+                        <textarea id="other_requirements" name="other_requirements" rows="3"
                                   placeholder="Share flight numbers, mobility needs, or special requests"
                                   class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200"></textarea>
                     </div>
@@ -254,4 +254,5 @@
         <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     @endif
 @endsection
+
 

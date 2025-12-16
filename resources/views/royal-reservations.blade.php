@@ -137,7 +137,7 @@
                         <div class="grid gap-4 md:grid-cols-2">
                             <div>
                                 <label class="text-sm font-medium text-slate-700">Pick-up Location</label>
-                                <input type="text" name="pickup_location" required placeholder="Start typing an address"
+                                <input type="text" name="pickup_location" required placeholder="If Airport Pickup please provide the Airline and flight number"
                                        class="location-input mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                                 <input type="hidden" name="pickup_place_id" class="place-id">
                             </div>
@@ -356,7 +356,7 @@
                         <div class="grid gap-4 md:grid-cols-2">
                             <div>
                                 <label class="text-sm font-medium text-slate-700">Pick-up Location</label>
-                                <input type="text" name="pickup_location" required placeholder="Start typing an address"
+                                <input type="text" name="pickup_location" required placeholder="If Airport Pickup please provide the Airline and flight number"
                                        class="location-input mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                                 <input type="hidden" name="pickup_place_id" class="place-id">
                             </div>
@@ -474,7 +474,7 @@
                         <div class="grid gap-4 md:grid-cols-2">
                             <div>
                                 <label class="text-sm font-medium text-slate-700">Return Pick-up Address</label>
-                                <input type="text" name="return_pickup_location" required placeholder="Start typing an address"
+                                <input type="text" name="return_pickup_location" required placeholder="If Airport Pickup please provide the Airline and flight number"
                                        class="location-input mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                                 <input type="hidden" name="return_pickup_place_id" class="place-id">
                             </div>
@@ -620,7 +620,7 @@
                         <div class="grid gap-4 md:grid-cols-2">
                             <div>
                                 <label class="text-sm font-medium text-slate-700">Pick-up Location</label>
-                                <input type="text" name="pickup_location" required placeholder="Start typing an address"
+                                <input type="text" name="pickup_location" required placeholder="If Airport Pickup please provide the Airline and flight number"
                                        class="location-input mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                                 <input type="hidden" name="pickup_place_id" class="place-id">
                             </div>
@@ -788,5 +788,7 @@
         <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     @endif
 @endsection
+
+
 
 

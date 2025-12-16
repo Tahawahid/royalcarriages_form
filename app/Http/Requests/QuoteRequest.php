@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -23,33 +22,33 @@ class QuoteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'first_name' => ['required', 'string', 'max:80'],
-            'last_name' => ['required', 'string', 'max:80'],
-            'email' => ['required', 'string', 'email:rfc', 'max:150'],
-            'phone' => ['required', 'regex:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/'],
-            'company' => ['nullable', 'string', 'max:120'],
-            'pickup_date' => ['required', 'date'],
-            'pickup_time' => ['required', 'string', 'max:10'],
-            'dropoff_time' => ['required', 'string', 'max:10'],
-            'pickup_location' => ['required', 'string', 'max:255'],
-            'pickup_place_id' => ['required', 'string', 'max:255'],
-            'dropoff_location' => ['required', 'string', 'max:255'],
-            'dropoff_place_id' => ['required', 'string', 'max:255'],
-            'service_type' => ['required', 'string', 'max:80'],
-            'vehicle_type' => ['required', 'string', 'max:120'],
-            'passengers' => ['required', 'integer', 'min:1', 'max:60'],
-            'other_requirements' => ['required', 'string', 'max:2000'],
-            'consent_contact' => ['accepted'],
+            'first_name'         => ['required', 'string', 'max:80'],
+            'last_name'          => ['required', 'string', 'max:80'],
+            'email'              => ['required', 'string', 'email:rfc', 'max:150'],
+            'phone'              => ['required', 'regex:/^[0-9]{10}$/'],
+            'company'            => ['nullable', 'string', 'max:120'],
+            'pickup_date'        => ['required', 'date'],
+            'pickup_time'        => ['required', 'string', 'max:10'],
+            'dropoff_time'       => ['required', 'string', 'max:10'],
+            'pickup_location'    => ['required', 'string', 'max:255'],
+            'pickup_place_id'    => ['required', 'string', 'max:255'],
+            'dropoff_location'   => ['required', 'string', 'max:255'],
+            'dropoff_place_id'   => ['required', 'string', 'max:255'],
+            'service_type'       => ['required', 'string', 'max:80'],
+            'vehicle_type'       => ['required', 'string', 'max:120'],
+            'passengers'         => ['required', 'integer', 'min:1', 'max:60'],
+            'other_requirements' => ['nullable', 'string', 'max:2000'],
+            'consent_contact'    => ['accepted'],
             'consent_promotions' => ['accepted'],
-            'turnstile_token' => ['required', 'string'],
-            'website' => ['present', 'max:0'],
+            'turnstile_token'    => ['required', 'string'],
+            'website'            => ['present', 'max:0'],
         ];
     }
 
     public function messages(): array
     {
         return [
-            'phone.regex' => 'Use a US phone number in the format 555-123-4567.',
+            'phone.regex' => 'Please enter a valid 10-digit US phone number.',
             'website.max' => 'Nice try.',
         ];
     }
@@ -73,7 +72,7 @@ class QuoteRequest extends FormRequest
 
     protected function hasDisposableEmail(): bool
     {
-        $email = strtolower((string) $this->input('email'));
+        $email  = strtolower((string) $this->input('email'));
         $domain = substr($email, strrpos($email, '@') + 1);
 
         $blocklist = [
@@ -105,8 +104,8 @@ class QuoteRequest extends FormRequest
     {
         $fields = [
             'other_requirements' => $this->input('other_requirements', ''),
-            'first_name' => $this->input('first_name', ''),
-            'last_name' => $this->input('last_name', ''),
+            'first_name'         => $this->input('first_name', ''),
+            'last_name'          => $this->input('last_name', ''),
         ];
 
         foreach ($fields as $field => $text) {
@@ -153,7 +152,7 @@ class QuoteRequest extends FormRequest
     protected function checkNameForSpam($validator): void
     {
         $firstName = strtolower((string) $this->input('first_name', ''));
-        $lastName = strtolower((string) $this->input('last_name', ''));
+        $lastName  = strtolower((string) $this->input('last_name', ''));
 
         // Check for suspicious patterns in names from spam samples
         $spamNamePatterns = [
@@ -203,7 +202,7 @@ class QuoteRequest extends FormRequest
     protected function verifyTurnstile(): bool
     {
         $secret = config('services.cloudflare_turnstile.secret_key');
-        $token = (string) $this->input('turnstile_token');
+        $token  = (string) $this->input('turnstile_token');
 
         if (! $secret || ! $token) {
             return false;
@@ -211,7 +210,7 @@ class QuoteRequest extends FormRequest
 
         try {
             $response = Http::asForm()->post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
-                'secret' => $secret,
+                'secret'   => $secret,
                 'response' => $token,
                 'remoteip' => $this->ip(),
             ]);

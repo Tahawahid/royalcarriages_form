@@ -27,7 +27,7 @@ class ReservationRequest extends FormRequest
             'last_name'                 => ['required', 'string', 'max:80'],
             'company'                   => ['nullable', 'string', 'max:100'],
             'email'                     => ['required', 'string', 'email:rfc', 'max:150'],
-            'phone'                     => ['required', 'regex:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/'],
+            'phone'                     => ['required', 'regex:/^[0-9]{10}$/'],
             'pickup_date'               => ['required', 'date'],
             'pickup_time'               => ['required', 'string', 'max:10'],
             'dropoff_time'              => ['required', 'string', 'max:10'],
