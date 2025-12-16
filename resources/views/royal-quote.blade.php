@@ -19,7 +19,7 @@
                             now – Customer service available 24 hours a day, 7 days a week. You can call us anytime @
                             <span class="font-semibold text-slate-900"><a href="tel:+1 (713) 787-5466">+1 (713) 787-5466</a></span>. The International callers can
                             contact at the same number <span class="font-semibold text-slate-900"><a href="tel:+1 (713) 787-5466">+1 (713) 787-5466</a></span>. For
-                            more enquiries, email us at <span class="font-semibold text-slate-900"><a href="mailto:quote@royalcarriages.com">quote@royalcarriages.com</a></span>.
+                            more enquiries, email us at <span class="font-semibold text-slate-900"><a href="mailto:quotes@royalcarriages.com">quotes@royalcarriages.com</a></span>.
                         </p>
                         <p class="text-lg font-semibold text-slate-900">Thank you for your trust!</p>
                     </div>
