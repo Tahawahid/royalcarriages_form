@@ -113,7 +113,7 @@
                         <div>
                             <label for="pickup_location" class="text-sm font-medium text-slate-700">Pick-up Location</label>
                             <input id="pickup_location" name="pickup_location" type="text" required 
-                                   placeholder="Start typing an address"
+                                   placeholder="If Airport Pickup please provide the Airline and flight number"
                                    class="location-input mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200" />
                             <input type="hidden" name="pickup_place_id" class="place-id">
                         </div>
