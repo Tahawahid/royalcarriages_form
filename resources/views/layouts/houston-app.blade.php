@@ -21,9 +21,9 @@
                     
                 </div>
                 <div class="hidden items-center gap-4 text-sm font-medium text-slate-700 md:flex">
+                    <a href="https://limoserviceinhouston.com/" class="rounded-full px-3 py-1 transition hover:text-amber-700">Home</a>
                     <a href="{{ route('houston.quote') }}" class="rounded-full px-3 py-1 transition hover:text-amber-700">Get a Quote</a>
                     <a href="{{ route('houston.reservations') }}" class="rounded-full px-3 py-1 transition hover:text-amber-700">Reservations</a>
-                    <a href="https://limoserviceinhouston.com/" class="rounded-full px-3 py-1 transition hover:text-amber-700">Home</a>
                     <span class="rounded-full bg-slate-100 px-3 py-1">Call: (713) 266-5466</span>
                 </div>
             </div>
