@@ -104,7 +104,7 @@
                             </div>
                             <div>
                                 <label class="text-sm font-medium text-slate-700">Phone</label>
-                                <input type="tel" name="phone" required pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}$" placeholder="555-123-4567"
+                                <input type="tel" name="phone" required pattern="^[0-9]{10}$" placeholder="5551234567"
                                        class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                             </div>
                         </div>
@@ -323,7 +323,7 @@
                             </div>
                             <div>
                                 <label class="text-sm font-medium text-slate-700">Phone</label>
-                                <input type="tel" name="phone" required pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}$" placeholder="555-123-4567"
+                                <input type="tel" name="phone" required pattern="^[0-9]{10}$" placeholder="5551234567"
                                        class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                             </div>
                         </div>
@@ -587,7 +587,7 @@
                             </div>
                             <div>
                                 <label class="text-sm font-medium text-slate-700">Phone</label>
-                                <input type="tel" name="phone" required pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}$" placeholder="555-123-4567"
+                                <input type="tel" name="phone" required pattern="^[0-9]{10}$" placeholder="5551234567"
                                        class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                             </div>
                         </div>
@@ -788,6 +788,11 @@
         <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     @endif
 @endsection
+
+
+
+
+
 
 
 
