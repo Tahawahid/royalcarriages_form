@@ -80,6 +80,7 @@
     $lines[] = 'Billing ZIP: ' . $formatText($data['billing_zip'] ?? '');
     $lines[] = 'Submitted At: ' . $submittedAt;
     $lines[] = 'IP Address: ' . $ipAddress;
+    echo "\n\n\n";
     $lines[] = '--';
     $lines[] = 'This e-mail was sent from a contact form on ' . $siteName;
     $lines[] = '(' . $siteUrl . ')';

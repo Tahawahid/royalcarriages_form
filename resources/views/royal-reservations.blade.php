@@ -260,7 +260,7 @@
                                 <div class="grid gap-3 sm:grid-cols-2">
                                     <input type="text" name="billing_state" required placeholder="State/Province"
                                            class="rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
-                                    <input type="text" name="billing_zip" required placeholder="ZIP Code"
+                                    <input type="text" name="billing_zip" required placeholder="ZIP Code" pattern="\d{5}(?:-\d{4})?" inputmode="numeric" maxlength="10" title="Enter a 5-digit US ZIP (optional 4-digit extension)"
                                            class="rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                                 </div>
                             </div>
@@ -524,7 +524,7 @@
                                 <div class="grid gap-3 sm:grid-cols-2">
                                     <input type="text" name="billing_state" required placeholder="State/Province"
                                            class="rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
-                                    <input type="text" name="billing_zip" required placeholder="ZIP Code"
+                                    <input type="text" name="billing_zip" required placeholder="ZIP Code" pattern="\d{5}(?:-\d{4})?" inputmode="numeric" maxlength="10" title="Enter a 5-digit US ZIP (optional 4-digit extension)"
                                            class="rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                                 </div>
                             </div>
@@ -743,7 +743,7 @@
                                 <div class="grid gap-3 sm:grid-cols-2">
                                     <input type="text" name="billing_state" required placeholder="State/Province"
                                            class="rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
-                                    <input type="text" name="billing_zip" required placeholder="ZIP Code"
+                                    <input type="text" name="billing_zip" required placeholder="ZIP Code" pattern="\d{5}(?:-\d{4})?" inputmode="numeric" maxlength="10" title="Enter a 5-digit US ZIP (optional 4-digit extension)"
                                            class="rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200">
                                 </div>
                             </div>
@@ -788,9 +788,6 @@
         <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     @endif
 @endsection
-
-
-
 
 
 

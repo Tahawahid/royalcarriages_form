@@ -39,7 +39,8 @@
     if (! empty($data['other_requirements'] ?? '')) {
         $lines[] = 'Other Requirements: ' . trim((string) $data['other_requirements']);
     }
-
+    
+    echo "\n\n\n";
     $lines[] = 'Submitted At: ' . $submittedAt;
     $lines[] = 'IP Address: ' . $ipAddress;
     $lines[] = '--';
