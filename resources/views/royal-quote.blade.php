@@ -4,7 +4,7 @@
     <section class="mx-auto max-w-5xl px-6 py-12 md:py-16">
         <div class="space-y-8">
             <div class="space-y-6 text-center">
-                <p class="text-sm font-semibold uppercase tracking-[0.08em] text-amber-600">Royal Carriages</p>
+                <p class="text-sm font-semibold uppercase tracking-[0.08em] text-amber-600">Royal Carriages limousines & Charter Worldwide!</p>
                 <h1 class="text-4xl font-semibold leading-tight text-slate-900 md:text-5xl">Get A Quote</h1>
                 <div class="space-y-4">
                     <p class="text-lg text-slate-700 md:text-xl">
@@ -30,7 +30,7 @@
                  data-places-key="{{ config('services.google_places.key') }}">
                 <div class="mb-4">
                     <p class="text-sm font-semibold text-amber-600">Quote Form</p>
-                    <p class="text-2xl font-semibold text-slate-900">Royal Carriages Quote Request</p>
+                    <p class="text-2xl font-semibold text-slate-900">Royal Carriages limousines Quote Request</p>
                 </div>
 
                 @if (session('status'))

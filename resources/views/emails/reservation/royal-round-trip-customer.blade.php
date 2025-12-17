@@ -7,7 +7,7 @@
 <body>
     <p>👋 Hi {{ $data['first_name'] ?? 'there' }},</p>
     
-    <p>Thank you for your interest in Royal Carriages limousines & charter worldwide! We have received your reservation request and our team will review your requirements and provide you with confirmation within 24 hours. We're excited to help make your transportation experience exceptional!</p>
+    <p>Thank you for your interest in Royal Carriages limousines & charter worldwide! We have received your reservation request and our team will get back to you once we enter your reservation in the system. We're excited to help make your transportation experience exceptional!</p>
     
     <p>If you need immediate assistance or have questions about your reservation you can reach our office line 24/7 Monday-Sunday 713-787-5466.</p>
 
@@ -143,7 +143,7 @@
                     <span class="greeting-emoji">👋</span> Hi {{ $data['first_name'] ?? 'there' }},
                 </div>
                 <p class="intro-text">
-                    Thank you for your interest in Royal Carriages! We have received your round-trip reservation request and our team will review your requirements and <span class="highlight-text">confirm both legs of your journey within 24 hours</span>. We're excited to provide you with exceptional transportation service!
+                    Thank you for your interest in Royal Carriages! We have received your round-trip reservation request and our team will get back to you once we enter your reservation in the system. We're excited to help make your transportation experience exceptional!
                 </p>
                 
                 <div class="schedule-section">

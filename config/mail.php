@@ -60,7 +60,7 @@ return [
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
             'from'         => [
                 'address' => 'info@royalcarriages.com',
-                'name'    => 'Royal Carriages',
+                'name'    => 'Royal Carriages Limousines',
             ],
         ],
 
@@ -157,7 +157,7 @@ return [
 
     'from'    => [
         'address' => env('MAIL_FROM_ADDRESS', 'info@royalcarriages.com'),
-        'name'    => env('MAIL_FROM_NAME', 'Royal Carriages'),
+        'name'    => env('MAIL_FROM_NAME', 'Royal Carriages Limousines'),
     ],
 
 ];

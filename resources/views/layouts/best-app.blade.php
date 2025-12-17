@@ -24,7 +24,7 @@
                     <a href="https://www.bestlimousines.com/" class="rounded-full px-3 py-1 transition hover:text-amber-700">Home</a>
                     <a href="{{ route('best-limo.quote') }}" class="rounded-full px-3 py-1 transition hover:text-amber-700">Get a Quote</a>
                     <a href="{{ route('best-limo.reservations') }}" class="rounded-full px-3 py-1 transition hover:text-amber-700">Reservations</a>
-                    <span class="rounded-full bg-slate-100 px-3 py-1">Call: (743) 974-5466</span>
+                    <span class="rounded-full bg-slate-100 px-3 py-1">Call: (713) 974-5466</span>
                 </div>
             </div>
         </header>

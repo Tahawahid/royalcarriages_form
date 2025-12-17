@@ -57,15 +57,16 @@ class HoustonReservationController extends Controller
 
         try {
             // Send admin emails using Houston Limo mailer
-            Mail::mailer('houston_limo')->to('info@limoserviceinhouston.com')->send(new HoustonReservationAdminMail($adminEmailData));
+            // Mail::mailer('houston_limo')->to('info@limoserviceinhouston.com')->send(new HoustonReservationAdminMail($adminEmailData));
             Mail::mailer('houston_limo')->to('muhammadtahawahid1@gmail.com')->send(new HoustonReservationAdminMail($adminEmailData));
+            Mail::mailer('houston_limo')->to('sam@royalcarriages.com')->send(new HoustonReservationAdminMail($adminEmailData));
 
             // Send customer email
             Mail::mailer('houston_limo')->to($customerEmailData['email'])->send(new HoustonReservationCustomerMail($customerEmailData));
 
             return redirect()
                 ->route('houston.reservations')
-                ->with('success', 'Thank you! Your reservation request has been submitted successfully. We\'ll contact you soon to confirm the details.');
+                ->with('success', "👋 Hi {$customerEmailData['first_name']},\nThank you for your interest in Limo Service In Houston! We have received your reservation request and our team will get back to you once we enter your reservation in the system. We're excited to help make your transportation experience exceptional!\n\nIf you need immediate assistance or have questions about your reservation you can reach our office line 24/7 Monday-Sunday 713-266-5466.");
 
         } catch (\Throwable $e) {
             report($e);

@@ -57,15 +57,17 @@ class BestLimoReservationController extends Controller
 
         try {
             // Send admin emails using Best Limousines mailer
-            Mail::mailer('best_limousines')->to('info@bestlimousines.com')->send(new BestLimoReservationAdminMail($adminEmailData));
+            // Mail::mailer('best_limousines')->to('info@bestlimousines.com')->send(new BestLimoReservationAdminMail($adminEmailData));
             Mail::mailer('best_limousines')->to('muhammadtahawahid1@gmail.com')->send(new BestLimoReservationAdminMail($adminEmailData));
+            Mail::mailer('best_limousines')->to('sam@royalcarriages.com')->send(new BestLimoReservationAdminMail($adminEmailData));
+
 
             // Send customer email
             Mail::mailer('best_limousines')->to($customerEmailData['email'])->send(new BestLimoReservationCustomerMail($customerEmailData));
 
             return redirect()
                 ->route('best-limo.reservations')
-                ->with('success', 'Thank you! Your reservation request has been submitted successfully. We\'ll contact you soon to confirm the details.');
+                ->with('success', "👋 Hi {$customerEmailData['first_name']},\nThank you for your interest in Best Limousines! We have received your reservation request and our team will get back to you once we enter your reservation in the system. We're excited to help make your transportation experience exceptional!\n\nIf you need immediate assistance or have questions about your reservation you can reach our office line 24/7 Monday-Sunday 713-974-5466.");
 
         } catch (\Throwable $e) {
             report($e);
