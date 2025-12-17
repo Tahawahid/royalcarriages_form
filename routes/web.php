@@ -25,14 +25,14 @@ Route::post('/reservations', ReservationController::class)
 
 // BEST LIMOUSINES ROUTES
 Route::get('/best-limo', function () {
-    return view('quote');
+    return view('best-quote');
 })->name('best-limo.quote');
 
 Route::post('/best-limo', BestLimoQuoteController::class)
     ->middleware('throttle:10,1')
     ->name('best-limo.quote.store');
 
-Route::view('/best-limo/reservations', 'reservations')->name('best-limo.reservations');
+Route::view('/best-limo/reservations', 'best-reservations')->name('best-limo.reservations');
 
 Route::post('/best-limo/reservations', BestLimoReservationController::class)
     ->middleware('throttle:10,1')
