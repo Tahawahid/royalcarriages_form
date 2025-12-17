@@ -87,8 +87,9 @@
 @endphp
 
 <div style="font-family: Arial, sans-serif; line-height: 1.5;">
-    {!! nl2br(e(implode(\"\\n\", $lines))) !!}
+    {!! nl2br(e(implode(PHP_EOL, $lines))) !!}
 </div>
 </body>
 </html>
+
 
