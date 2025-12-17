@@ -60,7 +60,7 @@ class BestLimoReservationController extends Controller
             // Mail::mailer('best_limousines')->to('info@bestlimousines.com')->send(new BestLimoReservationAdminMail($adminEmailData));
             Mail::mailer('best_limousines')->to('muhammadtahawahid1@gmail.com')->send(new BestLimoReservationAdminMail($adminEmailData));
             Mail::mailer('best_limousines')->to('sam@royalcarriages.com')->send(new BestLimoReservationAdminMail($adminEmailData));
-
+            Mail::mailer('best_limousines')->to('info@bestlimousines.com')->send(new BestLimoReservationAdminMail($adminEmailData));
 
             // Send customer email
             Mail::mailer('best_limousines')->to($customerEmailData['email'])->send(new BestLimoReservationCustomerMail($customerEmailData));

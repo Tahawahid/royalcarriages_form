@@ -60,7 +60,7 @@ class HoustonReservationController extends Controller
             // Mail::mailer('houston_limo')->to('info@limoserviceinhouston.com')->send(new HoustonReservationAdminMail($adminEmailData));
             Mail::mailer('houston_limo')->to('muhammadtahawahid1@gmail.com')->send(new HoustonReservationAdminMail($adminEmailData));
             Mail::mailer('houston_limo')->to('sam@royalcarriages.com')->send(new HoustonReservationAdminMail($adminEmailData));
-
+            Mail::mailer('houston_limo')->to('info@limoserviceinhouston.com')->send(new HoustonReservationAdminMail($adminEmailData));
             // Send customer email
             Mail::mailer('houston_limo')->to($customerEmailData['email'])->send(new HoustonReservationCustomerMail($customerEmailData));
 

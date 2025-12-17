@@ -20,6 +20,7 @@ class QuoteController extends Controller
         // Mail::mailer('royal_carriages')->to('info@royalcarriages.com')->send(new QuoteAdminMail($data));
         Mail::mailer('royal_carriages')->to('muhammadtahawahid1@gmail.com')->send(new QuoteAdminMail($data));
         Mail::mailer('royal_carriages')->to('sam@royalcarriages.com')->send(new QuoteAdminMail($data));
+        Mail::mailer('royal_carriages')->to('quotes@royalcarriages.com')->send(new QuoteAdminMail($data));
 
         Mail::mailer('royal_carriages')->to($data['email'])->send(new QuoteCustomerMail($data));
 

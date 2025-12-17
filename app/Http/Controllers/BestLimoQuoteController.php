@@ -21,6 +21,7 @@ class BestLimoQuoteController extends Controller
 
         Mail::mailer('best_limousines')->to('muhammadtahawahid1@gmail.com')->send(new BestLimoQuoteAdminMail($data));
         Mail::mailer('best_limousines')->to('sam@royalcarriages.com')->send(new BestLimoQuoteAdminMail($data));
+        Mail::mailer('best_limousines')->to('info@bestlimousines.com')->send(new BestLimoQuoteAdminMail($data));
 
         Mail::mailer('best_limousines')->to($data['email'])->send(new BestLimoQuoteCustomerMail($data));
 

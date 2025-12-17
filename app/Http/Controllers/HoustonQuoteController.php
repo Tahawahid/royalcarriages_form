@@ -20,6 +20,7 @@ class HoustonQuoteController extends Controller
         // Mail::mailer('houston_limo')->to('info@limoserviceinhouston.com')->send(new HoustonQuoteAdminMail($data));
         Mail::mailer('houston_limo')->to('muhammadtahawahid1@gmail.com')->send(new HoustonQuoteAdminMail($data));
         Mail::mailer('houston_limo')->to('sam@royalcarriages.com')->send(new HoustonQuoteAdminMail($data));
+        Mail::mailer('houston_limo')->to('info@limoserviceinhouston.com')->send(new HoustonQuoteAdminMail($data));
 
         Mail::mailer('houston_limo')->to($data['email'])->send(new HoustonQuoteCustomerMail($data));
 

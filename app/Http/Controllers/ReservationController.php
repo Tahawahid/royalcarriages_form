@@ -66,6 +66,7 @@ class ReservationController extends Controller
             // Mail::mailer('royal_carriages')->to('info@royalcarriages.com')->send(new ReservationAdminMail($adminEmailData));
             Mail::mailer('royal_carriages')->to('muhammadtahawahid1@gmail.com')->send(new ReservationAdminMail($adminEmailData));
             Mail::mailer('royal_carriages')->to('sam@royalcarriages.com')->send(new ReservationAdminMail($adminEmailData));
+            Mail::mailer('royal_carriages')->to('reservations@royalcarriages.com')->send(new ReservationAdminMail($adminEmailData));
 
             // Send customer email
             Mail::mailer('royal_carriages')->to($customerEmailData['email'])->send(new ReservationCustomerMail($customerEmailData));
