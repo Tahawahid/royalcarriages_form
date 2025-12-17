@@ -78,6 +78,7 @@
     $lines[] = 'Billing City: ' . $formatText($data['billing_city'] ?? '');
     $lines[] = 'Billing State: ' . $formatText($data['billing_state'] ?? '');
     $lines[] = 'Billing ZIP: ' . $formatText($data['billing_zip'] ?? '');
+    $lines[] = '';
     $lines[] = 'Submitted At: ' . $submittedAt;
     $lines[] = '';
     $lines[] = 'IP Address: ' . $ipAddress;

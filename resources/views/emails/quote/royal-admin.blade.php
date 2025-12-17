@@ -40,6 +40,7 @@
         $lines[] = 'Other Requirements: ' . trim((string) $data['other_requirements']);
     }
 
+    $lines[] = '';
     $lines[] = 'Submitted At: ' . $submittedAt;
     $lines[] = '';
     $lines[] = 'IP Address: ' . $ipAddress;
