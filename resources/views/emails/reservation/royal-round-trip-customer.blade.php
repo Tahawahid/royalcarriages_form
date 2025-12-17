@@ -2,8 +2,22 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Round-Trip Reservation Confirmation - Royal Carriages</title>
+    <title>Royal Carriages Reservation</title>
+</head>
+<body>
+    <p>👋 Hi {{ $data['first_name'] ?? 'there' }},</p>
+    
+    <p>Thank you for your interest in Royal Carriages limousines & charter worldwide! We have received your reservation request and our team will review your requirements and provide you with confirmation within 24 hours. We're excited to help make your transportation experience exceptional!</p>
+    
+    <p>If you need immediate assistance or have questions about your reservation you can reach our office line 24/7 Monday-Sunday 713-787-5466.</p>
+
+    <p>Phone: 713-787-5466<br>
+    Email: quotes@royalcarriages.com</p>
+    
+    <p>Best regards,<br>
+    Royal Carriages Team</p>
+</body>
+</html>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: linear-gradient(135deg, #f0f4ff 0%, #e0f2fe 100%); }
         .email-container { width: 100%; padding: 30px 15px; box-sizing: border-box; }
@@ -126,7 +140,7 @@
             
             <div class="content">
                 <div class="greeting">
-                    <span class="greeting-emoji">👋</span>Hi {{ $data['first_name'] }},
+                    <span class="greeting-emoji">👋</span> Hi {{ $data['first_name'] ?? 'there' }},
                 </div>
                 <p class="intro-text">
                     Thank you for your interest in Royal Carriages! We have received your round-trip reservation request and our team will review your requirements and <span class="highlight-text">confirm both legs of your journey within 24 hours</span>. We're excited to provide you with exceptional transportation service!
@@ -301,7 +315,7 @@
                     <p class="contact-subtitle">Have questions or need to modify your reservation? We're here to help!</p>
                     <a href="tel:+17137875466" class="contact-phone">📱 Call: (713) 787-5466</a>
                     <div class="contact-hours"><strong>Business Hours:</strong> Monday - Sunday, 24/7</div>
-                    <div class="contact-email"><strong>Email:</strong> <a href="mailto:info@royalcarriages.com">info@royalcarriages.com</a></div>
+                    <div class="contact-email"><strong>Email:</strong> <a href="mailto:quotes@royalcarriages.com">quotes@royalcarriages.com</a></div>
                 </div>
                 
                 <div class="closing-section">
@@ -322,4 +336,3 @@
     </div>
 </body>
 </html>
-
