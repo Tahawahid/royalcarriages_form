@@ -9,7 +9,7 @@
                 <div class="space-y-4">
                     <p class="text-lg text-slate-700 md:text-xl">
                         If you are looking for more information about luxury vehicles and packages offered by our company
-                        'Best Limousines', please fill out the online quote form available below. Just go through the form
+                        'Limo Service In Houston', please fill out the online quote form available below. Just go through the form
                         and fill out each section so that we can accurately quote your prices based on your requirements.
                     </p>
                     <div class="space-y-3 rounded-2xl bg-amber-50 px-6 py-6 ring-1 ring-amber-200">
