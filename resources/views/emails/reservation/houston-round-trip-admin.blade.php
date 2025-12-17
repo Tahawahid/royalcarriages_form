@@ -79,15 +79,16 @@
     $lines[] = 'Billing State: ' . $formatText($data['billing_state'] ?? '');
     $lines[] = 'Billing ZIP: ' . $formatText($data['billing_zip'] ?? '');
     $lines[] = 'Submitted At: ' . $submittedAt;
+    $lines[] = '';
     $lines[] = 'IP Address: ' . $ipAddress;
-    echo "\n\n\n";
     $lines[] = '--';
     $lines[] = 'This e-mail was sent from a contact form on ' . $siteName;
     $lines[] = '(' . $siteUrl . ')';
 @endphp
 
 <div style="font-family: Arial, sans-serif; line-height: 1.5;">
-    {!! nl2br(e(implode("\n", $lines))) !!}
+    {!! nl2br(e(implode(\"\\n\", $lines))) !!}
 </div>
 </body>
 </html>
+

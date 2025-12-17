@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Royal Carriages Reservation Submission</title>
+    <title>Royal Carriages Limousines Reservation Submission</title>
 </head>
 <body>
 @php
@@ -15,7 +15,7 @@
     $expiryDisplay   = (isset($data['expiry_month'], $data['expiry_year']))
         ? sprintf('%02d/%s', (int) $data['expiry_month'], $data['expiry_year'])
         : 'N/A';
-    $siteName        = 'Royal Carriages';
+    $siteName        = 'Royal Carriages Limousines';
     $siteUrl         = 'https://royalcarriages.com/';
     $submittedAt     = now()->format('m/d/Y g:i A');
     $ipAddress       = request()->ip();
@@ -79,7 +79,7 @@
     $lines[] = 'Billing State: ' . $formatText($data['billing_state'] ?? '');
     $lines[] = 'Billing ZIP: ' . $formatText($data['billing_zip'] ?? '');
     $lines[] = 'Submitted At: ' . $submittedAt;
-    echo "\n\n\n";
+    $lines[] = '';
     $lines[] = 'IP Address: ' . $ipAddress;
     $lines[] = '--';
     $lines[] = 'This e-mail was sent from a contact form on ' . $siteName;
@@ -87,7 +87,8 @@
 @endphp
 
 <div style="font-family: Arial, sans-serif; line-height: 1.5;">
-    {!! nl2br(e(implode("\n", $lines))) !!}
+    {!! nl2br(e(implode(\"\\n\", $lines))) !!}
 </div>
 </body>
 </html>
+

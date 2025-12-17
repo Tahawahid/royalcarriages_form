@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Royal Carriages Quote Submission</title>
+    <title>Royal Carriages Limousines Quote Submission</title>
 </head>
 <body>
 @php
@@ -11,7 +11,7 @@
     $formatText    = static fn ($value) => ($value = trim((string) ($value ?? ''))) !== '' ? $value : 'N/A';
     $formatService = static fn ($value) => $value ? ucwords(str_replace(['-', '_'], ' ', (string) $value)) : 'N/A';
 
-    $siteName    = 'Royal Carriages';
+    $siteName    = 'Royal Carriages Limousines';
     $siteUrl     = 'https://royalcarriages.com/';
     $submittedAt = now()->format('m/d/Y g:i A');
     $ipAddress   = request()->ip();
@@ -39,9 +39,9 @@
     if (! empty($data['other_requirements'] ?? '')) {
         $lines[] = 'Other Requirements: ' . trim((string) $data['other_requirements']);
     }
-    
-    echo "\n\n\n";
+
     $lines[] = 'Submitted At: ' . $submittedAt;
+    $lines[] = '';
     $lines[] = 'IP Address: ' . $ipAddress;
     $lines[] = '--';
     $lines[] = 'This e-mail was sent from a contact form on ' . $siteName;
@@ -49,7 +49,7 @@
 @endphp
 
 <div style="font-family: Arial, sans-serif; line-height: 1.5;">
-    {!! nl2br(e(implode("\n", $lines))) !!}
+    {!! nl2br(e(implode(\"\\n\", $lines))) !!}
 </div>
 </body>
 </html>
