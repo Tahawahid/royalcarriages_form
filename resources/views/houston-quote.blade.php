@@ -199,7 +199,7 @@
                     </div>
 
                     <div>
-                        <label for="other_requirements" class="text-sm font-medium text-slate-700">Other Requirements</label>
+                        <label for="other_requirements" class="text-sm font-medium text-slate-700">Special Requirements</label>
                         <textarea id="other_requirements" name="other_requirements" rows="3"
                                   placeholder="Share flight numbers, mobility needs, or special requests"
                                   class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200"></textarea>

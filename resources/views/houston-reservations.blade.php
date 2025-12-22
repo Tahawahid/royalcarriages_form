@@ -487,7 +487,7 @@
                         </div>
 
                         <div>
-                            <label class="text-sm font-medium text-slate-700">Return Other Requirements</label>
+                            <label class="text-sm font-medium text-slate-700">Return Special Requirements</label>
                             <textarea name="return_other_requirements" rows="3" class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200"></textarea>
                         </div>
 
