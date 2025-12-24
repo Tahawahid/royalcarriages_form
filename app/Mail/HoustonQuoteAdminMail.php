@@ -26,9 +26,13 @@ class HoustonQuoteAdminMail extends Mailable
     {
         $replyEmail = $this->data['email'] ?? null;
         $replyName  = trim(($this->data['first_name'] ?? '') . ' ' . ($this->data['last_name'] ?? ''));
+        $firstName  = $this->data['first_name'] ?? 'Customer';
+        $siteName   = 'limoserviceinhouston.com';
+        $date       = now()->format('F j, Y');
 
         return new Envelope(
-            subject: 'Quote Limo Service In Houston',
+            subject: $siteName . ' : Quote Request - Date:' . $date,
+            from: new Address('info@limoserviceinhouston.com', $firstName),
             replyTo: $replyEmail ? [new Address($replyEmail, $replyName ?: null)] : [],
         );
     }

@@ -27,8 +27,13 @@ class BestLimoReservationAdminMail extends Mailable
         $reservationType = ucwords(str_replace('-', ' ', $this->data['reservation_type'] ?? 'Reservation'));
         $replyEmail      = $this->data['email'] ?? null;
         $replyName       = trim(($this->data['first_name'] ?? '') . ' ' . ($this->data['last_name'] ?? ''));
+        $firstName       = $this->data['first_name'] ?? 'Customer';
+        $siteName        = 'bestlimousines.com';
+        $date            = now()->format('F j, Y');
+
         return new Envelope(
-            subject: $reservationType . ' Reservation Best Limousines',
+            subject: $reservationType . ' Reservation Best Limousines - Date:' . $date,
+            from: new Address('info@bestlimousines.com', $firstName),
             replyTo: $replyEmail ? [new Address($replyEmail, $replyName ?: null)] : [],
         );
     }
