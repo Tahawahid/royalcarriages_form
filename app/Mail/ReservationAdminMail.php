@@ -29,10 +29,9 @@ class ReservationAdminMail extends Mailable
         $replyName       = trim(($this->data['first_name'] ?? '') . ' ' . ($this->data['last_name'] ?? ''));
         $firstName       = $this->data['first_name'] ?? 'Customer';
         $siteName        = 'royalcarriages.com';
-        $date            = now()->format('F j, Y');
 
         return new Envelope(
-            subject: $reservationType . ' Reservation Royal Carriages Limousines - Date:' . $date,
+            subject:$siteName . ' ' . $reservationType . ' Reservation',
             from: new Address('info@royalcarriages.com', $firstName),
             replyTo: $replyEmail ? [new Address($replyEmail, $replyName ?: null)] : [],
         );

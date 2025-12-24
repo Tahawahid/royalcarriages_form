@@ -86,10 +86,10 @@
 @endphp
 
 <div style="font-family: Arial, sans-serif; line-height: 1.5;">
-    <strong>{{ $submittedDate }}</strong><br>
+    <strong>Date: {{ $submittedDate }}</strong><br>
     <strong>Reservation Request Information</strong><br>
     ------------------------------<br><br>
-    
+
     {!! nl2br(e(implode(PHP_EOL, $lines))) !!}
 </div>
 </body>

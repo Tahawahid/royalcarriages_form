@@ -28,10 +28,9 @@ class BestLimoQuoteAdminMail extends Mailable
         $replyName  = trim(($this->data['first_name'] ?? '') . ' ' . ($this->data['last_name'] ?? ''));
         $firstName  = $this->data['first_name'] ?? 'Customer';
         $siteName   = 'bestlimousines.com';
-        $date       = now()->format('F j, Y');
 
         return new Envelope(
-            subject: $siteName . ' : Quote Request - Date:' . $date,
+            subject: $siteName . ' : Quote Request',
             from: new Address('info@bestlimousines.com', $firstName),
             replyTo: $replyEmail ? [new Address($replyEmail, $replyName ?: null)]: [],
         );

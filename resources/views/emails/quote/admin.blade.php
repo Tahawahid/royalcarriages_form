@@ -48,7 +48,7 @@
 @endphp
 
 <div style="font-family: Arial, sans-serif; line-height: 1.5;">
-    <strong>{{ $submittedDate }}</strong><br>
+    <strong>Date: {{ $submittedDate }}</strong><br>
     <strong>Quote Request Information</strong><br>
     ------------------------------<br><br>
     

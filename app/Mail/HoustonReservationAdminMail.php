@@ -29,9 +29,8 @@ class HoustonReservationAdminMail extends Mailable
         $replyName       = trim(($this->data['first_name'] ?? '') . ' ' . ($this->data['last_name'] ?? ''));
         $firstName       = $this->data['first_name'] ?? 'Customer';
         $siteName        = 'limoserviceinhouston.com';
-        $date            = now()->format('F j, Y');
         return new Envelope(
-            subject: $reservationType . ' Reservation Limo Service In Houston - Date:' . $date,
+            subject:$siteName  . ' ' . $reservationType . ' Reservation',
             from: new Address('info@limoserviceinhouston.com', $firstName),
             replyTo: $replyEmail ? [new Address($replyEmail, $replyName ?: null)] : [],
         );

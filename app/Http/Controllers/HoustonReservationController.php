@@ -66,7 +66,7 @@ class HoustonReservationController extends Controller
 
             return redirect()
                 ->route('houston.reservations')
-                ->with('success', "👋 Hi {$customerEmailData['first_name']},\nThank you for your interest in Limo Service In Houston! We have received your reservation request and our team will get back to you once we enter your reservation in the system. We're excited to help make your transportation experience exceptional!\n\nIf you need immediate assistance or have questions about your reservation you can reach our office line 24/7 Monday-Sunday 713-266-5466.");
+                ->with('success', "👋 Hi {$customerEmailData['first_name']},\nThank you for your reservation request! Our team members will enter your reservation in our system shortly and follow up by phone or email. For faster service, please call us at 713-266-5466 we're available 24/7.");
 
         } catch (\Throwable $e) {
             report($e);

@@ -24,6 +24,6 @@ class QuoteController extends Controller
 
         Mail::mailer('royal_carriages')->to($data['email'])->send(new QuoteCustomerMail($data));
 
-        return back()->with('status', "👋 Hi {$data['first_name']},\nThank you for your interest in Royal Carriages Limousines & Charter Worldwide! We have received your quote request and our team will review your requirements and provide you with a personalized quote within 24 hours. We're excited to help make your transportation experience exceptional!\n\nIf you need immediate assistance or have questions about a quote you can reach our office line 24/7 Monday-Sunday 713-787-5466.");
+        return back()->with('status', "👋 Hi {$data['first_name']},\nThank you for requesting a quote!\nOne of our team members will contact you shortly by phone or email regarding your request.\nFor faster service, please call us at 713-787-5466 we're available 24/7");
     }
 }
