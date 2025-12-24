@@ -30,7 +30,7 @@ class BestLimoReservationAdminMail extends Mailable
         $siteName        = 'bestlimousines.com';
 
         return new Envelope(
-            subject: $siteName . ' : Reservations Request Information',
+            subject: $siteName . ' : Reservations Request',
             from: new Address('info@bestlimousines.com', $firstName),
             replyTo: $replyEmail ? [new Address($replyEmail, $replyName ?: null)] : [],
         );

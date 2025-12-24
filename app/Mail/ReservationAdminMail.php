@@ -30,7 +30,7 @@ class ReservationAdminMail extends Mailable
         $siteName        = 'royalcarriages.com';
 
         return new Envelope(
-            subject: $siteName . ' : Reservation Request Information',
+            subject: $siteName . ' : Reservations Request',
             from: new Address('info@royalcarriages.com', $firstName),
             replyTo: $replyEmail ? [new Address($replyEmail, $replyName ?: null)]: [],
         );
