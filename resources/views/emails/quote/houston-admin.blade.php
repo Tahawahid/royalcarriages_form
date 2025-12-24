@@ -13,7 +13,7 @@
 
     $siteName    = 'Limo Service In Houston';
     $siteUrl     = 'https://limoserviceinhouston.com/';
-    $submittedAt = now()->format('m/d/Y g:i A');
+    $submittedDate = now()->format('F j, Y');
     $ipAddress   = request()->ip();
 
     $lines = [
@@ -40,8 +40,7 @@
         $lines[] = 'Other Requirements: ' . trim((string) $data['other_requirements']);
     }
 
-    $lines[] = '';
-    $lines[] = 'Submitted At: ' . $submittedAt;
+
     $lines[] = '';
     $lines[] = 'IP Address: ' . $ipAddress;
     $lines[] = '--';
@@ -50,6 +49,10 @@
 @endphp
 
 <div style="font-family: Arial, sans-serif; line-height: 1.5;">
+    <strong>{{ $submittedDate }}</strong><br>
+    <strong>Quote Request Information</strong><br>
+    ------------------------------<br><br>
+    
     {!! nl2br(e(implode(PHP_EOL, $lines))) !!}
 </div>
 </body>

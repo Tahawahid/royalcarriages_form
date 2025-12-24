@@ -17,7 +17,7 @@
         : 'N/A';
     $siteName        = 'Royal Carriages Limousines';
     $siteUrl         = 'https://royalcarriages.com/';
-    $submittedAt     = now()->format('m/d/Y g:i A');
+    $submittedDate     = now()->format('F j, Y');
     $ipAddress       = request()->ip();
 
     $lines = [
@@ -79,8 +79,6 @@
     $lines[] = 'Billing State: ' . $formatText($data['billing_state'] ?? '');
     $lines[] = 'Billing ZIP: ' . $formatText($data['billing_zip'] ?? '');
     $lines[] = '';
-    $lines[] = 'Submitted At: ' . $submittedAt;
-    $lines[] = '';
     $lines[] = 'IP Address: ' . $ipAddress;
     $lines[] = '--';
     $lines[] = 'This e-mail was sent from a contact form on ' . $siteName;
@@ -88,6 +86,10 @@
 @endphp
 
 <div style="font-family: Arial, sans-serif; line-height: 1.5;">
+    <strong>{{ $submittedDate }}</strong><br>
+    <strong>Reservation Request Information</strong><br>
+    ------------------------------<br><br>
+    
     {!! nl2br(e(implode(PHP_EOL, $lines))) !!}
 </div>
 </body>
