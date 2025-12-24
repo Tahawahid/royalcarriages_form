@@ -275,11 +275,11 @@
                         <div class="space-y-2">
                             <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
                                 <input type="checkbox" name="consent_contact" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500">
-                                <span>By submitting this form, I consent to be contacted by Royal Carriages via call, text, or email regarding services or inquiries.</span>
+                                <span>By submitting this form, I consent to be contacted by Royal Carriages Limousines via call, text, or email regarding services or inquiries.</span>
                             </label>
                             <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
                                 <input type="checkbox" name="consent_promotions" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500">
-                                <span>I agree to receive news, offers, and promotional messages from Royal Carriages.</span>
+                                <span>I agree to receive news, offers, and promotional messages from Royal Carriages Limousines.</span>
                             </label>
                         </div>
 
@@ -539,11 +539,11 @@
                         <div class="space-y-2">
                             <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
                                 <input type="checkbox" name="consent_contact" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500">
-                                <span>By submitting this form, I consent to be contacted by Royal Carriages via call, text, or email regarding services or inquiries.</span>
+                                <span>By submitting this form, I consent to be contacted by Royal Carriages Limousines via call, text, or email regarding services or inquiries.</span>
                             </label>
                             <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
                                 <input type="checkbox" name="consent_promotions" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500">
-                                <span>I agree to receive news, offers, and promotional messages from Royal Carriages.</span>
+                                <span>I agree to receive news, offers, and promotional messages from Royal Carriages Limousines.</span>
                             </label>
                         </div>
 
@@ -758,11 +758,11 @@
                         <div class="space-y-2">
                             <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
                                 <input type="checkbox" name="consent_contact" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500">
-                                <span>By submitting this form, I consent to be contacted by Royal Carriages via call, text, or email regarding services or inquiries.</span>
+                                <span>By submitting this form, I consent to be contacted by Royal Carriages Limousines via call, text, or email regarding services or inquiries.</span>
                             </label>
                             <label class="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
                                 <input type="checkbox" name="consent_promotions" required class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500">
-                                <span>I agree to receive news, offers, and promotional messages from Royal Carriages.</span>
+                                <span>I agree to receive news, offers, and promotional messages from Royal Carriages Limousines.</span>
                             </label>
                         </div>
 

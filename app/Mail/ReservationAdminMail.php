@@ -24,16 +24,15 @@ class ReservationAdminMail extends Mailable
      */
     public function envelope(): Envelope
     {
-        $reservationType = ucwords(str_replace('-', ' ', $this->data['reservation_type'] ?? 'Reservation'));
         $replyEmail      = $this->data['email'] ?? null;
         $replyName       = trim(($this->data['first_name'] ?? '') . ' ' . ($this->data['last_name'] ?? ''));
         $firstName       = $this->data['first_name'] ?? 'Customer';
         $siteName        = 'royalcarriages.com';
 
         return new Envelope(
-            subject:$siteName . ' ' . $reservationType . ' Reservation',
+            subject: $siteName . ' : Reservation Request Information',
             from: new Address('info@royalcarriages.com', $firstName),
-            replyTo: $replyEmail ? [new Address($replyEmail, $replyName ?: null)] : [],
+            replyTo: $replyEmail ? [new Address($replyEmail, $replyName ?: null)]: [],
         );
     }
 
